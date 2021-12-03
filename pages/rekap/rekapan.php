@@ -105,7 +105,7 @@
           </li>
           <!-- Rekapan -->
           <li class="nav-item active">
-            <a class="nav-link" href="../../pages/rekap/rekapan-handayani.php">
+            <a class="nav-link" href="../../pages/rekap/rekapan.php">
               <i class="icon-paper menu-icon"></i>
               <span class="menu-title">Rekapan Pengunjung</span>
             </a>
