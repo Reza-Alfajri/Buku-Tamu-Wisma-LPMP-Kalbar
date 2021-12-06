@@ -52,15 +52,7 @@
                   </button> 
                 </span>
                 <!-- Text Field -->
-                <input class="mr-lg-3" type="text" name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">
-                <!-- Radio -->
-                
-                <input class="form-check mr-lg-3" type="radio" name="kategori" value="carikamar" checked>
-                <label class="form-check-label mr-lg-3" for="nama">Nomor Kamar</label>
-
-                <input class="form-check mr-lg-2" type="radio" name="kategori" value="caristatusco">
-                <label class="form-check-label mr-lg-3" for="nip">Status Check Out</label> <br>
-                
+                <input class="mr-lg-3" type="text" name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">          
                 <a href="list-kamar-handayani.php"><i class="fa fa-refresh ms-lg-3"></i>Reset</a>
               </form>
             </div>   
@@ -160,7 +152,6 @@
                                 <!-- Search -->
                                 <?php
                                   $hal=26;
-                                  $hal_start=25;
                                   $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
                                   $start=($page>1)?($page*$hal)-$hal:0;
                                   if(isset($_GET['cari'])){
@@ -170,33 +161,31 @@
                                   if(isset($_GET['cari'])){
                                     $cari = $_GET['cari'];
                                     $sql = "SELECT * FROM handayani WHERE nomor_kamar like '%".$cari."%'";
-                                    $sql1 = "SELECT * FROM handayani WHERE nomor_kamar LIKE '%$cari%' limit $start,$hal";
-                                  } else {
-                                    $sql = "SELECT * FROM handayani";
-                                    $sql1 = "SELECT * FROM handayani limit $start,$hal_start";
-                                  }
-                                  if (isset($_GET['cari']) && isset($_GET['kategori'])) {
-                                    $cari = $_GET['cari'];
-                                    if ($_GET['kategori'] == 'carikamar') {
-                                      $sql = "SELECT * FROM handayani WHERE nomor_kamar LIKE '%$cari%'";
-                                      $sql1 = "SELECT * FROM handayani WHERE nomor_kamar LIKE '%$cari%' limit $start,$hal";
-                                      $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
-                                    } else {
-                                      $sql = "SELECT * FROM handayani WHERE statusco LIKE '%$cari%'";
-                                      $sql1 = "SELECT * FROM handayani WHERE statusco  LIKE '%$cari%' limit $start,$hal";
-                                      $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
-                                    }  
-                                  } else {
-                                    $sql = "SELECT * FROM handayani";
-                                    $sql1 = "SELECT * FROM handayani limit $start,$hal_start";
+                                    $sql1 = "SELECT * FROM handayani WHERE 
+                                    nama_tamu LIKE '%$cari%' OR
+                                    nik LIKE '%$cari%' OR
+                                    nomor_kamar LIKE '%$cari%'
+                                    limit $start,$hal";
                                     $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
+                                  } else {
+                                    $sql = "SELECT * FROM handayani";
+                                    $sql1 = "SELECT * FROM handayani limit $start,$hal";
+                                    $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
+                                    if(isset($_POST["asc"])){     //mengurutkan dari yang awal(kecil) ke akhir(besar)
+                                      $sql1 ="SELECT * FROM handayani ORDER BY statusco ASC
+                                          LIMIT $start,$hal";
+                                    }
+                                    if(isset($_POST["desc"])){    //mengurutkan dari yang akhir(besar) ke awal(kecil)
+                                      $sql1 ="SELECT * FROM handayani ORDER BY statusco DESC
+                                          LIMIT $start,$hal";
+                                    }
                                   }
                                     $query = mysqli_query($db, $sql);
-                                              $query1 = mysqli_query($db, $sql1);
-                                              $query2 = mysqli_query($db, $sql2);
-                                              $total = mysqli_num_rows($query);
-                                              $pages = ceil($total/$hal);
-                                              $no = $start + 1;
+                                    $query1 = mysqli_query($db, $sql1);
+                                    $total = mysqli_num_rows($query);
+                                    $pages = ceil($total/$hal);
+                                    $query2 = mysqli_query($db, $sql2);
+                                    $no = $start + 1;
                                 ?>
                                 <!-- End Search -->
                                 <?php while($list=mysqli_fetch_array($query1)) : 
@@ -217,10 +206,18 @@
                                     <td><?= $list['nama_kantor']; ?></td>
                                     <td><?= $list['no_hp']; ?></td>
                                     <td><?= $list['nomor_kamar']; ?></td>
-                                    <td>
-                                      <a class="edit" aria-label="close" href="../../pages/form-pendaftaran/form-pendaftaran-handayani.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return edit(event)">
-                                      <span aria-hidden="true"><i class="fa fa-edit"></i></span>
-                                      </a>
+                                    <?php 
+                                    if($list['statusco']=="Terisi") 
+                                        echo 
+                                        "<button href=../../pages/form-pendaftaran/form-pendaftaran-handayani.php?nomor_kamar=".$list['nomor_kamar']." class='edit' id='edit' onclick='return edit(event)' disabled>
+                                        <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                        </button>";
+                                    else 
+                                        echo 
+                                        "<button href=../../pages/form-pendaftaran/form-pendaftaran-handayani.php?nomor_kamar=".$list['nomor_kamar']." class='edit' id='edit' onclick='return edit(event)'>
+                                        <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                        </button>";
+                                    ?>
                                       <script type="text/javascript">
                                         function edit(ev){
                                           ev.preventDefault();
