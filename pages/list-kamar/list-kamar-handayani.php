@@ -30,30 +30,30 @@
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <nav class="navbar col-lg-12  p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo ms-10" href="../../index.html"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../images/logo-lpmp.png" width="180px" height="60px" alt="logo"/></a>
+        <a class="navbar-brand d-lg-none" href="../../index.html"><img src="../../images/logo-lpmp-kecil.png" width="36px" height="40px" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
+          <span class="icon-menu align-items-start"></span>
         </button>
         <!-- Search -->
         <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
+          <li class="nav-item nav-search d-lg-block">
             <div class="input-group">
               <form action="list-kamar-handayani.php" method="GET" class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                
                 <!-- Button Search -->
                 <span class="input-group-text" id="search">
                   <button type="submit" class="input-group-text">
-                    <i class="icon-search mr-lg-3"></i>
+                    <i class="icon-search mr-lg-3 ml-0"></i>
                   </button> 
                 </span>
                 <!-- Text Field -->
-                <input class="mr-lg-3" type="text" name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">          
-                <a href="list-kamar-handayani.php"><i class="fa fa-refresh ms-lg-3"></i>Reset</a>
+                <input class="mr-sm-5 mr-2 rounded" style=" border: none;" autofocus type="text" name="cari" placeholder="Search now" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">
+                <!-- Reset Button -->
+                <a href="list-kamar-handayani.php" class="pt-1 d-none d-lg-block"><i class="fa fa-refresh ml-3 mr-2"></i>Reset</a>
               </form>
             </div>   
           </li>
@@ -112,7 +112,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h2 class="font-weight-bold">Wisma Handayani</h2>                  
+                  <h2 class="font-weight-bold">Wisma Handayani</h2>
                 </div>
               </div> 
             </div>
@@ -211,6 +211,7 @@
                                     <td><?= $list['nama_kantor']; ?></td>
                                     <td><?= $list['no_hp']; ?></td>
                                     <td><?= $list['nomor_kamar']; ?></td>
+                                    <td>
                                     <?php 
                                     if($list['statusco']=="Terisi") 
                                         echo 
@@ -261,8 +262,8 @@
                                         }
                                       </script>
                                     </td>
-                                  </tr>
-                                <?php endwhile; ?>
+                                  <?php endwhile; ?>
+                                </tr>
                             </tbody>
                         </table>
                         <!-- Pagination -->
@@ -332,4 +333,3 @@
 </body>
 
 </html>
-
