@@ -103,7 +103,7 @@
           </li>
           <!-- Rekapan -->
           <li class="nav-item">
-            <a class="nav-link" href="../../pages/rekap/rekapan-handayani.php">
+            <a class="nav-link" href="../../pages/rekap/rekapan.php">
               <i class="icon-paper menu-icon"></i>
               <span class="menu-title">Rekapan Pengunjung</span>
             </a>
@@ -184,6 +184,18 @@
                           </div>
                         </div>
                         <!-- Baris 3 -->
+                        <div class="row">                          
+                          <!-- NIK -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NIK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 4 -->
                         <div class="row">
                           <!-- Nama Tamu -->
                           <div class="col-md-12">
@@ -191,31 +203,6 @@
                               <label class="col-sm-3 col-form-label">Nama Tamu</label>
                               <div class="col-sm-9">
                                 <input type="text" id="nama_tamu" name="nama_tamu" class="form-control">
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Status Check Out -->
-                          <!-- <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Status Check Out</label>
-                              <div class="col-sm-9">
-                                <select name="statusco" class="custom-select">
-                                  <option value="">-- status --</option>
-                                  <option value="terisi">Terisi</option>
-                                  <option value="kosong">Kosong</option>
-                              </select>
-                              </div>
-                            </div>
-                          </div> -->
-                        </div>
-                        <!-- Baris 4 -->
-                        <div class="row">
-                          <!-- NIK -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">NIK</label>
-                              <div class="col-sm-9">
-                                <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" required>
                               </div>
                             </div>
                           </div>
