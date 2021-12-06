@@ -9,7 +9,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Buku Tamu Wisma Handayani</title>
+  <title>Rekap Tamu Wisma</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -35,35 +35,6 @@
         <a class="navbar-brand brand-logo ms-10" href="../../index.html"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
-        </button>
-        <!-- Search -->
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
-              <form action="rekapan.php" method="GET" class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                
-                <!-- Button Search -->
-                <span class="input-group-text" id="search">
-                  <button type="submit" class="input-group-text">
-                    <i class="icon-search mr-lg-3"></i>
-                  </button> 
-                </span>
-                <!-- Text Field -->
-                <input class="mr-lg-3" type="text" name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">
-                <!-- Radio -->
-                
-                <input class="form-check mr-lg-3" type="radio" name="kategori" value="carikamar" checked>
-                <label class="form-check-label mr-lg-3" for="nama">Nomor Kamar</label>
-
-                <input class="form-check mr-lg-2" type="radio" name="kategori" value="caristatusco">
-                <label class="form-check-label mr-lg-3" for="nip">Status Check Out</label> <br>
-                
-                <a href="rekapan.php"><i class="fa fa-refresh ms-lg-3"></i>Reset</a>
-              </form>
-            </div>   
           </li>
         </ul>
         <!-- End Search -->
@@ -120,7 +91,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h2 class="font-weight-bold">Rekapan Wisma</h2>
+                  <h2 class="font-weight-bold">Tabel Rekap Tamu Wisma Anggrek & Handayani</h2>
                 </div>
               </div> 
             </div>
@@ -129,8 +100,7 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">List Kamar</h4>
-                  <p class="font-weight-500">Berikut list kamar yang ada </p>
+                  <h4 class="card-title">Rekap Tamu Wisma</h4>
                     <!-- Kodingan Isi Halaman Page Di Bawah Ini -->
                     <!-- Tabel -->
                     <div class="row">
@@ -156,18 +126,38 @@
                               </thead>
                               <tbody>
                                 <!-- Search -->
+                                <form method="GET" class="form-inline" action="rekapan.php">
+                                  <select name="date" class="form-control" required="required">
+                                    <option value="">Bulan</option>
+                                    <option value="1">Januari</option>
+                                    <option value="2">Februari</option>
+                                    <option value="3">Maret</option>
+                                    <option value="4">April</option>
+                                    <option value="5">Mei</option>
+                                    <option value="6">Juni</option>
+                                    <option value="7">Juli</option>
+                                    <option value="8">Agustus</option>
+                                    <option value="9">September</option>
+                                    <option value="10">Oktober</option>
+                                    <option value="11">November</option>
+                                    <option value="12">Desember</option>
+                                  </select>
+                                  <button class="btn btn-primary" name="filter"><span class="glyphicon glyphicon-search"></span> Search</button>
+                                <br>
+                                <br>
+                                </form>
                                 <?php
                                   $hal=10;
                                   $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
                                   $start=($page>1)?($page*$hal)-$hal:0;
-                                  if(isset($_GET['cari'])){
-                                    $cari = $_GET['cari'];
-                                    echo "Hasil Pencarian : ".$cari;
+                                  if(isset($_GET['filter'])){
+                                    $date = $_GET['date'];
+                                    echo "Rekap Tamu Bulan ke- : ".$date;
                                   }
-                                  if(isset($_GET['cari'])){
-                                    $cari = $_GET['cari'];
-                                    $sql = "SELECT * FROM rekapan WHERE nama_tamu like '%".$cari."%'";
-                                    $sql1 = "SELECT * FROM rekapan WHERE nama_tamu LIKE '%$cari%' limit $start,$hal";
+                                  if(isset($_GET['filter'])){
+                                    $date = $_GET['date'];
+                                    $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date'";
+                                    $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' limit $start,$hal";
                                   } else {
                                     $sql = "SELECT * FROM rekapan";
                                     $sql1 = "SELECT * FROM rekapan limit $start,$hal";
