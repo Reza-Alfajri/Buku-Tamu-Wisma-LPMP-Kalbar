@@ -127,7 +127,7 @@
                               <tbody>
                                 <!-- Search -->
                                 <form method="GET" class="form-inline" action="rekapan.php">
-                                  <select name="date" class="form-control" required="required">
+                                  <select name="date" class="custom-select" required="required">
                                     <option value="">Bulan</option>
                                     <option value="1">Januari</option>
                                     <option value="2">Februari</option>
