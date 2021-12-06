@@ -53,14 +53,6 @@
                 </span>
                 <!-- Text Field -->
                 <input class="mr-lg-3" type="text" name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">
-                <!-- Radio -->
-                
-                <input class="form-check mr-lg-3" type="radio" name="kategori" value="carikamar" checked>
-                <label class="form-check-label mr-lg-3" for="nama">Nomor Kamar</label>
-
-                <input class="form-check mr-lg-2" type="radio" name="kategori" value="caristatusco">
-                <label class="form-check-label mr-lg-3" for="nip">Status Check Out</label> <br>
-                
                 <a href="list-kamar-anggrek.php"><i class="fa fa-refresh ms-lg-3"></i>Reset</a>
               </form>
             </div>   
@@ -143,7 +135,12 @@
                                 <th>Nama Kegiatan</th>
                                 <th>Tanggal Awal</th>
                                 <th>Tanggal Akhir</th>
-                                <th>Status Check Out</th>
+                                <th>Status Check Out 
+                                  <form action="" method="POST">
+                                    <button type="submit" name="asc">^</button>
+                                    <button type="submit" name="desc">v</button>
+                                  </form>
+                                </th>
                                 <th>Nama Tamu</th>
                                 <th>NIK</th>
                                 <th>Jenis Kelamin</th>
@@ -169,27 +166,18 @@
                                   if(isset($_GET['cari'])){
                                     $cari = $_GET['cari'];
                                     $sql = "SELECT * FROM anggrek WHERE nomor_kamar like '%".$cari."%'";
-                                    $sql1 = "SELECT * FROM anggrek WHERE nomor_kamar LIKE '%$cari%' limit $start,$hal";
+                                    $sql1 = "SELECT * FROM anggrek WHERE 
+                                    nama_tamu LIKE '%$cari%' OR
+                                    nik LIKE '%$cari%' OR
+                                    nomor_kamar LIKE '%$cari%'
+                                    limit $start,$hal";
+                                    $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
                                   } else {
                                     $sql = "SELECT * FROM anggrek";
                                     $sql1 = "SELECT * FROM anggrek limit $start,$hal";
+                                    $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
                                   }
-                                  if (isset($_GET['cari']) && isset($_GET['kategori'])) {
-                                    $cari = $_GET['cari'];
-                                    if ($_GET['kategori'] == 'carikamar') {
-                                      $sql = "SELECT * FROM anggrek WHERE nomor_kamar LIKE '%$cari%'";
-                                      $sql1 = "SELECT * FROM anggrek WHERE nomor_kamar LIKE '%$cari%' limit $start,$hal";
-                                      $sql2 = "SELECT * FROM anggrek WHERE statusco='Kosong'";
-                                    } else {
-                                      $sql = "SELECT * FROM anggrek WHERE statusco LIKE '%$cari%'";
-                                      $sql1 = "SELECT * FROM anggrek WHERE statusco  LIKE '%$cari%' limit $start,$hal";
-                                      $sql2 = "SELECT * FROM anggrek WHERE statusco='Kosong'";
-                                    }  
-                                  } else {
-                                      $sql = "SELECT * FROM anggrek";
-                                      $sql1 = "SELECT * FROM anggrek limit $start,$hal";
-                                      $sql2 = "SELECT * FROM anggrek WHERE statusco='Kosong'";
-                                  }
+                                  
                                   $query = mysqli_query($db, $sql);
                                   $query1 = mysqli_query($db, $sql1);
                                   $query2 = mysqli_query($db, $sql2);
@@ -216,9 +204,18 @@
                                     <td><?= $list['no_hp']; ?></td>
                                     <td><?= $list['nomor_kamar']; ?></td>
                                     <td>
-                                        <a class="edit" aria-label="close" href="../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return edit(event)">
-                                        <span aria-hidden="true"><i class="fa fa-edit"></i></span>
-                                        </a>
+                                        <?php 
+                                      if($list['statusco']=="Terisi") 
+                                          echo 
+                                          "<button href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='edit' id='edit' onclick='return edit(event)' disabled>
+                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                          </button>";
+                                      else 
+                                          echo 
+                                          "<button href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='edit' id='edit' onclick='return edit(event)'>
+                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                          </button>";
+                                      ?>
                                         <script type="text/javascript">
   					    	                        function edit(ev){
                                             ev.preventDefault();
@@ -252,13 +249,13 @@
                                             }).then((result) => {
                                               if (result.isConfirmed) {
                                                 window.location.href = urlToRedirect;
-                                               }
+                                              }
                                             })
                                           }
-					                              </script>
+					 </script>
                                       </td>
                                     </tr>
-							                    <?php endwhile; ?>
+				  <?php endwhile; ?>
                                 </tbody>
                             </table>
                             <!-- Pagination -->
