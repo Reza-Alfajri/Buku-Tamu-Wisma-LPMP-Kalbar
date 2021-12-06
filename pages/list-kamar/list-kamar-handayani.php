@@ -135,7 +135,12 @@
                                 <th>Nama Kegiatan</th>
                                 <th>Tanggal Awal</th>
                                 <th>Tanggal Akhir</th>
-                                <th>Status Check Out</th>
+                                <th>Status Check Out 
+                                  <form action="" method="POST">
+                                    <button type="submit" name="asc">^</button>
+                                    <button type="submit" name="desc">v</button>
+                                  </form>
+                                </th>
                                 <th>Nama Tamu</th>
                                 <th>NIK</th>
                                 <th>Jenis Kelamin</th>
