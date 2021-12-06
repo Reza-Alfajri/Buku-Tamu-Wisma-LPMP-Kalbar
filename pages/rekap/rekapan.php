@@ -43,7 +43,7 @@
         <ul class="navbar-nav mr-lg-2">
           <li class="nav-item nav-search d-none d-lg-block">
             <div class="input-group">
-              <form action="rekapan-handayani.php" method="GET" class="input-group-prepend hover-cursor" id="navbar-search-icon">
+              <form action="rekapan.php" method="GET" class="input-group-prepend hover-cursor" id="navbar-search-icon">
                 
                 <!-- Button Search -->
                 <span class="input-group-text" id="search">
@@ -61,7 +61,7 @@
                 <input class="form-check mr-lg-2" type="radio" name="kategori" value="caristatusco">
                 <label class="form-check-label mr-lg-3" for="nip">Status Check Out</label> <br>
                 
-                <a href="rekapan-handayani.php"><i class="fa fa-refresh ms-lg-3"></i>Reset</a>
+                <a href="rekapan.php"><i class="fa fa-refresh ms-lg-3"></i>Reset</a>
               </form>
             </div>   
           </li>
@@ -120,8 +120,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">List Kamar Wisma Handayani</h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
+                  <h2 class="font-weight-bold">Rekapan Wisma</h2>
                 </div>
               </div> 
             </div>
