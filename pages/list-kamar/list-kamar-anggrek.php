@@ -30,30 +30,30 @@
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <nav class="navbar col-lg-12  p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo ms-10" href="../../index.html"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../images/logo-lpmp.png" width="180px" height="60px" alt="logo"/></a>
+        <a class="navbar-brand d-lg-none" href="../../index.html"><img src="../../images/logo-lpmp-kecil.png" width="36px" height="40px" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
+          <span class="icon-menu align-items-start"></span>
         </button>
         <!-- Search -->
         <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
+          <li class="nav-item nav-search d-lg-block">
             <div class="input-group">
               <form action="list-kamar-anggrek.php" method="GET" class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                
                 <!-- Button Search -->
                 <span class="input-group-text" id="search">
                   <button type="submit" class="input-group-text">
-                    <i class="icon-search mr-lg-3"></i>
+                    <i class="icon-search mr-lg-3 ml-0"></i>
                   </button> 
                 </span>
                 <!-- Text Field -->
-                <input class="mr-lg-3" type="text" name="cari" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">
-                <a href="list-kamar-anggrek.php"><i class="fa fa-refresh ms-lg-3"></i>Reset</a>
+                <input class="mr-sm-5 mr-2 rounded" style=" border: none;" autofocus type="text" name="cari" placeholder="Search now" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">
+                <!-- Reset Button -->
+                <a href="list-kamar-anggrek.php" class="pt-1 d-none d-lg-block"><i class="fa fa-refresh ml-3 mr-2"></i>Reset</a>
               </form>
             </div>   
           </li>
@@ -63,7 +63,6 @@
         <ul class="navbar-nav navbar-nav-right">
           
         </ul>
-        <!-- End Notif -->
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
         </button>
@@ -171,13 +170,20 @@
                                     nik LIKE '%$cari%' OR
                                     nomor_kamar LIKE '%$cari%'
                                     limit $start,$hal";
-                                    $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
+                                    $sql2 = "SELECT * FROM anggrek WHERE statusco='Kosong'";
                                   } else {
                                     $sql = "SELECT * FROM anggrek";
                                     $sql1 = "SELECT * FROM anggrek limit $start,$hal";
-                                    $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
-                                  }
-                                  
+                                    $sql2 = "SELECT * FROM anggrek WHERE statusco='Kosong'";
+                                    if(isset($_POST["asc"])){     //mengurutkan dari yang awal(kecil) ke akhir(besar)
+                                      $sql1 ="SELECT * FROM anggrek ORDER BY statusco ASC
+                                          LIMIT $start,$hal";
+                                    }
+                                    if(isset($_POST["desc"])){    //mengurutkan dari yang akhir(besar) ke awal(kecil)
+                                      $sql1 ="SELECT * FROM anggrek ORDER BY statusco DESC
+                                          LIMIT $start,$hal";
+                                    }
+                                  }                                  
                                   $query = mysqli_query($db, $sql);
                                   $query1 = mysqli_query($db, $sql1);
                                   $query2 = mysqli_query($db, $sql2);
@@ -204,59 +210,59 @@
                                     <td><?= $list['no_hp']; ?></td>
                                     <td><?= $list['nomor_kamar']; ?></td>
                                     <td>
-                                        <?php 
-                                      if($list['statusco']=="Terisi") 
-                                          echo 
-                                          "<button href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='edit' id='edit' onclick='return edit(event)' disabled>
-                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span>
-                                          </button>";
-                                      else 
-                                          echo 
-                                          "<button href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='edit' id='edit' onclick='return edit(event)'>
-                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span>
-                                          </button>";
-                                      ?>
-                                        <script type="text/javascript">
-  					    	                        function edit(ev){
-                                            ev.preventDefault();
-                                            var urlToRedirect = ev.currentTarget.getAttribute('href'); 
-                                            console.log(urlToRedirect);
-                                            Swal.fire({
-                                              title: 'Yakin akan memilih kamar ini?',
-                                              icon: "question",
-                                              showCancelButton: true,
-                                              confirmButtonText: 'Ya',
-                                            }).then((result) => {
-                                            if (result.isConfirmed) {
-                                              window.location.href = urlToRedirect;
-                                            }
-                                            })
-						                              }
-					                              </script>
-                                        <a class="edit" aria-label="close" href="../../proses-hapus-anggrek.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return hapus(event)">
-                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
-                                        </a>
-                                        <script type="text/javascript">
-                                          function hapus(ev){
-                                            ev.preventDefault();
-                                            var urlToRedirect = ev.currentTarget.getAttribute('href'); 
-                                            console.log(urlToRedirect);
-                                            Swal.fire({
-                                              title: 'Data akan terhapus!',
-                                              icon: "warning",
-                                              showCancelButton: true,
-                                              confirmButtonText: 'Ya',
-                                            }).then((result) => {
+                                      <?php 
+                                        if($list['statusco']=="Terisi") 
+                                            echo 
+                                            "<button href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='edit' id='edit' onclick='return edit(event)' disabled>
+                                            <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                            </button>";
+                                        else 
+                                            echo 
+                                            "<button href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='edit' id='edit' onclick='return edit(event)'>
+                                            <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                            </button>";
+                                        ?>
+                                          <script type="text/javascript">
+                                            function edit(ev){
+                                              ev.preventDefault();
+                                              var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                              console.log(urlToRedirect);
+                                              Swal.fire({
+                                                title: 'Yakin akan memilih kamar ini?',
+                                                icon: "question",
+                                                showCancelButton: true,
+                                                confirmButtonText: 'Ya',
+                                              }).then((result) => {
                                               if (result.isConfirmed) {
                                                 window.location.href = urlToRedirect;
                                               }
-                                            })
-                                          }
-					 </script>
-                                      </td>
-                                    </tr>
-				  <?php endwhile; ?>
-                                </tbody>
+                                              })
+                                            }
+                                          </script>
+                                            <a class="edit" aria-label="close" href="../../proses-hapus-anggrek.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return hapus(event)">
+                                            <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                            </a>
+                                            <script type="text/javascript">
+                                              function hapus(ev){
+                                                ev.preventDefault();
+                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                                console.log(urlToRedirect);
+                                                Swal.fire({
+                                                  title: 'Data akan terhapus!',
+                                                  icon: "warning",
+                                                  showCancelButton: true,
+                                                  confirmButtonText: 'Ya',
+                                                }).then((result) => {
+                                                  if (result.isConfirmed) {
+                                                    window.location.href = urlToRedirect;
+                                                  }
+                                                })
+                                              }
+                                            </script>
+                                        <?php endwhile; ?>
+                                    </td>
+				                        </tr>
+                              </tbody>
                             </table>
                             <!-- Pagination -->
                             <?php for( $i = 1 ; $i <= $pages ; $i++ ) : ?>
@@ -323,6 +329,4 @@
   <!-- End custom js for this page-->
   
 </body>
-
 </html>
-
