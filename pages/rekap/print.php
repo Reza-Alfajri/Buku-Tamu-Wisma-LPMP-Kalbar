@@ -10,6 +10,7 @@
       font-size: 14px;
     }            
     @media print {
+      @page {size: landscape}
                .noprint {
                   visibility: hidden;
                }
