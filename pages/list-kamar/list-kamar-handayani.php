@@ -25,6 +25,9 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
+  <!-- datatables -->
+  <link rel="stylesheet" href="../../dataTables/datatables.min.css">
+  <!-- end datatables -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
 <body>
@@ -51,7 +54,8 @@
                   </button> 
                 </span>
                 <!-- Text Field -->
-                <input class="mr-sm-5 mr-2 rounded" style=" border: none;" autofocus type="text" name="cari" placeholder="Search now" value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>">
+                <input class="mr-sm-5 mr-2 rounded" style=" border: none;" autofocus type="text" name="cari" placeholder="Search now" 
+		value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>" placeholder="Bedasarkan Nama,NIK dan Nomor Kamar">
                 <!-- Reset Button -->
                 <a href="list-kamar-handayani.php" class="pt-1 d-none d-lg-block"><i class="fa fa-refresh ml-3 mr-2"></i>Reset</a>
               </form>
@@ -128,19 +132,15 @@
                     <div class="row">
                       <div class="col-md-12" style="overflow-x: auto">
                         <div class="table-responsive" style="width:auto">
-                          <table class="table">
+                          <table class="table" id="TableHandayani">
                               <thead class="thead-dark">
                                 <tr>
+				<th>No. Kamar</th>
                                 <th>Timestamp</th>
                                 <th>Nama Kegiatan</th>
                                 <th>Tanggal Awal</th>
                                 <th>Tanggal Akhir</th>
-                                <th>Status Check Out 
-                                  <form action="" method="POST">
-                                    <button type="submit" name="asc">^</button>
-                                    <button type="submit" name="desc">v</button>
-                                  </form>
-                                </th>
+                                <th>Status Check Out</th>
                                 <th>Nama Tamu</th>
                                 <th>NIK</th>
                                 <th>Jenis Kelamin</th>
@@ -149,54 +149,39 @@
                                 <th>Jabatan</th>
                                 <th>Nama Kantor</th>
                                 <th>No. HP</th>
-                                <th>No. Kamar</th>
                                 <th>&nbsp;</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <!-- Search -->
                                 <?php
-                                  $hal=26;
-                                  $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
-                                  $start=($page>1)?($page*$hal)-$hal:0;
                                   if(isset($_GET['cari'])){
                                     $cari = $_GET['cari'];
                                     echo "Hasil Pencarian : ".$cari;
                                   }
                                   if(isset($_GET['cari'])){
                                     $cari = $_GET['cari'];
-                                    $sql = "SELECT * FROM handayani WHERE nomor_kamar like '%".$cari."%'";
+                                    $sql = "SELECT * FROM handayani";
                                     $sql1 = "SELECT * FROM handayani WHERE 
                                     nama_tamu LIKE '%$cari%' OR
                                     nik LIKE '%$cari%' OR
-                                    nomor_kamar LIKE '%$cari%'
-                                    limit $start,$hal";
+                                    nomor_kamar LIKE '%$cari%'";
                                     $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
                                   } else {
                                     $sql = "SELECT * FROM handayani";
-                                    $sql1 = "SELECT * FROM handayani limit $start,$hal";
+                                    $sql1 = "SELECT * FROM handayani";
                                     $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
-                                    if(isset($_POST["asc"])){     //mengurutkan dari yang awal(kecil) ke akhir(besar)
-                                      $sql1 ="SELECT * FROM handayani ORDER BY statusco ASC
-                                          LIMIT $start,$hal";
-                                    }
-                                    if(isset($_POST["desc"])){    //mengurutkan dari yang akhir(besar) ke awal(kecil)
-                                      $sql1 ="SELECT * FROM handayani ORDER BY statusco DESC
-                                          LIMIT $start,$hal";
-                                    }
                                   }
                                     $query = mysqli_query($db, $sql);
                                     $query1 = mysqli_query($db, $sql1);
-                                    $total = mysqli_num_rows($query);
-                                    $pages = ceil($total/$hal);
                                     $query2 = mysqli_query($db, $sql2);
-                                    $no = $start + 1;
                                 ?>
                                 <!-- End Search -->
                                 <?php while($list=mysqli_fetch_array($query1)) : 
                                   //$no++; 
                                 ?> 
                                   <tr class="alert" role="alert">
+				    <td><?= $list['nomor_kamar']; ?></td>
                                     <td><?= $list['timestamp']; ?></td>
                                     <td><?= $list['nama_kegiatan']; ?></td>
                                     <td><?= $list['tanggal_awal']; ?></td>
@@ -210,7 +195,6 @@
                                     <td><?= $list['jabatan']; ?></td>
                                     <td><?= $list['nama_kantor']; ?></td>
                                     <td><?= $list['no_hp']; ?></td>
-                                    <td><?= $list['nomor_kamar']; ?></td>
                                     <td>
                                     <?php 
                                     if($list['statusco']=="Terisi") 
@@ -266,19 +250,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- Pagination -->
-                        <?php for( $i = 1 ; $i <= $pages ; $i++ ) : ?>
-                                <?php if(isset($_GET["cari"])) : ?>
-                                    <a href="?cari=<?= $_GET['cari']; ?>&hal=<?= $i; ?>">
-                                    <?= $i; ?></a>
-                                <?php else : ?>
-                                    <a href="?&hal=<?= $i; ?>">
-                                    <?= $i; ?></a>
-                                <?php endif; ?>
-                                
-                        <?php endfor; ?>
-                        <p>Total Data : <?= mysqli_num_rows($query); ?></p>
-                        <p>Jumlah Kamar Kosong : <?= mysqli_num_rows($query2); ?></p>
                         </div>
                       </div>
                     </div>
@@ -329,7 +300,14 @@
   <script src="../../js/dashboard.js"></script>
   <script src="../../js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-  
+  <!-- datatabels -->
+  <script src="../../dataTables/datatables.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function () {
+    $('#TableHandayani').DataTable();
+    } );
+  </script>
+  <!-- end datatabels -->
 </body>
 
 </html>
