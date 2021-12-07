@@ -37,13 +37,15 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu align-items-start"></span>
+          <span class="icon-menu"></span>
         </button>
+    
         <!-- End Search -->
         <!-- Start Notif -->
         <ul class="navbar-nav navbar-nav-right">
           
         </ul>
+        <!-- End Notif -->
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
         </button>
@@ -127,8 +129,8 @@
                               </thead>
                               <tbody>
                                 <!-- Search -->
-                                <form method="GET" class="form-inline" action="rekapan.php">
-                                  <select name="date" class="custom-select" required="required">
+                                <form method="GET" class="form-inline" action="">
+                                  <select name="tanggal" class="form-control" required="required">
                                     <option value="">Bulan</option>
                                     <option value="1">Januari</option>
                                     <option value="2">Februari</option>
@@ -143,24 +145,25 @@
                                     <option value="11">November</option>
                                     <option value="12">Desember</option>
                                   </select>
+                                  <br>
                                   <button class="btn btn-primary" name="filter"><span class="glyphicon glyphicon-search"></span> Search</button>
-                                <br>
-                                <br>
+                                  <br>
+                                  <br>
                                 </form>
                                 <?php
                                   $hal=10;
                                   $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
                                   $start=($page>1)?($page*$hal)-$hal:0;
-                                  if(isset($_GET['filter'])){
-                                    $date = $_GET['date'];
-                                    echo "Rekap Tamu Bulan ke- : ".$date;
-                                  }
-                                  if(isset($_GET['filter'])){
-                                    $date = $_GET['date'];
+                                  
+                                  if(isset($_GET['tanggal'])){
+                                    $date = $_GET['tanggal'];
+                                    $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+                                    echo "Rekap Tamu Wisma Bulan : ".$nama_bulan[$date];;
                                     $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date'";
                                     $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' limit $start,$hal";
                                   } else {
                                     $sql = "SELECT * FROM rekapan";
+                                    echo "Rekap Tamu Wisma";
                                     $sql1 = "SELECT * FROM rekapan limit $start,$hal";
                                   }
                                     $query = mysqli_query($db, $sql);
@@ -192,17 +195,8 @@
                             </tbody>
                         </table>
                         <!-- Pagination -->
-                        <?php for( $i = 1 ; $i <= $pages ; $i++ ) : ?>
-                                <?php if(isset($_GET["cari"])) : ?>
-                                    <a href="?cari=<?= $_GET['cari']; ?>&hal=<?= $i; ?>">
-                                    <?= $i; ?></a>
-                                <?php else : ?>
-                                    <a href="?&hal=<?= $i; ?>">
-                                    <?= $i; ?></a>
-                                <?php endif; ?>
-                                
-                        <?php endfor; ?>
                         <p>Total Data : <?= mysqli_num_rows($query); ?></p>
+                        <a href="print.php?">Cetak PDF</a>
                         </div>
                       </div>
                     </div>
