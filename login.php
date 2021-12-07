@@ -31,13 +31,14 @@
       <div class="container-fluid">
         <div class="row">
           <fieldset class="d-flex justify-content-center p-sm-2">
-            <form class="shadow p-3 mb-5 bg-white p-4 bg-white rounded" style="width: 350px;" action="proses_login.php" id="rounded-form" method="POST">
+            <form class="shadow p-3 mb-5 bg-white p-4 bg-white rounded" style="width: 350px;" action="proses-login.php" id="rounded-form" method="POST">
               <div class="d-flex justify-content-center mb-4">
-                <img src="images/logo-lpmp-baru-kecil.png" width="200px" alt="">
+                <img src="images/logo-lpmp-kecil.png" width="200px" alt="">
               </div>
               <div class="mb-3 d-flex">
                 <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-user"></i></span>
                 <input type="text" class="form-control" style="margin-right: 1.1rem;" name="username" id="username" aria-describedby="" placeholder="username">
+                <span id="mybutton" onclick="change()"></span>
               </div>
               <div class="mb-3 d-flex">
                 <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-lock"></i></span>
@@ -50,11 +51,10 @@
               </div>
               <div class="d-flex justify-content-between mt-4">
                 <button class="btn btn-primary pe-3 ps-3" type="submit" name="login">Sign in</button>
-                <a href="regis.php">
-                  <button class="btn btn-primary" type="submit" name="login">Sign up</button>
-                </a>
+                <input class="btn btn-primary pe-3 ps-3" type="button" onclick="window.location.href = 'regis.php'"; value="Sign Up">
               </div>
             </form>
+            
           </fieldset>
         </div>
       </div>
@@ -66,7 +66,7 @@
          function change()
          {
             var x = document.getElementById('password').type;
- 
+
             if (x == 'password')
             {
                document.getElementById('password').type = 'text';
