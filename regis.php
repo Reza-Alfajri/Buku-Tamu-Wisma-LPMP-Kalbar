@@ -31,9 +31,9 @@
       <div class="container-fluid">
         <div class="row">
           <fieldset class="d-flex justify-content-center p-sm-2">
-            <form class="shadow p-3 mb-3 bg-white p-4 bg-white rounded" style="width: 350px;" action="proses_login.php" id="rounded-form" method="POST">
+            <form class="shadow p-3 mb-3 bg-white p-4 bg-white rounded" style="width: 350px;" action="proses-regis.php" id="rounded-form" method="POST">
               <div class="d-flex justify-content-center mb-4">
-                <img src="images/logo-lpmp-baru-kecil.png" width="200px" alt="">
+                <img src="images/logo-lpmp-kecil.png" width="200px" alt="">
               </div>
               <div class="mb-3 d-flex">
                 <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-user"></i></span>
@@ -54,10 +54,8 @@
                 <span id="mybutton" onclick="change()"><i class="far fa-eye text-secondary"></i></span>
               </div>
               <div class="d-flex justify-content-between mt-4">
-                <button class="btn btn-primary pe-3 ps-3" type="submit" name="login">Sign up</button>
-                <a href="regis.php">
-                  <button class="btn btn-primary pl-4 pr-4" type="submit" name="login">Back</button>
-                </a>
+                <button class="btn btn-primary pe-3 ps-3" type="submit" name="daftar">Sign up</button>
+                <input class="btn btn-primary pe-3 ps-3" type="button" onclick="window.location.href = 'login.php'"; value="BACK">
               </div>
             </form>
           </fieldset>
