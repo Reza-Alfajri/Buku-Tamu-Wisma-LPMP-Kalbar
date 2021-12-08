@@ -55,7 +55,7 @@
                 </span>
                 <!-- Text Field -->
                 <input class="mr-sm-5 mr-2 rounded" style=" border: none;" autofocus type="text" name="cari" placeholder="Search now" 
-		value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>" placeholder="Bedasarkan Nama,NIK dan Nomor Kamar">
+		                  value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>" placeholder="Bedasarkan Nama,NIK dan Nomor Kamar">
                 <!-- Reset Button -->
                 <a href="list-kamar-handayani.php" class="pt-1 d-none d-lg-block"><i class="fa fa-refresh ml-3 mr-2"></i>Reset</a>
               </form>
@@ -83,6 +83,13 @@
             <a class="nav-link" href="../../index.html">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Home</span>
+            </a>
+          </li>
+          <!-- Biodata -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/form-pendaftaran/form-biodata.php">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Biodata Tamu</span>
             </a>
           </li>
           <!-- List Kamar -->
@@ -245,6 +252,9 @@
                                           })
                                         }
                                       </script>
+                                      <a class="edit" aria-label="close" href="../form-pendaftaran/form-edit-handayani.php?nik=<?=$list['nik']; ?>">
+                                      <span aria-hidden="true"><i class="fa fa-edit"></i></span>
+                                      </a>
                                     </td>
                                   <?php endwhile; ?>
                                 </tr>
