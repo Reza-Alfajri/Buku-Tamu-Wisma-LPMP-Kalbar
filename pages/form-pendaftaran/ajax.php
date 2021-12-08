@@ -5,7 +5,7 @@ include("../../koneksi.php");
 //mengambil data
 $nik = $_GET['nik'];
 //buat query untuk ambil data dari database
-$sql = "SELECT * FROM rekapan WHERE nik=$nik";
+$sql = "SELECT * FROM biodata WHERE nik=$nik";
 $query = mysqli_query($db, $sql);
 $list = mysqli_fetch_assoc($query);
 $data = array(
