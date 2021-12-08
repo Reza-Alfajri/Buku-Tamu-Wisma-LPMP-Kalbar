@@ -84,6 +84,13 @@
               <span class="menu-title">Home</span>
             </a>
           </li>
+          <!-- Biodata -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/form-pendaftaran/form-biodata.php">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Biodata Tamu</span>
+            </a>
+          </li>
           <!-- List Kamar -->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -179,7 +186,7 @@
                                 //$no++; 
                                 ?> 
                                 <tr class="alert" role="alert">
-				    <td><?= $list['nomor_kamar']; ?></td>
+				                            <td><?= $list['nomor_kamar']; ?></td>
                                     <td><?= $list['timestamp']; ?></td>
                                     <td><?= $list['nama_kegiatan']; ?></td>
                                     <td><?= $list['tanggal_awal']; ?></td>
@@ -243,6 +250,9 @@
                                                 })
                                               }
                                             </script>
+                                            <a class="edit" aria-label="close" href="../form-pendaftaran/form-edit-anggrek.php?nik=<?=$list['nik']; ?>">
+                                            <span aria-hidden="true"><i class="fa fa-edit"></i></span>
+                                            </a>
                                         <?php endwhile; ?>
                                     </td>
 				                        </tr>
