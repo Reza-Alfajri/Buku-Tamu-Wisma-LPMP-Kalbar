@@ -77,6 +77,13 @@
               <span class="menu-title">Home</span>
             </a>
           </li>
+          <!-- Biodata -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/form-pendaftaran/form-biodata.php">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Biodata Tamu</span>
+            </a>
+          </li>
           <!-- List Kamar -->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -187,11 +194,11 @@
                         <!-- Baris 4 -->
                         <div class="row">
                           <!-- Nama Tamu -->
-                          <div class="col-md-12">
+                          <div class="col-md-6">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nama Tamu</label>
                               <div class="col-sm-9">
-                                <input type="text" id="nama_tamu" name="nama_tamu" class="form-control">
+                                <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" readonly>
                               </div>
                             </div>
                           </div>
@@ -216,7 +223,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Kota</label>
                               <div class="col-sm-9">
-                                <input type="text" name="kota" id="kota" class="form-control" required>
+                                <input type="text" name="kota" id="kota" class="form-control" readonly>
                               </div>
                             </div>
                           </div>
@@ -225,7 +232,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                               <div class="col-sm-9">
-                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" required>
+                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" readonly>
                               </div>
                             </div>
                           </div>
@@ -237,7 +244,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Jabatan</label>
                               <div class="col-sm-9">
-                                <input type="text" name="jabatan" id="jabatan" class="form-control" required>
+                                <input type="text" name="jabatan" id="jabatan" class="form-control" readonly>
                               </div>
                             </div>
                           </div>
@@ -246,7 +253,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nama Kantor</label>
                               <div class="col-sm-9">
-                                <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" required>
+                                <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" readonly>
                               </div>
                             </div>
                           </div>
@@ -258,7 +265,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nomor HP</label>
                               <div class="col-sm-9">
-                                <input type="text" name="no_hp" id="no_hp" class="form-control" required>
+                                <input type="text" name="no_hp" id="no_hp" class="form-control" readonly>
                               </div>
                             </div>
                           </div>
