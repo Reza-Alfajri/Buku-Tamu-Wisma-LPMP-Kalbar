@@ -195,6 +195,16 @@
                             </tbody>
                         </table>
                         <!-- Pagination -->
+			<?php for( $i = 1 ; $i <= $pages ; $i++ ) : ?>
+                                <?php if(isset($_GET["cari"])) : ?>
+                                    <a href="?cari=<?= $_GET['cari']; ?>&hal=<?= $i; ?>">
+                                    <?= $i; ?></a>
+                                <?php else : ?>
+                                    <a href="?&hal=<?= $i; ?>">
+                                    <?= $i; ?></a>
+                                <?php endif; ?>
+                                
+                        <?php endfor; ?>
                         <p>Total Data : <?= mysqli_num_rows($query); ?></p>
                         <a href="print.php?">Cetak PDF</a>
                         </div>
