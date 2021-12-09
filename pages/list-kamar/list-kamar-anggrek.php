@@ -249,7 +249,7 @@
                                           <span aria-hidden='true'><i class='fa fa-edit'></i></span>
                                           </a>";
                                       ?>
-                                      <a class="edit" aria-label="close" href="../../proses-hapus-handayani.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return hapus(event)">
+                                      <a class="edit" aria-label="close" href="../../proses-hapus-anggrek.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return hapus(event)">
                                       <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
                                       </a>
                                       <script type="text/javascript">
