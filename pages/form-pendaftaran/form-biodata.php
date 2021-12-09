@@ -74,7 +74,7 @@
           </li>
           <!-- Biodata -->
           <li class="nav-item">
-            <a class="nav-link" href="../../pages/form-pendaftaran/form-biodata.php">
+            <a class="nav-link" href="../../pages/biodata/biodata-pengunjung.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Biodata Tamu</span>
             </a>
