@@ -138,34 +138,52 @@
                               <tbody>
                                 <!-- Search -->
                                 <form method="GET" class="form-inline" action="">
-                                  <select name="tanggal" class="form-control" required="required">
-                                    <option value="">Bulan</option>
-                                    <option value="1">Januari</option>
-                                    <option value="2">Februari</option>
-                                    <option value="3">Maret</option>
-                                    <option value="4">April</option>
-                                    <option value="5">Mei</option>
-                                    <option value="6">Juni</option>
-                                    <option value="7">Juli</option>
-                                    <option value="8">Agustus</option>
-                                    <option value="9">September</option>
-                                    <option value="10">Oktober</option>
-                                    <option value="11">November</option>
-                                    <option value="12">Desember</option>
-                                  </select>
-                                  <select name="tahun" class="form-control" required="required">
-                                    <?php
-                                    $mulai= date('Y') - 50;
-                                    for($i = $mulai;$i<$mulai + 100;$i++){
-                                        $sel = $i == date('Y') ? ' selected="selected"' : '';
-                                        echo '<option value="'.$i.'"'.$sel.'>'.$i.'</option>';
-                                    }
-                                    ?>
-                                  </select>
-                                  <br>
-                                  <button class="btn btn-primary" name="filter"><span class="glyphicon glyphicon-search"></span> Search</button>
-                                  <br>
-                                  <br>
+                                  <div class="row">
+                                    <!-- Sorting Bulan -->
+                                    <div class="col-md-6">
+                                      <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Bulan</label>
+                                        <div class="col-sm-9">
+                                          <select name="tanggal" class="custom-select" required="required">
+                                            <option value="">Bulan</option>
+                                            <option value="1">Januari</option>
+                                            <option value="2">Februari</option>
+                                            <option value="3">Maret</option>
+                                            <option value="4">April</option>
+                                            <option value="5">Mei</option>
+                                            <option value="6">Juni</option>
+                                            <option value="7">Juli</option>
+                                            <option value="8">Agustus</option>
+                                            <option value="9">September</option>
+                                            <option value="10">Oktober</option>
+                                            <option value="11">November</option>
+                                            <option value="12">Desember</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- Sorting Tahun -->
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                          <label class="col-sm-3 col-form-label">Tahun</label>
+                                          <div class="col-sm-9">
+                                            <select name="tahun" class="custom-select" required="required">
+                                              <?php
+                                              $mulai= date('Y') - 50;
+                                                for($i = $mulai;$i<$mulai + 100;$i++){
+                                                    $sel = $i == date('Y') ? ' selected="selected"' : '';
+                                                    echo '<option value="'.$i.'"'.$sel.'>'.$i.'</option>';
+                                                }
+                                              ?>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <button class="btn btn-primary" name="filter"><span class="glyphicon glyphicon-search"></span> Search</button>
+                                    <br>
+                                    <br>
+                                  </div>
                                 </form>
                                 <?php
                                   $hal=10;
@@ -210,21 +228,21 @@
                                     <td><?= $list['wisma']; ?></td>
                                 </tr>
                                 <?php endwhile; ?>
-                            </tbody>
-                        </table>
-                        <!-- Pagination -->
-			<?php for( $i = 1 ; $i <= $pages ; $i++ ) : ?>
-                                <?php if(isset($_GET["cari"])) : ?>
-                                    <a href="?cari=<?= $_GET['cari']; ?>&hal=<?= $i; ?>">
-                                    <?= $i; ?></a>
-                                <?php else : ?>
-                                    <a href="?&hal=<?= $i; ?>">
-                                    <?= $i; ?></a>
-                                <?php endif; ?>
-                                
-                        <?php endfor; ?>
-                        <p>Total Data : <?= mysqli_num_rows($query); ?></p>
-                        <a href="print.php?">Cetak PDF</a>
+                              </tbody>
+                          </table>
+                          <!-- Pagination -->
+                          <?php for( $i = 1 ; $i <= $pages ; $i++ ) : ?>
+                                  <?php if(isset($_GET["cari"])) : ?>
+                                      <a href="?cari=<?= $_GET['cari']; ?>&hal=<?= $i; ?>">
+                                      <?= $i; ?></a>
+                                  <?php else : ?>
+                                      <a href="?&hal=<?= $i; ?>">
+                                      <?= $i; ?></a>
+                                  <?php endif; ?>
+                                  
+                          <?php endfor; ?>
+                          <p>Total Data : <?= mysqli_num_rows($query); ?></p>
+                          <a href="print.php?">Cetak PDF</a>
                         </div>
                       </div>
                     </div>
