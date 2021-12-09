@@ -75,7 +75,7 @@
           <!-- Biodata -->
           <li class="nav-item">
             <a class="nav-link" href="../../pages/form-pendaftaran/form-biodata.php">
-              <i class="icon-grid menu-icon"></i>
+              <i class="icon-paper menu-icon"></i>
               <span class="menu-title">Biodata Tamu</span>
             </a>
           </li>
@@ -96,7 +96,7 @@
           <!-- Rekapan -->
           <li class="nav-item">
             <a class="nav-link" href="../../pages/rekap/rekapan.php">
-              <i class="icon-paper menu-icon"></i>
+              <i class="ti-agenda menu-icon"></i>
               <span class="menu-title">Rekapan Pengunjung</span>
             </a>
           </li>
