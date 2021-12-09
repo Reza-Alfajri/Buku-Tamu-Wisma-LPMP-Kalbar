@@ -148,7 +148,7 @@
                           <table class="table" id="TableAnggrek">
                               <thead class="thead-dark">
                                 <tr>
-				<th>No. Kamar</th>
+				                        <th>No. Kamar</th>
                                 <th>Timestamp</th>
                                 <th>Nama Kegiatan</th>
                                 <th>Tanggal Awal</th>
@@ -212,12 +212,12 @@
                                     if($list['statusco']=="Terisi") 
                                         echo 
                                         "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit' onclick='return edit(event)' >
-                                        <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                        <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
                                         </a>";
                                     else 
                                         echo 
                                         "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
-                                        <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                        <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
                                         </a>";
                                     ?>
                                       <script type="text/javascript">
@@ -250,7 +250,7 @@
                                           </a>";
                                       ?>
                                       <a class="edit" aria-label="close" href="../../proses-hapus-handayani.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return hapus(event)">
-                                      <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                      <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
                                       </a>
                                       <script type="text/javascript">
                                         function hapus(ev){
