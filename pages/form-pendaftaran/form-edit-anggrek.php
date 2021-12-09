@@ -1,14 +1,14 @@
 <?php
     //koneksi ke database
     include("../../koneksi.php");
-    if (!isset($_GET['nik'])) {
+    if (!isset($_GET['nomor_kamar'])) {
         //kalau tidak ada id di query string
         header('Location: ../../pages/list-kamar/list-kamar-anggrek.php');
     }
     //ambil id dari query string
-    $nik = $_GET['nik'];
+    $nomor_kamar = $_GET['nomor_kamar'];
     //buat query untuk ambil data dari database
-    $sql = "SELECT * FROM anggrek WHERE nik=$nik";
+    $sql = "SELECT * FROM anggrek WHERE nomor_kamar=$nomor_kamar";
     $query = mysqli_query($db, $sql);
     $list = mysqli_fetch_assoc($query);
     
@@ -126,14 +126,6 @@
                 <div class="card-body">
                   <h4 class="card-title">Buku Tamu</h4>
                   <p class="font-weight-500">Silahkan isi formnya</p>
-                    <!-- <div class="mr-5 mt-3">
-                      <p class="text-muted">Users</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">71.56%</h3>
-                    </div>
-                    <div class="mt-3">
-                      <p class="text-muted">Downloads</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-                    </div>  -->
                     <form action="../../proses-edit-kamar-anggrek.php" method="POST">
                       <fieldset>
                         <!-- Baris 1 -->
