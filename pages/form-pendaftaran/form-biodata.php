@@ -74,7 +74,7 @@
           </li>
           <!-- Biodata -->
           <li class="nav-item">
-            <a class="nav-link" href="../../pages/biodata/biodata-pengunjung.php">
+            <a class="nav-link" href="../../pages/form-pendaftaran/form-biodata.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Biodata Tamu</span>
             </a>
@@ -122,21 +122,12 @@
                 <div class="card-body">
                   <h4 class="card-title">Buku Tamu</h4>
                   <p class="font-weight-500">Silahkan isi formnya</p>
-                    <!-- <div class="mr-5 mt-3">
-                      <p class="text-muted">Users</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">71.56%</h3>
-                    </div>
-                    <div class="mt-3">
-                      <p class="text-muted">Downloads</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-                    </div>  -->
                     <form action="../../proses-update-biodata.php" method="POST">
                       <fieldset>
-                        </div>
-                        <!-- Baris 4 -->
+                        <!-- Baris 1 -->
                         <div class="row">
-                        <!-- Nama Tamu -->
-                        <div class="col-md-6">
+                          <!-- Nama Tamu -->
+                          <div class="col-md-6">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nama Tamu</label>
                               <div class="col-sm-9">
@@ -154,32 +145,32 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 5 -->
+                        <!-- Baris 2 -->
                         <div class="row">
-                        <!-- Jenis Kelamin -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                              <div class="col-sm-9">
-                                <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" required>
-                                  <option value="">-- jenis kelamin --</option>
-                                  <option value="pria">Pria</option>
-                                  <option value="wanita">Wanita</option>
-                                </select>
+                          <!-- Jenis Kelamin -->
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                <div class="col-sm-9">
+                                  <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" required>
+                                    <option value="">-- jenis kelamin --</option>
+                                    <option value="pria">Pria</option>
+                                    <option value="wanita">Wanita</option>
+                                  </select>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <!-- Kota -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Kota</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="kota" id="kota" class="form-control" required>
+                            <!-- Kota -->
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Kota</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="kota" id="kota" class="form-control" required>
+                                </div>
                               </div>
                             </div>
-                          </div>
                         </div>
-                        <!-- Baris 6 -->
+                        <!-- Baris 3 -->
                         <div class="row">
                           <!-- Tanggal Lahir -->
                           <div class="col-md-6">
@@ -200,7 +191,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 7 -->
+                        <!-- Baris 4 -->
                         <div class="row">
                           <!-- Nama Kantor -->
                           <div class="col-md-6">
@@ -223,7 +214,7 @@
                         </div>
                       </fieldset>
                       <p><input type="submit" value="Simpan" name="simpan" class="btn btn-primary col-md-4 align-self-center"></p>
-                  </form>
+                    </form>
                 </div>
               </div>
             </div>
