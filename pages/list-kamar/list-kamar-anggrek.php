@@ -193,8 +193,8 @@
                                 //$no++; 
                                 ?> 
                                 <tr class="alert" role="alert">
-				                            <td><?= $list['nomor_kamar']; ?></td>
-                                    <td><?= $list['timestamp']; ?></td>
+				    <td><?= $list['nomor_kamar']; ?></td>
+                                    <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
                                     <td><?= $list['nama_kegiatan']; ?></td>
                                     <td><?= $list['tanggal_awal']; ?></td>
                                     <td><?= $list['tanggal_akhir']; ?></td>
