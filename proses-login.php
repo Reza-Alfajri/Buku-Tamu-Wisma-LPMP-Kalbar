@@ -13,7 +13,7 @@
     $cek = mysqli_num_rows($query);
     if($cek > 0){
         $_SESSION['username'] = $username;
-        header("location: index.html");
+        header("location: index.php");
     }else{
         die("Gagal Login...");
     }
