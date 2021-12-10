@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
@@ -46,8 +47,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo ms-10" href="../../index.html"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo ms-10" href="../../index.php"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -72,7 +73,7 @@
         <ul class="nav">
           <!-- Home -->
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="../../index.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Home</span>
             </a>
@@ -105,6 +106,13 @@
               <span class="menu-title">Rekapan Pengunjung</span>
             </a>
           </li>
+          <!-- Logout -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../logout.php">
+              <i class="fa fa-sign-out menu-icon"></i>
+              <span class="menu-title">Logout</span>
+            </a>
+          </li>
           <!--  -->
         </ul>
       </nav>
@@ -126,14 +134,6 @@
                 <div class="card-body">
                   <h4 class="card-title">Buku Tamu</h4>
                   <p class="font-weight-500">Silahkan isi formnya</p>
-                    <!-- <div class="mr-5 mt-3">
-                      <p class="text-muted">Users</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">71.56%</h3>
-                    </div>
-                    <div class="mt-3">
-                      <p class="text-muted">Downloads</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-                    </div>  -->
                     <form action="../../proses-kamar-handayani.php" method="POST">
                       <fieldset>
                         <!-- Baris 1 -->
