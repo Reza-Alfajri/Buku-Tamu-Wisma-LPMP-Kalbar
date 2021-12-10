@@ -3,6 +3,11 @@
 <!-- sweet alert --> 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 <!-- end sweet alert --> 
+<style>
+    .swal2-popup {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+</style>
 </head>
 <body>
 <?php
