@@ -122,8 +122,12 @@
                               <img src="images/hand-5.jpg" class="card-img-top rounded img-fluid" width="23rem" alt="...">
                               <div class="card-body">
                                 <h2 class="card-title">Wisma handayani</h2>
-                                <p class="card-text font-weight-bold text-info mb-md-0">Total kamar</p>
-                                <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong</p>
+                                <?php $sql = "SELECT * FROM handayani";
+                                      $sql1 = "SELECT * FROM handayani WHERE statusco='Kosong'";
+                                      $query = mysqli_query($db, $sql);
+                                      $query1 = mysqli_query($db, $sql1); ?>
+                                <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
+                                <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query1); ?></p>
                                 <a href="#" class="btn btn-primary">Masuk</a>
                               </div>
                             </div>
@@ -133,8 +137,12 @@
                               <img src="images/angg-1.jpg" class="card-img-top rounded img-fluid" width="23rem" alt="...">
                               <div class="card-body">
                                 <h2 class="card-title">Wisma Anggrek</h2>
-                                <p class="card-text font-weight-bold text-info mb-md-0">Total kamar</p>
-                                <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong</p>
+                                <?php $sql2 = "SELECT * FROM anggrek";
+                                      $sql3 = "SELECT * FROM anggrek WHERE statusco='Kosong'";
+                                      $query2 = mysqli_query($db, $sql2);
+                                      $query3 = mysqli_query($db, $sql3); ?>
+                                <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query2); ?></p>
+                                <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query3); ?></p>
                                 <a href="#" class="btn btn-primary">Masuk</a>
                               </div>
                             </div>
