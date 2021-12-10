@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+    }
+    require 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,7 +48,7 @@
               <div class="col-md-12 grid-margin">
                 <div class="row">
                   <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                    <h2 class="font-weight-bold">Hai Admin !!</h2>
+                    <h2 class="font-weight-bold">Hai <?php echo $_SESSION['username'];?>!</h2>
                     <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
                   </div>
                   <div class="col-xl-4 pl-lg-5 d-flex justify-content-md-end pt-md-1">
