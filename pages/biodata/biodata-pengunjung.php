@@ -6,11 +6,6 @@
 <html lang="en">
 
 <head>
-  <style>
-    .swal2-popup {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-  </style>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,18 +25,21 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <!-- datatables -->
-  <link rel="stylesheet" href="../../dataTables/datatables.min.css">
-  <!-- end datatables -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
+
+  <style>
+    .swal2-popup {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  </style>
 </head>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo ms-10" href="../../index.html"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo ms-10" href="../../index.php"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -55,27 +53,6 @@
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
         </button>
-	<!-- Search -->
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-lg-block">
-            <div class="input-group">
-              <form action="biodata-pengunjung.php" method="GET" class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <!-- Button Search -->
-                <span class="input-group-text" id="search">
-                  <button type="submit" class="input-group-text">
-                    <i class="icon-search mr-lg-3 ml-0"></i>
-                  </button> 
-                </span>
-                <!-- Text Field -->
-                <input class="mr-sm-5 mr-2 rounded" style=" border: none;" autofocus type="text" name="cari"  
-		            value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>" placeholder="Nama Tamu">
-                <!-- Reset Button -->
-                <a href="biodata-pengunjung.php" class="pt-1 d-none d-lg-block"><i class="fa fa-refresh ml-3 mr-2"></i>Reset</a>
-              </form>
-            </div>   
-          </li>
-        </ul>
-        <!-- End Search -->
       </div>
     </nav>
     <!-- partial -->
@@ -85,7 +62,7 @@
         <ul class="nav">
           <!-- Home -->
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="../../index.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Home</span>
             </a>
@@ -119,6 +96,13 @@
               <span class="menu-title">Rekapan Pengunjung</span>
             </a>
           </li>
+          <!-- Logout -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../logout.php">
+              <i class="fa fa-sign-out menu-icon"></i>
+              <span class="menu-title">Logout</span>
+            </a>
+          </li>
           <!--  -->
         </ul>
       </nav>
@@ -148,7 +132,7 @@
                     <div class="row">
                       <div class="col-md-12" style="overflow-x: auto">
                         <div class="table-responsive" style="width:auto">
-                          <table class="table" id="TableBiodata">
+                          <table class="table">
                               <thead class="thead-dark">
                                 <tr>
                                     <th>Nama Tamu</th>
@@ -165,6 +149,10 @@
                               <tbody>
                                 <!-- Search -->
                                 <?php
+                                  $hal=26;
+                                  $hal_start=25;
+                                  $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
+                                  $start=($page>1)?($page*$hal)-$hal:0;
                                   if(isset($_GET['cari'])){
                                     $cari = $_GET['cari'];
                                     echo "Hasil Pencarian : ".$cari;
@@ -172,13 +160,29 @@
                                   if(isset($_GET['cari'])){
                                     $cari = $_GET['cari'];
                                     $sql = "SELECT * FROM biodata WHERE nomor_kamar like '%".$cari."%'";
-                                    $sql1 = "SELECT * FROM biodata WHERE nomor_kamar LIKE '%$cari%'";
+                                    $sql1 = "SELECT * FROM biodata WHERE nomor_kamar LIKE '%$cari%' limit $start,$hal";
                                   } else {
                                     $sql = "SELECT * FROM biodata";
-                                    $sql1 = "SELECT * FROM biodata";
+                                    $sql1 = "SELECT * FROM biodata limit $start,$hal_start";
+                                  }
+                                  if (isset($_GET['cari']) && isset($_GET['kategori'])) {
+                                    $cari = $_GET['cari'];
+                                    if ($_GET['kategori'] == 'carikamar') {
+                                      $sql = "SELECT * FROM biodata WHERE nomor_kamar LIKE '%$cari%'";
+                                      $sql1 = "SELECT * FROM biodata WHERE nomor_kamar LIKE '%$cari%' limit $start,$hal";
+                                    } else {
+                                      $sql = "SELECT * FROM biodata WHERE statusco LIKE '%$cari%'";
+                                      $sql1 = "SELECT * FROM biodata WHERE statusco  LIKE '%$cari%' limit $start,$hal";
+                                    }  
+                                  } else {
+                                    $sql = "SELECT * FROM biodata";
+                                    $sql1 = "SELECT * FROM biodata limit $start,$hal_start";
                                   }
                                     $query = mysqli_query($db, $sql);
                                     $query1 = mysqli_query($db, $sql1);
+                                    $total = mysqli_num_rows($query);
+                                    $pages = ceil($total/$hal);
+                                    $no = $start + 1;
                                 ?>
                                 <!-- End Search -->
                                 <?php while($list=mysqli_fetch_array($query1)) : 
@@ -194,7 +198,7 @@
                                     <td><?= $list['nama_kantor']; ?></td>
                                     <td><?= $list['no_hp']; ?></td>
                                     <td>
-                                      <a class="edit" aria-label="close" href="../form-pendaftaran/form-edit-biodata.php?nik=<?=$list['nik']; ?>" onclick="return edit(event)">
+                                    <a class="edit" aria-label="close" href="../form-pendaftaran/form-edit-biodata.php?nik=<?=$list['nik']; ?>" onclick="return edit(event)">
                                       <span aria-hidden="true"><i class="fa fa-edit"></i></span>
                                       </a>
                                       <script type="text/javascript">
@@ -219,6 +223,19 @@
                                 <?php endwhile; ?>
                             </tbody>
                         </table>
+                        <!-- Pagination -->
+                        <?php for( $i = 1 ; $i <= $pages ; $i++ ) : ?>
+                                <?php if(isset($_GET["cari"])) : ?>
+                                    <a href="?cari=<?= $_GET['cari']; ?>&hal=<?= $i; ?>">
+                                    <?= $i; ?></a>
+                                <?php else : ?>
+                                    <a href="?&hal=<?= $i; ?>">
+                                    <?= $i; ?></a>
+                                <?php endif; ?>
+                                
+                        <?php endfor; ?>
+                        <p>Total Data : <?= mysqli_num_rows($query); ?></p>
+                        
                         </div>
                       </div>
                     </div>
@@ -269,13 +286,6 @@
   <script src="../../js/dashboard.js"></script>
   <script src="../../js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-  <script type="text/javascript">
-    $(document).ready( function () {
-    $('#TableBiodata').DataTable();
-    } );
-  </script>
-  <!-- end datatabels -->
+  
 </body>
-
 </html>
-
