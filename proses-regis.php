@@ -55,7 +55,28 @@
                   }); 
                 </script>';
             } else {
-                header('Location: regis.php?status=gagal');
+                echo '<script type="text/javascript">
+              Swal.fire({
+                title: "Registrasi Gagal",
+                icon: "warning",
+                timer: 1500,
+                didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector("b")
+                    timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+              /* Read more about handling dismissals below */
+              if (result.dismiss === Swal.DismissReason.timer) {
+                window.history.back();
+              }
+            });
+            </script>';
             }
             
         }
