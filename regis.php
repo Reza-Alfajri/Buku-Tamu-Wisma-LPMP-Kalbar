@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css" />
     <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css" />
     <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="css/vertical-layout-light/style.css" />
@@ -53,7 +54,7 @@
                 <span id="mybutton2" onclick="repassword()"><i class="far fa-eye text-secondary"></i></span>
               </div>
               <div class="d-flex justify-content-between mt-4">
-                <button class="btn btn-primary pe-3 ps-3" type="submit" name="daftar">Sign up</button>
+                <button class="btn btn-register btn-primary pe-3 ps-3" type="submit" name="daftar">Sign up</button>
                 <input class="btn btn-primary pe-3 ps-3" type="button" onclick="window.location.href = 'login.php'"; value="BACK">
               </div>
             </form>
@@ -97,7 +98,7 @@
             }
          }
       </script>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
