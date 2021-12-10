@@ -139,16 +139,6 @@
                               </div>
                             </div>
                           </div>
-                          <!-- Timestamp -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Timestamp</label>
-                              <div class="col-sm-9">
-                                <input type="datetime" name="timestamp" class="form-control"
-                                value="<?php echo $list['timestamp']?>" readonly></p>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                         <!-- Baris 2 -->
                         <div class="row">
@@ -182,28 +172,12 @@
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <!-- Baris 4 -->
-                        <div class="row">
                           <!-- Nama Tamu -->
                           <div class="col-md-6">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nama Tamu</label>
                               <div class="col-sm-9">
                                 <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" value="<?php echo $list['nama_tamu']?>" readonly>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Jenis Kelamin -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                              <div class="col-sm-9">
-                                <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select">
-                                  <option><?php echo $list['jenis_kelamin']?></option>
-                                  <option value="pria">Pria</option>
-                                  <option value="wanita">Wanita</option>
-                                </select>
                               </div>
                             </div>
                           </div>
