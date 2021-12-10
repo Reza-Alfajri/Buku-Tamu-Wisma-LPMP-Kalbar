@@ -42,15 +42,15 @@
               <div class="mb-3 d-flex">
                 <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-lock"></i></span>
                 <input type="password" class="form-control" name="password" id="password" placeholder="password">
-                <span id="mybutton" onclick="change()"><i class="far fa-eye text-secondary"></i></span>
+                <span id="mybutton" onclick="password()"><i class="far fa-eye text-secondary"></i></span>
               </div>
               <div class="mb-3 d-flex">
                 <p class="ml-4 mb-0">Re-type your password</p>
               </div>
               <div class="mb-3 d-flex">
                 <span class="m-auto mt-0 pt-2 pr-2 pb-2"><i class="fas fa-lock"></i></span>
-                <input type="password" class="form-control" name="password" id="password" placeholder="confirm password">
-                <span id="mybutton" onclick="change()"><i class="far fa-eye text-secondary"></i></span>
+                <input type="password" class="form-control" name="re-password" id="re-password" placeholder="confirm password">
+                <span id="mybutton2" onclick="repassword()"><i class="far fa-eye text-secondary"></i></span>
               </div>
               <div class="d-flex justify-content-between mt-4">
                 <button class="btn btn-primary pe-3 ps-3" type="submit" name="daftar">Sign up</button>
@@ -65,7 +65,7 @@
 
     <!-- Optional JavaScript; choose one of the two! -->
     <script type="text/javascript">
-         function change()
+         function password()
          {
             var x = document.getElementById('password').type;
  
@@ -78,6 +78,22 @@
             {
                document.getElementById('password').type = 'password';
                document.getElementById('mybutton').innerHTML = '<i class="far fa-eye"></i>';
+            }
+         }
+
+         function repassword()
+         {
+            var x = document.getElementById('re-password').type;
+ 
+            if (x == 'password')
+            {
+               document.getElementById('re-password').type = 'text';
+               document.getElementById('mybutton2').innerHTML = '<i class="far fa-eye-slash"></i>';
+            }
+            else
+            {
+               document.getElementById('re-password').type = 'password';
+               document.getElementById('mybutton2').innerHTML = '<i class="far fa-eye"></i>';
             }
          }
       </script>
