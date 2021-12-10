@@ -189,7 +189,7 @@
                                     <td><?= $list['nama_kantor']; ?></td>
                                     <td><?= $list['no_hp']; ?></td>
                                     <td>
-                                      <a class="edit" aria-label="close" href="" onclick="return edit(event)">
+                                      <a class="edit" aria-label="close" href="../form-pendaftaran/form-edit-biodata.php?nik=<?=$list['nik']; ?>" onclick="return edit(event)">
                                       <span aria-hidden="true"><i class="fa fa-edit"></i></span>
                                       </a>
                                       <script type="text/javascript">
