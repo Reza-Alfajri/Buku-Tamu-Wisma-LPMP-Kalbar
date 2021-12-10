@@ -37,11 +37,11 @@
               </div>
               <div class="mb-3 d-flex">
                 <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-user"></i></span>
-                <input type="text" class="form-control" style="margin-right: 1.1rem;" name="username" id="username" aria-describedby="" placeholder="username">
+                <input type="text" class="form-control" style="margin-right: 1.1rem;" name="username" id="username" aria-describedby="" placeholder="username" required>
               </div>
               <div class="mb-3 d-flex">
                 <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-lock"></i></span>
-                <input type="password" class="form-control" name="password" id="password" placeholder="password">
+                <input type="password" class="form-control" name="password" id="password" placeholder="password" required>
                 <span id="mybutton" onclick="change()"><i class="far fa-eye text-secondary"></i></span>
               </div>
               <div class="mb-3 form-check">
