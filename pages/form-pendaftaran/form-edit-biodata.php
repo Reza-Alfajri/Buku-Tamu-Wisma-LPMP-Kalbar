@@ -115,6 +115,13 @@
               <span class="menu-title">Rekapan Pengunjung</span>
             </a>
           </li>
+          <!-- Logout -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../logout.php">
+              <i class="fa fa-sign-out menu-icon"></i>
+              <span class="menu-title">Logout</span>
+            </a>
+          </li>
           <!--  -->
         </ul>
       </nav>
@@ -137,18 +144,9 @@
                 <div class="card-body">
                   <h4 class="card-title">Buku Tamu</h4>
                   <p class="font-weight-500">Silahkan isi formnya</p>
-                    <!-- <div class="mr-5 mt-3">
-                      <p class="text-muted">Users</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">71.56%</h3>
-                    </div>
-                    <div class="mt-3">
-                      <p class="text-muted">Downloads</p>
-                      <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-                    </div>  -->
                     <form action="../../proses-edit-biodata.php" method="POST">
                       <fieldset>
-                        </div>
-                        <!-- Baris 4 -->
+                        <!-- Baris 1 -->
                         <div class="row">
                         <!-- Nama Tamu -->
                         <div class="col-md-6">
@@ -169,7 +167,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 5 -->
+                        <!-- Baris 2 -->
                         <div class="row">
                         <!-- Jenis Kelamin -->
                           <div class="col-md-6">
@@ -194,7 +192,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 6 -->
+                        <!-- Baris 3 -->
                         <div class="row">
                           <!-- Tanggal Lahir -->
                           <div class="col-md-6">
@@ -215,7 +213,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 7 -->
+                        <!-- Baris 4 -->
                         <div class="row">
                           <!-- Nama Kantor -->
                           <div class="col-md-6">
@@ -304,5 +302,4 @@
     }
   </script>
 </body>
-
 </html>
