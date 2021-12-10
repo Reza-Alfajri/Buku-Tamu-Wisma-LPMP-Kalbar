@@ -12,9 +12,6 @@
       cursor: default;
       color: grey;
     }
-   .swal2-popup {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
   </style>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -39,14 +36,20 @@
   <link rel="stylesheet" href="../../dataTables/datatables.min.css">
   <!-- end datatables -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
+
+  <style>
+    .swal2-popup {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  </style>
 </head>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12  p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../images/logo-lpmp.png" width="180px" height="60px" alt="logo"/></a>
-        <a class="navbar-brand d-lg-none" href="../../index.html"><img src="../../images/logo-lpmp-kecil.png" width="36px" height="40px" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="../../index.php"><img src="../../images/logo-lpmp.png" width="180px" height="60px" alt="logo"/></a>
+        <a class="navbar-brand d-lg-none" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" width="36px" height="40px" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -89,7 +92,7 @@
         <ul class="nav">
           <!-- Home -->
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="../../index.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Home</span>
             </a>
@@ -120,6 +123,13 @@
             <a class="nav-link" href="../../pages/rekap/rekapan.php">
               <i class="ti-agenda menu-icon"></i>
               <span class="menu-title">Rekapan Pengunjung</span>
+            </a>
+          </li>
+          <!-- Logout -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../logout.php">
+              <i class="fa fa-sign-out menu-icon"></i>
+              <span class="menu-title">Logout</span>
             </a>
           </li>
           <!--  -->
@@ -196,7 +206,7 @@
                                 //$no++; 
                                 ?> 
                                 <tr class="alert" role="alert">
-				    <td><?= $list['nomor_kamar']; ?></td>
+				                            <td><?= $list['nomor_kamar']; ?></td>
                                     <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
                                     <td><?= $list['nama_kegiatan']; ?></td>
                                     <td><?= $list['tanggal_awal']; ?></td>
