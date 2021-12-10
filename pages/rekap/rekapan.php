@@ -26,6 +26,12 @@
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
+
+  <style>
+    .swal2-popup {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  </style>
 </head>
 <body>
   <div class="container-scroller">
