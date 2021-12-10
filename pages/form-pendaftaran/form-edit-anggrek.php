@@ -72,7 +72,7 @@
         <ul class="nav">
           <!-- Home -->
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="../../index.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Home</span>
             </a>
@@ -145,7 +145,7 @@
                               <label class="col-sm-3 col-form-label">Timestamp</label>
                               <div class="col-sm-9">
                                 <input type="datetime" name="timestamp" class="form-control"
-                                value="<?php echo $list['timestamp']?>"></p>
+                                value="<?php echo $list['timestamp']?>" readonly></p>
                               </div>
                             </div>
                           </div>
@@ -199,7 +199,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
                               <div class="col-sm-9">
-                                <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" disabled>
+                                <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select">
                                   <option><?php echo $list['jenis_kelamin']?></option>
                                   <option value="pria">Pria</option>
                                   <option value="wanita">Wanita</option>
