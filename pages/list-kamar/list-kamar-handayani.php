@@ -16,7 +16,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Buku Tamu Wisma Handayani</title>
+  <title>Wisma Handayani | LPMP Kalbar</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -141,6 +141,7 @@
                           <table class="table" id="TableHandayani">
                               <thead class="thead-dark">
                                 <tr>
+                                <th>Check In</th>
 				                        <th>No. Kamar</th>
                                 <th>Timestamp</th>
                                 <th>Nama Kegiatan</th>
@@ -173,20 +174,6 @@
                                   //$no++; 
                                 ?> 
                                   <tr class="alert" role="alert">
-				                            <td><?= $list['nomor_kamar']; ?></td>
-                                    <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
-                                    <td><?= $list['nama_kegiatan']; ?></td>
-                                    <td><?= $list['tanggal_awal']; ?></td>
-                                    <td><?= $list['tanggal_akhir']; ?></td>
-                                    <td><?= $list['statusco']; ?></td>
-                                    <td><?= $list['nama_tamu']; ?></td>
-                                    <td><?= $list['nik']; ?></td>
-                                    <td><?= $list['jenis_kelamin']; ?></td>
-                                    <td><?= $list['tanggal_lahir']; ?></td>
-                                    <td><?= $list['kota']; ?></td>
-                                    <td><?= $list['jabatan']; ?></td>
-                                    <td><?= $list['nama_kantor']; ?></td>
-                                    <td><?= $list['no_hp']; ?></td>
                                     <td>
                                     <?php 
                                     if($list['statusco']=="Terisi") 
@@ -217,20 +204,36 @@
                                           })
                                         }
                                       </script>
+                                    </td>
+				                            <td><?= $list['nomor_kamar']; ?></td>
+                                    <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
+                                    <td><?= $list['nama_kegiatan']; ?></td>
+                                    <td><?= $list['tanggal_awal']; ?></td>
+                                    <td><?= $list['tanggal_akhir']; ?></td>
+                                    <td><?= $list['statusco']; ?></td>
+                                    <td><?= $list['nama_tamu']; ?></td>
+                                    <td><?= $list['nik']; ?></td>
+                                    <td><?= $list['jenis_kelamin']; ?></td>
+                                    <td><?= $list['tanggal_lahir']; ?></td>
+                                    <td><?= $list['kota']; ?></td>
+                                    <td><?= $list['jabatan']; ?></td>
+                                    <td><?= $list['nama_kantor']; ?></td>
+                                    <td><?= $list['no_hp']; ?></td>
+                                    <td>
                                       <?php 
                                       if($list['statusco']=="Kosong") 
                                           echo 
                                           "<a href=../../pages/form-pendaftaran/form-edit-handayani.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit'>
-                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span> Edit 
                                           </a>";
                                       else 
                                           echo 
                                           "<a href=../../pages/form-pendaftaran/form-edit-handayani.php?nomor_kamar=".$list['nomor_kamar']." id='edit'>
-                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span>
+                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span> Edit 
                                           </a>";
                                       ?>
                                       <a class="edit" aria-label="close" href="../../proses-hapus-handayani.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return hapus(event)">
-                                      <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
+                                      <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>Check Out
                                       </a>
                                       <script type="text/javascript">
                                         function hapus(ev){
