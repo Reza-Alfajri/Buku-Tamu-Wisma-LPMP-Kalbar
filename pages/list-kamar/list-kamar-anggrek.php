@@ -251,9 +251,9 @@
                                     </td>
 				                        </tr>
                               </tbody>
-                            </table>
 			      <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
                               <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query2); ?></p>
+                            </table>
                             </div>
                           </div>
                         </div>
