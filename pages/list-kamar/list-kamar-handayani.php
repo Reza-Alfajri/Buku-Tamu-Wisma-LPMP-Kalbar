@@ -55,27 +55,6 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu align-items-start"></span>
         </button>
-        <!-- Search -->
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-lg-block">
-            <div class="input-group">
-              <form action="list-kamar-handayani.php" method="GET" class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <!-- Button Search -->
-                <span class="input-group-text" id="search">
-                  <button type="submit" class="input-group-text">
-                    <i class="icon-search mr-lg-3 ml-0"></i>
-                  </button> 
-                </span>
-                <!-- Text Field -->
-                <input class="mr-sm-5 mr-2 rounded" style=" border: none;" autofocus type="text" name="cari"
-		                  value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>" placeholder="Nama,NIK dan Nomor Kamar">
-                <!-- Reset Button -->
-                <a href="list-kamar-handayani.php" class="pt-1 d-none d-lg-block"><i class="fa fa-refresh ml-3 mr-2"></i>Reset</a>
-              </form>
-            </div>   
-          </li>
-        </ul>
-        <!-- End Search -->
         <!-- Start Notif -->
         <ul class="navbar-nav navbar-nav-right">
           
@@ -182,23 +161,9 @@
                               <tbody>
                                 <!-- Search -->
                                 <?php
-                                  if(isset($_GET['cari'])){
-                                    $cari = $_GET['cari'];
-                                    echo "Hasil Pencarian : ".$cari;
-                                  }
-                                  if(isset($_GET['cari'])){
-                                    $cari = $_GET['cari'];
-                                    $sql = "SELECT * FROM handayani";
-                                    $sql1 = "SELECT * FROM handayani WHERE 
-                                    nama_tamu LIKE '%$cari%' OR
-                                    nik LIKE '%$cari%' OR
-                                    nomor_kamar LIKE '%$cari%'";
-                                    $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
-                                  } else {
                                     $sql = "SELECT * FROM handayani";
                                     $sql1 = "SELECT * FROM handayani";
                                     $sql2 = "SELECT * FROM handayani WHERE statusco='Kosong'";
-                                  }
                                     $query = mysqli_query($db, $sql);
                                     $query1 = mysqli_query($db, $sql1);
                                     $query2 = mysqli_query($db, $sql2);
@@ -288,6 +253,8 @@
                                   <?php endwhile; ?>
                                 </tr>
                             </tbody>
+			    <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
+                            <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query2); ?></p>
                         </table>
                         </div>
                       </div>
