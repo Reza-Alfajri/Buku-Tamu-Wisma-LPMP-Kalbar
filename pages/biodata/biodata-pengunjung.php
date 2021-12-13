@@ -125,8 +125,8 @@
               <div class="card">
                 <div class="card-body">
                   <br>
-                  <form align="right">
-                  <input type="button" onclick="window.location.href = '../form-pendaftaran/form-biodata.php';" class="btn btn-primary" value="[+] Daftar">
+                  <form align="left">
+                  <input type="button" onclick="window.location.href = '../form-pendaftaran/form-biodata.php';" class="btn btn-primary" value="Daftar">
                   </form>
                   <br>
                     <!-- Kodingan Isi Halaman Page Di Bawah Ini -->
