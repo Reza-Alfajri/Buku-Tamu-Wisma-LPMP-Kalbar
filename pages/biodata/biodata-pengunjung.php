@@ -151,40 +151,10 @@
                               <tbody>
                                 <!-- Search -->
                                 <?php
-                                  $hal=26;
-                                  $hal_start=25;
-                                  $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
-                                  $start=($page>1)?($page*$hal)-$hal:0;
-                                  if(isset($_GET['cari'])){
-                                    $cari = $_GET['cari'];
-                                    echo "Hasil Pencarian : ".$cari;
-                                  }
-                                  if(isset($_GET['cari'])){
-                                    $cari = $_GET['cari'];
-                                    $sql = "SELECT * FROM biodata WHERE nomor_kamar like '%".$cari."%'";
-                                    $sql1 = "SELECT * FROM biodata WHERE nomor_kamar LIKE '%$cari%' limit $start,$hal";
-                                  } else {
                                     $sql = "SELECT * FROM biodata";
-                                    $sql1 = "SELECT * FROM biodata limit $start,$hal_start";
-                                  }
-                                  if (isset($_GET['cari']) && isset($_GET['kategori'])) {
-                                    $cari = $_GET['cari'];
-                                    if ($_GET['kategori'] == 'carikamar') {
-                                      $sql = "SELECT * FROM biodata WHERE nomor_kamar LIKE '%$cari%'";
-                                      $sql1 = "SELECT * FROM biodata WHERE nomor_kamar LIKE '%$cari%' limit $start,$hal";
-                                    } else {
-                                      $sql = "SELECT * FROM biodata WHERE statusco LIKE '%$cari%'";
-                                      $sql1 = "SELECT * FROM biodata WHERE statusco  LIKE '%$cari%' limit $start,$hal";
-                                    }  
-                                  } else {
-                                    $sql = "SELECT * FROM biodata";
-                                    $sql1 = "SELECT * FROM biodata limit $start,$hal_start";
-                                  }
+                                    $sql1 = "SELECT * FROM biodata";
                                     $query = mysqli_query($db, $sql);
                                     $query1 = mysqli_query($db, $sql1);
-                                    $total = mysqli_num_rows($query);
-                                    $pages = ceil($total/$hal);
-                                    $no = $start + 1;
                                 ?>
                                 <!-- End Search -->
                                 <?php while($list=mysqli_fetch_array($query1)) : 
@@ -225,19 +195,7 @@
                                 <?php endwhile; ?>
                             </tbody>
                         </table>
-                        <!-- Pagination -->
-                        <?php for( $i = 1 ; $i <= $pages ; $i++ ) : ?>
-                                <?php if(isset($_GET["cari"])) : ?>
-                                    <a href="?cari=<?= $_GET['cari']; ?>&hal=<?= $i; ?>">
-                                    <?= $i; ?></a>
-                                <?php else : ?>
-                                    <a href="?&hal=<?= $i; ?>">
-                                    <?= $i; ?></a>
-                                <?php endif; ?>
-                                
-                        <?php endfor; ?>
                         <p>Total Data : <?= mysqli_num_rows($query); ?></p>
-                        
                         </div>
                       </div>
                     </div>
