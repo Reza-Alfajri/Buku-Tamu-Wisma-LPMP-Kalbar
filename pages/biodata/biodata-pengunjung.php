@@ -25,7 +25,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="../../images/logo-lpmp-kecil.png" />
 
   <style>
     .swal2-popup {
