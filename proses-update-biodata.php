@@ -17,7 +17,7 @@
         VALUE ('$nama_tamu', '$nik', '$jenis_kelamin', '$kota', '$tanggal_lahir', '$jabatan', '$nama_kantor', '$no_hp')";
         $query1 = mysqli_query($db, $sql1);
         if( $query1 ){
-            header('Location: pages/list-kamar/list-kamar-handayani.php');
+            header('Location: pages/list-kamar/biodata-pengunjung.php');
         } else {
             die("Gagal menyimpan perubahan ...");
         }
