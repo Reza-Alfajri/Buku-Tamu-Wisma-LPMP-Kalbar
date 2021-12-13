@@ -103,8 +103,7 @@
                     echo $tahun;
 
                 ?>
-                  </div>
-                  
+                  </div>        
                 </div>
               </div>
             </div>
@@ -128,7 +127,7 @@
                                       $query1 = mysqli_query($db, $sql1); ?>
                                 <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
                                 <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query1); ?></p>
-                                <a href="#" class="btn btn-primary">Masuk</a>
+                                <a href="pages/list-kamar/list-kamar-handayani.php" class="btn btn-primary">Masuk</a>
                               </div>
                             </div>
                           </div>
@@ -143,7 +142,7 @@
                                       $query3 = mysqli_query($db, $sql3); ?>
                                 <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query2); ?></p>
                                 <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query3); ?></p>
-                                <a href="#" class="btn btn-primary">Masuk</a>
+                                <a href="pages/list-kamar/list-kamar-anggrek.php" class="btn btn-primary">Masuk</a>
                               </div>
                             </div>
                           </div>
@@ -156,7 +155,7 @@
                               <div class="card-body hei">
                                 <h5 class="card-title">Biodata</h5>
                                 <p class="card-text">Pengisian identitas pengunjung wisma</p>
-                                <a href="#" class="btn btn-primary mt-5">Masuk</a>
+                                <a href="pages/biodata/biodata-pengunjung.php" class="btn btn-primary mt-5">Masuk</a>
                               </div>
                             </div>
                           </div>
@@ -167,17 +166,13 @@
                               <div class="card-body hei">
                                 <h5 class="card-title">Rekap Pengunjung</h5>
                                 <p class="card-text">Rekapan pengunjung wisma</p>
-                                <a href="#" class="btn btn-primary mt-5">Masuk</a>
+                                <a href="pages/rekap/rekapan.php" class="btn btn-primary mt-5">Masuk</a>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      
-                      
-                      
-                    </div>
-                    
+                      </div>    
+                    </div>         
                   </div>
                 </div>
               </div>
@@ -187,8 +182,7 @@
             <footer class="footer">
               <div class="d-sm-flex justify-content-center justify-content-sm-between">
                 <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"
-                  >Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span
-                >
+                  >Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
                 <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
               </div>
               <div class="d-sm-flex justify-content-center justify-content-sm-between">
