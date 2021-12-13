@@ -40,7 +40,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="../../images/logo-lpmp-kecil.png" />
 </head>
 <body>
   <div class="container-scroller">
