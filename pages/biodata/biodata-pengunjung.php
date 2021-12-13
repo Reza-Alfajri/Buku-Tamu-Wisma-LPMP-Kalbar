@@ -25,8 +25,11 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
+  <!-- datatables -->
+  <link rel="stylesheet" href="../../dataTables/datatables.min.css">
+  <!-- end datatables -->
   <link rel="shortcut icon" href="../../images/logo-lpmp-kecil.png" />
-
+  
   <style>
     .swal2-popup {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -132,7 +135,7 @@
                     <div class="row">
                       <div class="col-md-12" style="overflow-x: auto">
                         <div class="table-responsive" style="width:auto">
-                          <table class="table">
+                          <table class="table" id="TableBiodata">
                               <thead class="thead-dark">
                                 <tr>
                                     <th>Nama Tamu</th>
@@ -286,6 +289,12 @@
   <script src="../../js/dashboard.js"></script>
   <script src="../../js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
+  <script type="text/javascript">
+    $(document).ready( function () {
+    $('#TableBiodata').DataTable();
+    } );
+  </script>
+  <!-- end datatabels -->
   
 </body>
 </html>
