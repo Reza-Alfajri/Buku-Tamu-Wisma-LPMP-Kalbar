@@ -212,7 +212,6 @@
                                     $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' limit $start,$hal";
                                   } else {
                                     $sql = "SELECT * FROM rekapan";
-                                    echo "Rekap Tamu Wisma";
                                     $sql1 = "SELECT * FROM rekapan limit $start,$hal";
                                   }
                                     $query = mysqli_query($db, $sql);
