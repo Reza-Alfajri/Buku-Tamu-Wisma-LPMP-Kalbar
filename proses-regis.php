@@ -2,11 +2,11 @@
 <head>
 <!-- sweet alert --> 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
-<!-- end sweet alert --> 
+<!-- end sweet alert -->
 <style>
     .swal2-popup {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 </style>
 </head>
 <body>
@@ -16,7 +16,7 @@
     include("koneksi.php");
     //cek apakah tombol daftar sudah diklik atau belum
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = $_POST['passwordr'];
         $repassword = $_POST['re-password'];
         //buat query
         if ($password<>$repassword) {   
