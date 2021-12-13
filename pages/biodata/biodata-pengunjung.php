@@ -25,11 +25,10 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
+  <link rel="shortcut icon" href="images/logo-lpmp-kecil.png" />
   <!-- datatables -->
   <link rel="stylesheet" href="../../dataTables/datatables.min.css">
   <!-- end datatables -->
-  <link rel="shortcut icon" href="../../images/logo-lpmp-kecil.png" />
-  
   <style>
     .swal2-popup {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -295,6 +294,5 @@
     } );
   </script>
   <!-- end datatabels -->
-  
 </body>
 </html>
