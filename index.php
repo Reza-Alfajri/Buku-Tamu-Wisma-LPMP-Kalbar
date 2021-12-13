@@ -52,7 +52,8 @@
                     <h4 class="font-weight-normal mb-0">Selamat Datang <a href="http://www.lpmpkalbar.id/index.php/id/" target="blank" class=" text-decoration-none "><span class="text-primary">LPMP Kalbar</span></a> </h4>
                   </div>
                   <div class="col-xl-4 pl-lg-5 d-flex justify-content-md-end pt-md-1">
-                  <?php 
+                    <div class="text-info">
+                    <?php 
                     
                     $hari = date('l');
                     /*$new = date('l, F d, Y', strtotime($Today));*/
@@ -103,7 +104,10 @@
                     echo $tahun;
 
                 ?>
-                  </div>        
+                    </div>
+                  
+                  </div>
+                          
                 </div>
               </div>
             </div>
