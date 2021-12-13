@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="css/vertical-layout-light/style.css" />
     <link rel="stylesheet" href="css/vertical-layout-light/style2.css" />
     <!-- endinject -->
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="images/logo-lpmp-kecil.png" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   </head>
