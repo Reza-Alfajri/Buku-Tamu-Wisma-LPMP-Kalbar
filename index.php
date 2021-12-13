@@ -49,7 +49,7 @@
                 <div class="row">
                   <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                     <h2 class="font-weight-bold">Hai <?php echo $_SESSION['username'];?>!</h2>
-                    <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
+                    <h4 class="font-weight-normal mb-0">Selamat Datang <a href="http://www.lpmpkalbar.id/index.php/id/" target="blank" class=" text-decoration-none "><span class="text-primary">LPMP Kalbar</span></a> </h4>
                   </div>
                   <div class="col-xl-4 pl-lg-5 d-flex justify-content-md-end pt-md-1">
                   <?php 
@@ -112,7 +112,6 @@
                 <div class="card p-2">
                   <div class="card-body">
                     <h2 class="card-title">Buku Tamu</h2>
-                    <p class="font-weight-500 mb-3">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
                     <div class="row p-md-3">
                       <div class="col-md-8">
                         <div class="row">
@@ -127,6 +126,7 @@
                                       $query1 = mysqli_query($db, $sql1); ?>
                                 <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
                                 <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query1); ?></p>
+                                <hr>
                                 <a href="pages/list-kamar/list-kamar-handayani.php" class="btn btn-primary">Masuk</a>
                               </div>
                             </div>
@@ -142,6 +142,7 @@
                                       $query3 = mysqli_query($db, $sql3); ?>
                                 <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query2); ?></p>
                                 <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query3); ?></p>
+                                <hr>
                                 <a href="pages/list-kamar/list-kamar-anggrek.php" class="btn btn-primary">Masuk</a>
                               </div>
                             </div>
@@ -154,8 +155,9 @@
                             <div class="card shadow" style="width: 18rem;">
                               <div class="card-body hei">
                                 <h5 class="card-title">Biodata</h5>
-                                <p class="card-text">Pengisian identitas pengunjung wisma</p>
-                                <a href="pages/biodata/biodata-pengunjung.php" class="btn btn-primary mt-5">Masuk</a>
+                                <p class="card-text mb-5">Pengisian identitas pengunjung wisma</p>
+                                <hr>
+                                <a href="pages/biodata/biodata-pengunjung.php" class="btn btn-primary">Masuk</a>
                               </div>
                             </div>
                           </div>
@@ -165,14 +167,15 @@
                             <div class="card shadow" style="width: 18rem;">
                               <div class="card-body hei">
                                 <h5 class="card-title">Rekap Pengunjung</h5>
-                                <p class="card-text">Rekapan pengunjung wisma</p>
-                                <a href="pages/rekap/rekapan.php" class="btn btn-primary mt-5">Masuk</a>
+                                <p class="card-text mb-5">Rekapan pengunjung wisma</p>
+                                <hr>
+                                <a href="pages/rekap/rekapan.php" class="btn btn-primary ">Masuk</a>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>    
-                    </div>         
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
