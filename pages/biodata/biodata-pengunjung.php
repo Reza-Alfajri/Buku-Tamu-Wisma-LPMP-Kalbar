@@ -195,7 +195,6 @@
                                 <?php endwhile; ?>
                             </tbody>
                         </table>
-                        <p>Total Data : <?= mysqli_num_rows($query); ?></p>
                         </div>
                       </div>
                     </div>
