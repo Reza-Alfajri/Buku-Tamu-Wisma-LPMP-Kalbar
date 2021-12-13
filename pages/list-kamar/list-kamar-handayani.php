@@ -225,16 +225,20 @@
                                           echo 
                                           "<a href=../../pages/form-pendaftaran/form-edit-handayani.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit'>
                                           <span aria-hidden='true'><i class='fa fa-edit'></i></span> Edit 
+                                          </a>
+                                          <a href=../../proses-hapus-handayani.php?nomor_kamar=".$list['nomor_kamar']." onclick='return hapus(event)' class='disable'>
+                                          <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
                                           </a>";
                                       else 
                                           echo 
                                           "<a href=../../pages/form-pendaftaran/form-edit-handayani.php?nomor_kamar=".$list['nomor_kamar']." id='edit'>
                                           <span aria-hidden='true'><i class='fa fa-edit'></i></span> Edit 
+                                          </a>
+                                          <a href=../../proses-hapus-handayani.php?nomor_kamar=".$list['nomor_kamar']." onclick='return hapus(event)'>
+                                          <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
                                           </a>";
                                       ?>
-                                      <a class="edit" aria-label="close" href="../../proses-hapus-handayani.php?nomor_kamar=<?=$list['nomor_kamar']; ?>" onclick="return hapus(event)">
-                                      <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>Check Out
-                                      </a>
+                                      
                                       <script type="text/javascript">
                                         function hapus(ev){
                                           ev.preventDefault();
