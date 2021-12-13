@@ -68,7 +68,7 @@
                 </span>
                 <!-- Text Field -->
                 <input class="mr-sm-5 mr-2 rounded" style=" border: none;" autofocus type="text" name="cari"
-		                  value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>" placeholder="Bedasarkan Nama,NIK dan Nomor Kamar">
+		                  value="<?php if(isset($_GET['cari'])){echo $_GET['cari'];}?>" placeholder="Nama,NIK dan Nomor Kamar">
                 <!-- Reset Button -->
                 <a href="list-kamar-handayani.php" class="pt-1 d-none d-lg-block"><i class="fa fa-refresh ml-3 mr-2"></i>Reset</a>
               </form>
