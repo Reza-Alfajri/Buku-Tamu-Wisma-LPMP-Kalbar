@@ -13,7 +13,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Buku Tamu Wisma Handayani</title>
+  <title>Biodata Tamu | LPMP Kalbar</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -77,7 +77,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="../../pages/biodata/biodata-pengunjung.php">
               <i class="icon-paper menu-icon"></i>
-              <span class="menu-title">Biodata Pengunjung</span>
+              <span class="menu-title">Biodata Tamu</span>
             </a>
           </li>
           <!--  -->
@@ -99,7 +99,7 @@
           <li class="nav-item">
             <a class="nav-link" href="../../pages/rekap/rekapan.php">
               <i class="ti-agenda menu-icon"></i>
-              <span class="menu-title">Rekapan Pengunjung</span>
+              <span class="menu-title">Rekapan Tamu</span>
             </a>
           </li>
           <!-- Logout -->
@@ -136,7 +136,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Biodata Pengunjung Wisma</h3>
+                  <h3 class="font-weight-bold">Biodata Tamu Wisma</h3>
                 </div>
               </div> 
             </div>
