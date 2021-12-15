@@ -29,7 +29,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Edit Data Tamu | LPMP Kalbar</title>
+  <title>Edit Data | LPMP Kalbar</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -145,7 +145,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold fs-30">Form Edit Kamar Anggrek</h3>
+                  <h3 class="font-weight-bold">Form Edit Kamar Anggrek</h3>
                 </div>
               </div> 
             </div>
