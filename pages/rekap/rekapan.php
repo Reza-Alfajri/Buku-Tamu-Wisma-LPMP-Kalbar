@@ -224,7 +224,7 @@
                                     $date = $_GET['tanggal'];
                                     $tahun = $_GET['tahun'];
                                     $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-                                    echo "Rekap Tamu Wisma Bulan : ".$nama_bulan[$date];;
+                                    echo "Rekap Tamu Wisma Bulan ".$nama_bulan[$date]." Tahun ".$tahun;
                                     $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun'";
                                     $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' limit $start,$hal";
                                   } else {
