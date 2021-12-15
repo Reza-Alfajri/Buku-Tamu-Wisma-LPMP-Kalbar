@@ -139,7 +139,6 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Buku Tamu</h4>
                   <p class="font-weight-500">Silahkan isi formnya</p>
                     <form action="../../proses-update-biodata.php" method="POST">
                       <fieldset>
