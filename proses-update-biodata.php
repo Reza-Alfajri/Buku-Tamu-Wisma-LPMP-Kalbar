@@ -1,3 +1,15 @@
+<html>
+<head>
+<!-- sweet alert --> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+<!-- end sweet alert -->
+<style>
+    .swal2-popup {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+</style>
+</head>
+<body>
 <?php
     include("koneksi.php");
     //pengecekan
@@ -17,7 +29,17 @@
         VALUE ('$nama_tamu', '$nik', '$jenis_kelamin', '$kota', '$tanggal_lahir', '$jabatan', '$nama_kantor', '$no_hp')";
         $query1 = mysqli_query($db, $sql1);
         if( $query1 ){
-            header('Location: pages/list-kamar/biodata-pengunjung.php');
+            echo'<script language="javascript">
+                Swal.fire({
+                    title: "Berhasil Disimpan",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href="pages/biodata/biodata-pengunjung.php";
+                    }
+                  }); 
+                </script>';
         } else {
             die("Gagal menyimpan perubahan ...");
         }
@@ -25,3 +47,5 @@
         die("Akses dilarang ...");
     }
 ?>
+</body>
+</html>
