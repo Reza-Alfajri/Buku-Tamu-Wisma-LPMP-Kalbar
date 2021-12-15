@@ -41,7 +41,17 @@
                   }); 
                 </script>';
         } else {
-            die("Gagal menyimpan perubahan ...");
+            echo'<script language="javascript">
+                Swal.fire({
+                    title: "NIK sudah terdaftar!",
+                    icon: "warning",
+                    confirmButtonText: "OK",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                  }); 
+                </script>';
         }
     } else {
         die("Akses dilarang ...");
