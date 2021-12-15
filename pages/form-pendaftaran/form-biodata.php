@@ -14,7 +14,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Buku Tamu Anggrek</title>
+  <title>Input data tamu | LPMP Kalbar</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -139,7 +139,7 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <p class="font-weight-500">Silahkan isi formnya</p>
+                  <h4 class="font-weight-500">Silahkan isi formnya</4>
                     <form action="../../proses-update-biodata.php" method="POST">
                       <fieldset>
                         <!-- Baris 1 -->
