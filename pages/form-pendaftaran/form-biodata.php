@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" type="../../text/css" href="../../js/select.dataTables.min.css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
@@ -92,11 +93,28 @@
           </li>
           <!-- Logout -->
           <li class="nav-item">
-            <a class="nav-link" href="../../logout.php">
+            <a class="nav-link" href="../../logout.php" onclick="return logout(event)">
               <i class="fa fa-sign-out menu-icon"></i>
               <span class="menu-title">Logout</span>
             </a>
           </li>
+          <script type="text/javascript">
+            function logout(ev){
+              ev.preventDefault();
+              var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+              console.log(urlToRedirect);
+              Swal.fire({
+              title: 'Yakin akan keluar?',
+              icon: "question",
+              showCancelButton: true,
+              confirmButtonText: 'Ya',
+              }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = urlToRedirect;
+              }
+              })
+            }
+          </script>
           <!--  -->
         </ul>
       </nav>
