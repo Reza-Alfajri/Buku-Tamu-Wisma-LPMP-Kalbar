@@ -327,6 +327,7 @@
                                     <td><?= $list['tanggal_akhir']; ?></td>
                                     <td><?= $list['nama_tamu']; ?></td>
                                     <td><?= $list['nik']; ?></td>
+				    <td><?= $list['nuptk']; ?></td>
                                     <td><?= $list['jenis_kelamin']; ?></td>
                                     <td><?= $list['tanggal_lahir']; ?></td>
                                     <td><?= $list['kota']; ?></td>
