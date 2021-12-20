@@ -1,8 +1,4 @@
 <?php
-	session_start();
-	if(!isset($_SESSION["username"])){
-	header("Location: ../../login.php");
-	}
 	require '../../koneksi.php';
 ?>
 
@@ -35,6 +31,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="../../css/vertical-layout-light/style2.css">
   <!-- endinject -->
   <!-- datatables -->
   <link rel="stylesheet" href="../../dataTables/datatables.min.css">
@@ -161,26 +158,27 @@
                           <table class="table" id="TableAnggrek">
                               <thead class="thead-dark">
                                 <tr>
-				                        <th>Check In</th>
-				                        <th>No. Kamar</th>
-                                <th>Timestamp</th>
-                                <th>Nama Kegiatan</th>
-                                <th>Tanggal Awal</th>
-                                <th>Tanggal Akhir</th>
-                                <th>Status Check Out</th>
-                                <th>Nama Tamu</th>
-                                <th>NIK</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Kabupaten / Kota</th>
-                                <th>Jabatan</th>
-                                <th>Nama Kantor</th>
-                                <th>No. HP</th>
-                                <th>&nbsp;</th>
+                                    <th>Check <br> In</th>
+                                    <th>Edit</th>
+                                    <th>No. Kamar</th>
+                                    <th>Timestamp</th>
+                                    <th>Nama Kegiatan</th>
+                                    <th>Tanggal Awal</th>
+                                    <th>Tanggal Akhir</th>
+                                    <th>Status Check Out</th>
+                                    <th>Nama Tamu</th>
+                                    <th>NIK</th>
+                                    <th>NUPTK</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Kabupaten / Kota</th>
+                                    <th>Jabatan</th>
+                                    <th>Nama Kantor</th>
+                                    <th>No. HP</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <!-- Search -->
                                 <?php
                                   $sql = "SELECT * FROM anggrek";
                                   $sql1 = "SELECT * FROM anggrek";
@@ -189,97 +187,188 @@
                                   $query1 = mysqli_query($db, $sql1);
                                   $query2 = mysqli_query($db, $sql2);
                                 ?>
-                                <?php while($list=mysqli_fetch_array($query1)) : 
-                                //$no++; 
-                                ?> 
+                                <?php while($list=mysqli_fetch_array($query1)) : ?> 
                                 <tr class="alert" role="alert">
-				                            <td>
-                                    <?php 
-                                    if($list['statusco']=="Terisi") 
-                                        echo 
-                                        "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit' onclick='return edit(event)' >
-                                        <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
-                                        </a>";
-                                    else 
-                                        echo 
-                                        "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
-                                        <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
-                                        </a>";
-                                    ?>
-                                      <script type="text/javascript">
-                                        function edit(ev){
-                                          ev.preventDefault();
-                                          var urlToRedirect = ev.currentTarget.getAttribute('href'); 
-                                          console.log(urlToRedirect);
-                                          Swal.fire({
-                                            title: 'Yakin akan memilih kamar ini?',
-                                            icon: "question",
-                                            showCancelButton: true,
-                                            confirmButtonText: 'Ya',
-                                          }).then((result) => {
-                                            if (result.isConfirmed) {
-                                              window.location.href = urlToRedirect;
+                                    <!-- check in -->
+				                    <td>
+                                        <?php 
+                                        if($list['statusco']=="Terisi") 
+                                            echo 
+                                            "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit' onclick='return edit(event)' >
+                                            <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
+                                            </a>";
+                                        else 
+                                            echo 
+                                            "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
+                                            <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
+                                            </a>";
+                                        ?>
+                                        <script type="text/javascript">
+                                            function edit(ev){
+                                                ev.preventDefault();
+                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                                console.log(urlToRedirect);
+                                                Swal.fire({
+                                                    title: 'Yakin akan memilih kamar ini?',
+                                                    icon: "question",
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Ya',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                    window.location.href = urlToRedirect;
+                                                    }
+                                                })
                                             }
-                                          })
-                                        }
-                                      </script>
+                                        </script>
                                     </td>
-                                    <td><?= $list['nomor_kamar']; ?></td>
-                                    <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
-                                    <td><?= $list['nama_kegiatan']; ?></td>
-                                    <td><?= $list['tanggal_awal']; ?></td>
-                                    <td><?= $list['tanggal_akhir']; ?></td>
-                                    <td><?= $list['statusco']; ?></td>
-                                    <td><?= $list['nama_tamu']; ?></td>
-                                    <td><?= $list['nik']; ?></td>
-                                    <td><?= $list['jenis_kelamin']; ?></td>
-                                    <td><?= $list['tanggal_lahir']; ?></td>
-                                    <td><?= $list['kota']; ?></td>
-                                    <td><?= $list['jabatan']; ?></td>
-                                    <td><?= $list['nama_kantor']; ?></td>
-                                    <td><?= $list['no_hp']; ?></td>
+                                    <!-- edit -->
                                     <td>
-                                    
-                                      <?php 
-                                      if($list['statusco']=="Kosong") 
-                                          echo 
-                                          "<a href=../../pages/form-pendaftaran/form-edit-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit'>
-                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span> Edit 
-                                          </a>
-                                          <a href=../../proses-hapus-anggrek.php?nomor_kamar=".$list['nomor_kamar']." onclick='return hapus(event)' class='disable'>
-                                          <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
-                                          </a>";
-                                      else 
-                                          echo 
-                                          "<a href=../../pages/form-pendaftaran/form-edit-anggrek.php?nomor_kamar=".$list['nomor_kamar']." id='edit'>
-                                          <span aria-hidden='true'><i class='fa fa-edit'></i></span> Edit 
-                                          </a>
-                                          <a href=../../proses-hapus-anggrek.php?nomor_kamar=".$list['nomor_kamar']." onclick='return hapus(event)'>
-                                          <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
-                                          </a>";
-                                      ?>
-                                      <script type="text/javascript">
-                                        function hapus(ev){
-                                          ev.preventDefault();
-                                          var urlToRedirect = ev.currentTarget.getAttribute('href'); 
-                                          console.log(urlToRedirect);
-                                          Swal.fire({
-                                            title: 'Data akan terhapus!',
-                                            icon: "warning",
-                                            showCancelButton: true,
-                                            confirmButtonText: 'Ya',
-                                          }).then((result) => {
-                                            if (result.isConfirmed) {
-                                              window.location.href = urlToRedirect;
-                                            }
-                                          })
-                                        }
-                                      </script>
-                                        <?php endwhile; ?>
+                                        <?php 
+                                        if($list['statusco']=="Kosong") 
+                                            echo 
+                                            "<a href=../../pages/form-pendaftaran/form-edit-anggrek.php?nik=".$list['nik']." class='disable' id='edit'>
+                                            <span aria-hidden='true'><i class='fa fa-edit'></i></span> 
+                                            </a>";
+                                        else 
+                                            echo 
+                                            "<a href=../../pages/form-pendaftaran/form-edit-anggrek.php?nik=".$list['nik']." id='edit'>
+                                            <span aria-hidden='true'><i class='fa fa-edit'></i></span> 
+                                            </a>";
+                                        ?>
                                     </td>
-				                        </tr>
+                                    <?php if($list['nik'] && $list['nik2']) {?> 
+                                        <!-- kalo data ada 2 -->
+                                        <td><?= $list['nomor_kamar']; ?></td>
+                                        <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
+                                        <td><?= $list['nama_kegiatan']; ?></td>
+                                        <td><?= $list['tanggal_awal']; ?></td>
+                                        <td><?= $list['tanggal_akhir']; ?></td>
+                                        <td><?= $list['statusco']; ?></td>
+                                        <td><?= $list['nama_tamu']; ?> <br><hr> <?= $list['nama_tamu2']; ?></td>
+                                        <td><?= $list['nik']; ?> <br><hr> <?= $list['nik2']; ?></td>
+                                        <td><?= $list['nuptk']; ?> <br><hr> <?= $list['nuptk2']; ?></td>
+                                        <td><?= $list['jenis_kelamin']; ?> <br><hr> <?= $list['jenis_kelamin2']; ?></td>
+                                        <td><?= $list['tanggal_lahir']; ?> <br><hr> <?= $list['tanggal_lahir2']; ?></td>
+                                        <td><?= $list['kota']; ?> <br><hr> <?= $list['kota2']; ?></td>
+                                        <td><?= $list['jabatan']; ?> <br><hr> <?= $list['jabatan2']; ?></td>
+                                        <td><?= $list['nama_kantor']; ?> <br><hr> <?= $list['nama_kantor2']; ?></td>
+                                        <td><?= $list['no_hp']; ?> <br><hr> <?= $list['no_hp2']; ?></td>
+                                        <td>
+                                            <!-- hapus nik yang pertama -->
+                                            <?php 
+                                                if($list['statusco']=="Kosong") 
+                                                    echo 
+                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik']." onclick='return hapus(event)' class='disable'>
+                                                    <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
+                                                    </a>";
+                                                else 
+                                                    echo 
+                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik']." onclick='return hapus(event)'>
+                                                    <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
+                                                    </a>";
+                                            ?>
+                                            <script type="text/javascript">
+                                                function hapus(ev){
+                                                ev.preventDefault();
+                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                                console.log(urlToRedirect);
+                                                Swal.fire({
+                                                    title: 'Data akan terhapus!',
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Ya',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                    window.location.href = urlToRedirect;
+                                                    }
+                                                })
+                                                }
+                                            </script>
+                                            <br> <hr>
+                                            <!-- hapus nik yang kedua -->
+                                            <?php 
+                                                if($list['statusco']=="Kosong") 
+                                                    echo 
+                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik2']." onclick='return hapus(event)' class='disable'>
+                                                    <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
+                                                    </a>";
+                                                else 
+                                                    echo
+                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik2']." onclick='return hapus(event)'>
+                                                    <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
+                                                    </a>";
+                                            ?>
+                                            <script type="text/javascript">
+                                                function hapus(ev){
+                                                ev.preventDefault();
+                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                                console.log(urlToRedirect);
+                                                Swal.fire({
+                                                    title: 'Data akan terhapus!',
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Ya',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                    window.location.href = urlToRedirect;
+                                                    }
+                                                })
+                                                }
+                                            </script>
+                                        </td>
+                                      <?php } else {?>
+                                        <!-- kalau data hanya 1 -->
+                                        <td><?= $list['nomor_kamar']; ?></td>
+                                        <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
+                                        <td><?= $list['nama_kegiatan']; ?></td>
+                                        <td><?= $list['tanggal_awal']; ?></td>
+                                        <td><?= $list['tanggal_akhir']; ?></td>
+                                        <td><?= $list['statusco']; ?></td>
+                                        <td><?= $list['nama_tamu']; ?> </td>
+                                        <td><?= $list['nik']; ?> </td>
+                                        <td><?= $list['nuptk']; ?> </td>
+                                        <td><?= $list['jenis_kelamin']; ?> </td>
+                                        <td><?= $list['tanggal_lahir']; ?> </td>
+                                        <td><?= $list['kota']; ?> </td>
+                                        <td><?= $list['jabatan']; ?> </td>
+                                        <td><?= $list['nama_kantor']; ?> </td>
+                                        <td><?= $list['no_hp']; ?> <br><br> </td>
+                                        <td>
+                                            <?php 
+                                                if($list['statusco']=="Kosong") 
+                                                    echo 
+                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik']." onclick='return hapus(event)' class='disable'>
+                                                    <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
+                                                    </a>";
+                                                else 
+                                                    echo 
+                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik']." onclick='return hapus(event)'>
+                                                    <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
+                                                    </a>";
+                                            ?>
+                                            <script type="text/javascript">
+                                                function hapus(ev){
+                                                ev.preventDefault();
+                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                                console.log(urlToRedirect);
+                                                Swal.fire({
+                                                    title: 'Data akan terhapus!',
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Ya',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                    window.location.href = urlToRedirect;
+                                                    }
+                                                })
+                                                }
+                                            </script>
+                                        </td>
+                                        <?php } ?>
+                                        <?php endwhile; ?>
+				                    </tr>
                               </tbody>
-			                        <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
+			                  <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
                               <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query2); ?></p>
                             </table>
                             </div>
