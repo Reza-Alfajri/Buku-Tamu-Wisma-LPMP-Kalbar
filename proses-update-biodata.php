@@ -17,6 +17,7 @@
         //ambil data dari formulir
         $nama_tamu = $_POST['nama_tamu'];
         $nik = $_POST['nik'];
+        $nuptk = $_POST['nuptk'];
         $jenis_kelamin = $_POST['jenis_kelamin'];
         $tanggal_lahir = $_POST['tanggal_lahir'];
         $kota = $_POST['kota'];
@@ -25,8 +26,8 @@
         $no_hp = $_POST['no_hp'];
         
         //buat query update
-        $sql1 = "INSERT INTO biodata (nama_tamu, nik, jenis_kelamin, kota, tanggal_lahir, jabatan, nama_kantor, no_hp)
-        VALUE ('$nama_tamu', '$nik', '$jenis_kelamin', '$kota', '$tanggal_lahir', '$jabatan', '$nama_kantor', '$no_hp')";
+        $sql1 = "INSERT INTO biodata (nama_tamu, nik, nuptk, jenis_kelamin, kota, tanggal_lahir, jabatan, nama_kantor, no_hp)
+        VALUE ('$nama_tamu', '$nik', '$nuptk', '$jenis_kelamin', '$kota', '$tanggal_lahir', '$jabatan', '$nama_kantor', '$no_hp')";
         $query1 = mysqli_query($db, $sql1);
         if( $query1 ){
             echo'<script language="javascript">
