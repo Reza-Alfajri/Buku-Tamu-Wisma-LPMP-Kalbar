@@ -160,6 +160,7 @@
                                 <tr>
                                     <th>Nama Tamu</th>
                                     <th>NIK</th>
+				    <th>NUPTK</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Tanggal Lahir</th>
                                     <th>Kabupaten / Kota</th>
@@ -184,6 +185,7 @@
                                   <tr class="alert" role="alert">
                                     <td><?= $list['nama_tamu']; ?></td>
                                     <td><?= $list['nik']; ?></td>
+				    <td><?= $list['nuptk']; ?></td>
                                     <td><?= $list['jenis_kelamin']; ?></td>
                                     <td><?= $list['tanggal_lahir']; ?></td>
                                     <td><?= $list['kota']; ?></td>
