@@ -92,12 +92,12 @@
           </li>
           <!-- List Kamar -->
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#list-kamar" aria-expanded="true" aria-controls="list-kamar">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">List Kamar</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="list-kamar">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="../../pages/list-kamar/list-kamar-handayani.php">Handayani</a></li>
                 <li class="nav-item"> <a class="nav-link" href="../../pages/list-kamar/list-kamar-anggrek.php">Anggrek</a></li>
@@ -106,10 +106,17 @@
           </li>
           <!-- Rekapan -->
           <li class="nav-item">
-            <a class="nav-link" href="../../pages/rekap/rekapan.php">
+            <a class="nav-link" data-toggle="collapse" href="#rekapan-tamu" aria-expanded="false" aria-controls="rekapan-tamu">
               <i class="ti-agenda menu-icon"></i>
               <span class="menu-title">Rekapan Tamu</span>
+              <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="rekapan-tamu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../../pages/rekap/rekap-handayani.php">Handayani</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/rekap/rekap-anggrek.php">Anggrek</a></li>
+              </ul>
+            </div>
           </li>
           <!-- Logout -->
           <li class="nav-item">
