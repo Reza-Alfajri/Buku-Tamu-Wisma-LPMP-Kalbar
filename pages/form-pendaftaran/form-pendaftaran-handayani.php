@@ -146,13 +146,80 @@
         </ul>
       </nav>
       <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.php">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Home</span>
+            </a>
+          </li>
+          <!-- Biodata -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/biodata/biodata-pengunjung.php">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Biodata Tamu</span>
+            </a>
+          </li>
+          <!-- List Kamar -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">List Kamar</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../../pages/list-kamar/list-kamar-handayani.php">Handayani</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/list-kamar/list-kamar-anggrek.php">Anggrek</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- Rekapan -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../pages/rekap/rekapan.php">
+              <i class="ti-agenda menu-icon"></i>
+              <span class="menu-title">Rekapan Pengunjung</span>
+            </a>
+          </li>
+          <!-- Logout -->
+          <li class="nav-item">
+            <a class="nav-link" href="../../logout.php" onclick="return logout(event)">
+              <i class="fa fa-sign-out menu-icon"></i>
+              <span class="menu-title">Logout</span>
+            </a>
+          </li>
+          <script type="text/javascript">
+            function logout(ev){
+              ev.preventDefault();
+              var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+              console.log(urlToRedirect);
+              Swal.fire({
+              title: 'Yakin akan keluar?',
+              icon: "question",
+              showCancelButton: true,
+              confirmButtonText: 'Ya',
+              }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = urlToRedirect;
+              }
+              })
+            }
+          </script>
+          <!--  -->
+        </ul>
+      </nav>
+      <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold fs-30">Form pendaftaran Wisma Handayani</h3>
+                  <h2 class="font-weight-bold">Form pendaftaran Wisma Handayani</h2>
                 </div>
               </div> 
             </div>
@@ -161,7 +228,8 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="font-weight-500">Silahkan isi formnya</h4>
+                  <h4 class="card-title">Buku Tamu</h4>
+                  <p class="font-weight-500">Silahkan isi formnya</p>
                     <form action="../../proses-kamar-handayani.php" method="POST">
                       <fieldset>
                         <!-- Baris 1 -->
@@ -207,110 +275,246 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 3 -->
-                        <div class="row">                          
-                          <!-- NIK -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">NIK</label>
-                              <div class="col-sm-9">
-                                <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" required>
-                              </div>
+                        <div class="after-add-more">
+                            <!-- Baris 3 -->
+                            <div class="row">
+                                <!-- NIK -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">NIK</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" required>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- NUPTK -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">NUPTK</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="nuptk" name="nuptk" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                        <!-- Baris 4 -->
-                        <div class="row">
-                          <!-- Nama Tamu -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Tamu</label>
-                              <div class="col-sm-9">
-                                <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" readonly>
-                              </div>
+                            <!-- Baris 4 -->
+                            <div class="row">
+                                <!-- Nama Tamu -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- Jenis Kelamin -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                    <div class="col-sm-9">
+                                        <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" required>
+                                        <option value="">-- jenis kelamin --</option>
+                                        <option value="pria">Pria</option>
+                                        <option value="wanita">Wanita</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                          <!-- Jenis Kelamin -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                              <div class="col-sm-9">
-                                <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" required>
-                                  <option value="">-- jenis kelamin --</option>
-                                  <option value="pria">Pria</option>
-                                  <option value="wanita">Wanita</option>
-                                </select>
-                              </div>
+                            <!-- Baris 5 -->
+                            <div class="row">
+                                <!-- Kota -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Kota</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="kota" id="kota" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- Tanggal Lahir -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                                    <div class="col-sm-9">
+                                        <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                        <!-- Baris 5 -->
-                        <div class="row">
-                          <!-- Kota -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Kota</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="kota" id="kota" class="form-control" readonly>
-                              </div>
+                            <!-- Baris 6 -->
+                            <div class="row">
+                                <!-- Jabatan -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jabatan</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="jabatan" id="jabatan" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- Nama Kantor -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                          <!-- Tanggal Lahir -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
-                              <div class="col-sm-9">
-                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" readonly>
-                              </div>
+                            <!-- Baris 7 -->
+                            <div class="row">
+                                <!-- No HP -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nomor HP</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="no_hp" id="no_hp" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- No Kamar -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nomor Kamar</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                        <!-- Baris 6 -->
-                        <div class="row">
-                          <!-- Jabatan -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Jabatan</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="jabatan" id="jabatan" class="form-control" readonly>
-                              </div>
+                            <!-- Baris 8 -->
+                            <div class="row">
+                                <!-- btn + -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-9">
+                                            <button class="btn btn-success add-more" type="button">
+                                                <i class="glyphicon glyphicon-plus"></i> Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                          <!-- Nama Kantor -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" readonly>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Baris 7 -->
-                        <div class="row">
-                          <!-- No HP -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nomor HP</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="no_hp" id="no_hp" class="form-control" readonly>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- No Kamar -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nomor Kamar</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </fieldset>
                       <p><input type="submit" value="Simpan" name="simpan" class="btn btn-primary col-md-4 align-self-center"></p>
-                  </form>
-                  
+                      </form>
+                      <!-- class hidden -->
+                        <div class="copy invisible">
+                            <div class="control-group">
+                                <!-- Baris 3 -->
+                                <div class="row">
+                                        <!-- NIK -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">NIK</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" id="nik2" name="nik2" onkeyup="isi_otomatis2()" class="form-control" required>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- NUPTK -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">NUPTK</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" id="nuptk2" name="nuptk2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Baris 4 -->
+                                <div class="row">
+                                        <!-- Nama Tamu -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" id="nama_tamu2" name="nama_tamu2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Jenis Kelamin -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                            <div class="col-sm-9">
+                                                <select name="jenis_kelamin2" id="jenis_kelamin2" class="custom-select" required>
+                                                <option value="">-- jenis kelamin --</option>
+                                                <option value="pria">Pria</option>
+                                                <option value="wanita">Wanita</option>
+                                                </select>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Baris 5 -->
+                                <div class="row">
+                                        <!-- Kota -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Kota</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="kota2" id="kota2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Tanggal Lahir -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" name="tanggal_lahir2" id="tanggal_lahir2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Baris 6 -->
+                                <div class="row">
+                                        <!-- Jabatan -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Jabatan</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="jabatan2" id="jabatan2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Nama Kantor -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Baris 7 -->
+                                <div class="row">
+                                        <!-- No HP -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nomor HP</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="no_hp2" id="no_hp2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- btn + -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <div class="col-sm-9">
+                                                    <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
               </div>
             </div>
@@ -357,6 +561,7 @@
   <script src="../../js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script type="text/javascript">
     function isi_otomatis(){
       var nik = $("#nik").val();
@@ -366,6 +571,7 @@
       }).success(function (data) {
         var json = data,
         obj = JSON.parse(json);
+        $('#nuptk').val(obj.nuptk);
         $('#nama_tamu').val(obj.nama_tamu);
         $('#jenis_kelamin').val(obj.jenis_kelamin);
         $('#tanggal_lahir').val(obj.tanggal_lahir);
@@ -375,7 +581,41 @@
         $('#no_hp').val(obj.no_hp);
       });
     }
-  </script>
-</body>
 
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $(".add-more").click(function(){ 
+            var html = $(".copy").html();
+            $(".after-add-more").after(html);
+        });
+
+        // saat tombol remove dklik control group akan dihapus 
+        $("body").on("click",".remove",function(){ 
+            $(this).parents(".control-group").remove();
+        });
+        });
+    </script>
+
+    <script type="text/javascript">
+    function isi_otomatis2(){
+      var nik2 = $("#nik2").val();
+      $.ajax({
+        url: 'ajax.php',
+        data:"nik="+nik2 ,
+      }).success(function (data) {
+        var json = data,
+        obj = JSON.parse(json);
+        $('#nuptk2').val(obj.nuptk);
+        $('#nama_tamu2').val(obj.nama_tamu);
+        $('#jenis_kelamin2').val(obj.jenis_kelamin);
+        $('#tanggal_lahir2').val(obj.tanggal_lahir);
+        $('#kota2').val(obj.kota);
+        $('#jabatan2').val(obj.jabatan);
+        $('#nama_kantor2').val(obj.nama_kantor);
+        $('#no_hp2').val(obj.no_hp);
+      });
+    }
+    </script>
+</body>
 </html>
