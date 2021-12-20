@@ -1,13 +1,9 @@
 <?php
-    session_start();
-    if(!isset($_SESSION["username"])){
-        header("Location: ../../login.php");
-    }
     //koneksi ke database
     include("../../koneksi.php");
     if (!isset($_GET['nomor_kamar'])) {
         //kalau tidak ada id di query string
-        header('Location: ../../pages/list-kamar/list-kamar-handayani.php');
+        header('Location: ../../pages/list-kamar/list-kamar-anggrek.php');
     }
     //ambil id dari query string
     $nomor_kamar = $_GET['nomor_kamar'];
@@ -29,7 +25,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Daftar | LPMP Kalbar</title>
+  <title>Buku Tamu Anggrek</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -45,7 +41,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/logo-lpmp-kecil.png"/>
+  <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
 <body>
   <div class="container-scroller">
@@ -53,7 +49,7 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo ms-10" href="../../index.php"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
-        <a class="navbar-brand d-lg-none" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" width="36px" height="40px" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -92,12 +88,12 @@
           </li>
           <!-- List Kamar -->
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#list-kamar" aria-expanded="true" aria-controls="list-kamar">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">List Kamar</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="list-kamar">
+            <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="../../pages/list-kamar/list-kamar-handayani.php">Handayani</a></li>
                 <li class="nav-item"> <a class="nav-link" href="../../pages/list-kamar/list-kamar-anggrek.php">Anggrek</a></li>
@@ -106,17 +102,10 @@
           </li>
           <!-- Rekapan -->
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#rekapan-tamu" aria-expanded="false" aria-controls="rekapan-tamu">
+            <a class="nav-link" href="../../pages/rekap/rekapan.php">
               <i class="ti-agenda menu-icon"></i>
-              <span class="menu-title">Rekapan Tamu</span>
-              <i class="menu-arrow"></i>
+              <span class="menu-title">Rekapan Pengunjung</span>
             </a>
-            <div class="collapse" id="rekapan-tamu">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/rekap/rekap-handayani.php">Handayani</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/rekap/rekap-anggrek.php">Anggrek</a></li>
-              </ul>
-            </div>
           </li>
           <!-- Logout -->
           <li class="nav-item">
@@ -152,7 +141,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Form pendaftaran Wisma Anggrek</h3>
+                  <h2 class="font-weight-bold">Form pendaftaran Wisma Anggrek</h2>
                 </div>
               </div> 
             </div>
@@ -161,7 +150,8 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="font-weight-500">Silahkan isi formnya</h4>
+                  <h4 class="card-title">Buku Tamu</h4>
+                  <p class="font-weight-500">Silahkan isi formnya</p>
                     <form action="../../proses-kamar-anggrek.php" method="POST">
                       <fieldset>
                         <!-- Baris 1 -->
@@ -207,110 +197,246 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 3 -->
-                        <div class="row">
-                          <!-- NIK -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">NIK</label>
-                              <div class="col-sm-9">
-                                <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" required>
-                              </div>
+                        <div class="after-add-more">
+                            <!-- Baris 3 -->
+                            <div class="row">
+                                <!-- NIK -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">NIK</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" required>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- NUPTK -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">NUPTK</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="nuptk" name="nuptk" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                        <!-- Baris 4 -->
-                        <div class="row">
-                          <!-- Nama Tamu -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Tamu</label>
-                              <div class="col-sm-9">
-                                <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" readonly>
-                              </div>
+                            <!-- Baris 4 -->
+                            <div class="row">
+                                <!-- Nama Tamu -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- Jenis Kelamin -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                    <div class="col-sm-9">
+                                        <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" required>
+                                        <option value="">-- jenis kelamin --</option>
+                                        <option value="pria">Pria</option>
+                                        <option value="wanita">Wanita</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                          <!-- Jenis Kelamin -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                              <div class="col-sm-9">
-                                <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" required>
-                                  <option value="">-- jenis kelamin --</option>
-                                  <option value="pria">Pria</option>
-                                  <option value="wanita">Wanita</option>
-                                </select>
-                              </div>
+                            <!-- Baris 5 -->
+                            <div class="row">
+                                <!-- Kota -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Kota</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="kota" id="kota" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- Tanggal Lahir -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                                    <div class="col-sm-9">
+                                        <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                        <!-- Baris 5 -->
-                        <div class="row">
-                          <!-- Kota -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Kota</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="kota" id="kota" class="form-control" readonly>
-                              </div>
+                            <!-- Baris 6 -->
+                            <div class="row">
+                                <!-- Jabatan -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jabatan</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="jabatan" id="jabatan" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- Nama Kantor -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                          <!-- Tanggal Lahir -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
-                              <div class="col-sm-9">
-                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" readonly>
-                              </div>
+                            <!-- Baris 7 -->
+                            <div class="row">
+                                <!-- No HP -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nomor HP</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="no_hp" id="no_hp" class="form-control" readonly>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- No Kamar -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nomor Kamar</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
+                                    </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                        <!-- Baris 6 -->
-                        <div class="row">
-                          <!-- Jabatan -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Jabatan</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="jabatan" id="jabatan" class="form-control" readonly>
-                              </div>
+                            <!-- Baris 8 -->
+                            <div class="row">
+                                <!-- btn + -->
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-9">
+                                            <button class="btn btn-success add-more" type="button">
+                                                <i class="glyphicon glyphicon-plus"></i> Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                          <!-- Nama Kantor -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" readonly>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Baris 7 -->
-                        <div class="row">
-                          <!-- No HP -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nomor HP</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="no_hp" id="no_hp" class="form-control" readonly>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- No Kamar -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nomor Kamar</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </fieldset>
                       <p><input type="submit" value="Simpan" name="simpan" class="btn btn-primary col-md-4 align-self-center"></p>
-                  </form>
-                  
+                      </form>
+                      <!-- class hidden -->
+                        <div class="copy invisible">
+                            <div class="control-group">
+                                <!-- Baris 3 -->
+                                <div class="row">
+                                        <!-- NIK -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">NIK</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" id="nik2" name="nik2" onkeyup="isi_otomatis2()" class="form-control" required>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- NUPTK -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">NUPTK</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" id="nuptk2" name="nuptk2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Baris 4 -->
+                                <div class="row">
+                                        <!-- Nama Tamu -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" id="nama_tamu2" name="nama_tamu2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Jenis Kelamin -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                            <div class="col-sm-9">
+                                                <select name="jenis_kelamin2" id="jenis_kelamin2" class="custom-select" required>
+                                                <option value="">-- jenis kelamin --</option>
+                                                <option value="pria">Pria</option>
+                                                <option value="wanita">Wanita</option>
+                                                </select>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Baris 5 -->
+                                <div class="row">
+                                        <!-- Kota -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Kota</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="kota2" id="kota2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Tanggal Lahir -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" name="tanggal_lahir2" id="tanggal_lahir2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Baris 6 -->
+                                <div class="row">
+                                        <!-- Jabatan -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Jabatan</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="jabatan2" id="jabatan2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- Nama Kantor -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Baris 7 -->
+                                <div class="row">
+                                        <!-- No HP -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nomor HP</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="no_hp2" id="no_hp2" class="form-control" readonly>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- btn + -->
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <div class="col-sm-9">
+                                                    <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
               </div>
             </div>
@@ -357,6 +483,7 @@
   <script src="../../js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script type="text/javascript">
     function isi_otomatis(){
       var nik = $("#nik").val();
@@ -366,6 +493,7 @@
       }).success(function (data) {
         var json = data,
         obj = JSON.parse(json);
+        $('#nuptk').val(obj.nuptk);
         $('#nama_tamu').val(obj.nama_tamu);
         $('#jenis_kelamin').val(obj.jenis_kelamin);
         $('#tanggal_lahir').val(obj.tanggal_lahir);
@@ -375,6 +503,41 @@
         $('#no_hp').val(obj.no_hp);
       });
     }
-  </script>
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $(".add-more").click(function(){ 
+            var html = $(".copy").html();
+            $(".after-add-more").after(html);
+        });
+
+        // saat tombol remove dklik control group akan dihapus 
+        $("body").on("click",".remove",function(){ 
+            $(this).parents(".control-group").remove();
+        });
+        });
+    </script>
+
+    <script type="text/javascript">
+    function isi_otomatis2(){
+      var nik2 = $("#nik2").val();
+      $.ajax({
+        url: 'ajax.php',
+        data:"nik="+nik2 ,
+      }).success(function (data) {
+        var json = data,
+        obj = JSON.parse(json);
+        $('#nuptk2').val(obj.nuptk);
+        $('#nama_tamu2').val(obj.nama_tamu);
+        $('#jenis_kelamin2').val(obj.jenis_kelamin);
+        $('#tanggal_lahir2').val(obj.tanggal_lahir);
+        $('#kota2').val(obj.kota);
+        $('#jabatan2').val(obj.jabatan);
+        $('#nama_kantor2').val(obj.nama_kantor);
+        $('#no_hp2').val(obj.no_hp);
+      });
+    }
+    </script>
 </body>
 </html>
