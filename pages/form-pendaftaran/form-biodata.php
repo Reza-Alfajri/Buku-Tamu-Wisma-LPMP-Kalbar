@@ -162,6 +162,16 @@
                               </div>
                             </div>
                           </div>
+                          <!-- nuptk -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NUPTK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nuptk" name="nuptk" class="form-control" pleceholder="isi jika ada" required>
+                                <p> <i> -- isi jika ada -- </i> </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                         <!-- Baris 2 -->
                         <div class="row">
