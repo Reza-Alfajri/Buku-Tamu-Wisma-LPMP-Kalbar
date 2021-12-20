@@ -1,18 +1,14 @@
 <?php
-    session_start();
-    if(!isset($_SESSION["username"])){
-        header("Location: ../../login.php");
-    }
     //koneksi ke database
     include("../../koneksi.php");
-    if (!isset($_GET['nomor_kamar'])) {
+    if (!isset($_GET['nik'])) {
         //kalau tidak ada id di query string
         header('Location: ../../pages/list-kamar/list-kamar-anggrek.php');
     }
     //ambil id dari query string
-    $nomor_kamar = $_GET['nomor_kamar'];
+    $nik = $_GET['nik'];
     //buat query untuk ambil data dari database
-    $sql = "SELECT * FROM anggrek WHERE nomor_kamar=$nomor_kamar";
+    $sql = "SELECT * FROM anggrek WHERE nik=$nik";
     $query = mysqli_query($db, $sql);
     $list = mysqli_fetch_assoc($query);
     
@@ -29,7 +25,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Edit Data | LPMP Kalbar</title>
+  <title>Edit Data Tamu</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -53,7 +49,7 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo ms-10" href="../../index.php"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
-        <a class="navbar-brand d-lg-none" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" width="36px" height="40px" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -152,7 +148,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Form Edit Kamar Anggrek</h3>
+                  <h2 class="font-weight-bold">Form Edit Kamar Anggrek</h2>
                 </div>
               </div> 
             </div>
@@ -161,7 +157,9 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="font-weight-500">Silahkan isi formnya</h4>
+                  <h4 class="card-title">Buku Tamu</h4>
+                  <p class="font-weight-500">Silahkan isi formnya</p>
+                  <?php if($list['nik'] && $list['nik2']) {?>
                     <form action="../../proses-edit-kamar-anggrek.php" method="POST">
                       <fieldset>
                         <!-- Baris 1 -->
@@ -214,7 +212,286 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">NIK</label>
                               <div class="col-sm-9">
-                                <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" value="<?php echo $list['nik']?>">
+                                <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" value="<?php echo $list['nik']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- nuptk -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NUPTK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nuptk" name="nuptk" class="form-control" value="<?php echo $list['nuptk']?>" readonly>
+                                <p> <i> -- isi jika ada -- </i> </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 4 -->
+                        <div class="row">
+                          <!-- Nama Tamu -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" value="<?php echo $list['nama_tamu']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Jenis Kelamin -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                              <div class="col-sm-9">
+                                <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" disabled>
+                                  <option><?php echo $list['jenis_kelamin']?></option>
+                                  <option value="pria">Pria</option>
+                                  <option value="wanita">Wanita</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 5 -->
+                        <div class="row">
+                          <!-- Kota -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Kota</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="kota" id="kota" class="form-control" value="<?php echo $list['kota']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Tanggal Lahir -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" value="<?php echo $list['tanggal_lahir']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 6 -->
+                        <div class="row">
+                          <!-- Jabatan -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Jabatan</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="jabatan" id="jabatan" class="form-control" value="<?php echo $list['jabatan']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Nama Kantor -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" value="<?php echo $list['nama_kantor']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 7 -->
+                        <div class="row">
+                          <!-- No HP -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nomor HP</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="no_hp" id="no_hp" class="form-control" value="<?php echo $list['no_hp']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- No Kamar -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nomor Kamar</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 8 -->
+                        <div class="row">                          
+                          <!-- NIK -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NIK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nik2" name="nik2" onkeyup="isi_otomatis()" class="form-control" value="<?php echo $list['nik2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- nuptk -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NUPTK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nuptk" name="nuptk" class="form-control" value="<?php echo $list['nuptk2']?>" readonly>
+                                <p> <i> -- isi jika ada -- </i> </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 9 -->
+                        <div class="row">
+                          <!-- Nama Tamu -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nama_tamu2" name="nama_tamu2" class="form-control" value="<?php echo $list['nama_tamu2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Jenis Kelamin -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                              <div class="col-sm-9">
+                                <select name="jenis_kelamin2" id="jenis_kelamin2" class="custom-select" disabled>
+                                  <option><?php echo $list['jenis_kelamin2']?></option>
+                                  <option value="pria">Pria</option>
+                                  <option value="wanita">Wanita</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 10 -->
+                        <div class="row">
+                          <!-- Kota -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Kota</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="kota2" id="kota2" class="form-control" value="<?php echo $list['kota2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Tanggal Lahir -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_lahir2" id="tanggal_lahir2" class="form-control" value="<?php echo $list['tanggal_lahir2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 11 -->
+                        <div class="row">
+                          <!-- Jabatan -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Jabatan</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="jabatan2" id="jabatan2" class="form-control" value="<?php echo $list['jabatan2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Nama Kantor -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" value="<?php echo $list['nama_kantor']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 7 -->
+                        <div class="row">
+                          <!-- No HP -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nomor HP</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="no_hp2" id="no_hp2" class="form-control" value="<?php echo $list['no_hp2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- No Kamar -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nomor Kamar</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                      <p><input type="submit" value="Simpan" name="simpan" class="btn btn-primary col-md-4 align-self-center"></p>
+                  </form>
+                <?php } else {?>
+                  <form action="../../proses-edit-kamar-anggrek.php" method="POST">
+                      <fieldset>
+                        <!-- Baris 1 -->
+                        <div class="row">
+                          <!-- Nama Kegiatan -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Kegiatan</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nama_kegiatan" class="form-control" value="<?php echo $list['nama_kegiatan']?>"></p>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Timestamp -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Timestamp</label>
+                              <div class="col-sm-9">
+                                <input type="datetime" name="timestamp" class="form-control"
+                                value="<?php echo $list['timestamp']?>"></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 2 -->
+                        <div class="row">
+                          <!-- Tanggal Awal -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Awal</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_awal" class="form-control" value="<?php echo $list['tanggal_awal']?>">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Tanggal Akhir -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Akhir</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_akhir" class="form-control" value="<?php echo $list['tanggal_akhir']?>">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 3 -->
+                        <div class="row">                          
+                          <!-- NIK -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NIK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" value="<?php echo $list['nik']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- nuptk -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NUPTK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nuptk" name="nuptk" class="form-control" value="<?php echo $list['nuptk']?>" readonly>
+                                <p> <i> -- isi jika ada -- </i> </p>
                               </div>
                             </div>
                           </div>
@@ -310,7 +587,7 @@
                       </fieldset>
                       <p><input type="submit" value="Simpan" name="simpan" class="btn btn-primary col-md-4 align-self-center"></p>
                   </form>
-                  
+                <?php } ?>
                 </div>
               </div>
             </div>
