@@ -1,14 +1,14 @@
 <?php
     //koneksi ke database
     include("../../koneksi.php");
-    if (!isset($_GET['nik'])) {
+    if (!isset($_GET['nomor_kamar'])) {
         //kalau tidak ada id di query string
         header('Location: ../../pages/list-kamar/list-kamar-anggrek.php');
     }
     //ambil id dari query string
-    $nik = $_GET['nik'];
+    $nomor_kamar = $_GET['nomor_kamar'];
     //buat query untuk ambil data dari database
-    $sql = "SELECT * FROM anggrek WHERE nik=$nik";
+    $sql = "SELECT * FROM anggrek WHERE nomor_kamar=$nomor_kamar";
     $query = mysqli_query($db, $sql);
     $list = mysqli_fetch_assoc($query);
     
