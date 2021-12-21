@@ -37,20 +37,44 @@
             nik='$nik', nuptk='$nuptk', nama_tamu='$nama_tamu', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', statusco='$statusco', kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp', 
             nik2='$nik2', nuptk2='$nuptk2', nama_tamu2='$nama_tamu2', jenis_kelamin2='$jenis_kelamin2', tanggal_lahir2='$tanggal_lahir2', kota2='$kota2', jabatan2='$jabatan2', nama_kantor2='$nama_kantor2', no_hp2='$no_hp2' 
             WHERE nomor_kamar='$nomor_kamar'";
-        $sql1 = "INSERT INTO rekapan (timestamp, nama_kegiatan, tanggal_awal, tanggal_akhir, 
+
+        if(isset($_POST['nik2'])){
+            $sql1 = "INSERT INTO rekapan (timestamp, nama_kegiatan, tanggal_awal, tanggal_akhir, 
             nama_tamu, nik, nuptk, jenis_kelamin, tanggal_lahir, kota, jabatan, nama_kantor, no_hp, 
-            nama_tamu2, nik2, nuptk2, jenis_kelamin2, tanggal_lahir2, kota2, jabatan2, nama_kantor2, no_hp2, 
+            wisma, nomor_kamar)
+            VALUE ('$timestamp', '$nama_kegiatan', '$tanggal_awal', '$tanggal_akhir', 
+            '$nama_tamu', '$nik', '$nuptk', '$jenis_kelamin', '$tanggal_lahir', '$kota', '$jabatan', '$nama_kantor', '$no_hp',  
+            '$wisma', '$nomor_kamar')";
+            $sql2 = "INSERT INTO rekapan (timestamp, nama_kegiatan, tanggal_awal, tanggal_akhir, 
+            nama_tamu, nik, nuptk, jenis_kelamin, tanggal_lahir, kota, jabatan, nama_kantor, no_hp, 
+            wisma, nomor_kamar)
+            VALUE ('$timestamp', '$nama_kegiatan', '$tanggal_awal', '$tanggal_akhir', 
+            '$nama_tamu2', '$nik2', '$nuptk2', '$jenis_kelamin2', '$tanggal_lahir2', '$kota2', '$jabatan2', '$nama_kantor2', '$no_hp2', 
+            '$wisma', '$nomor_kamar')";
+
+            $query = mysqli_query($db, $sql);
+            $query1 = mysqli_query($db, $sql1);
+            $query2 = mysqli_query($db, $sql2);
+            if( $query && $query1 && $query2){
+                header('Location: pages/list-kamar/list-kamar-anggrek.php');
+            } else {
+                die("Gagal menyimpan perubahan ...");
+            }
+        } else {
+            $sql1 = "INSERT INTO rekapan (timestamp, nama_kegiatan, tanggal_awal, tanggal_akhir, 
+            nama_tamu, nik, nuptk, jenis_kelamin, tanggal_lahir, kota, jabatan, nama_kantor, no_hp,  
             wisma, nomor_kamar)
             VALUE ('$timestamp', '$nama_kegiatan', '$tanggal_awal', '$tanggal_akhir', 
             '$nama_tamu', '$nik', '$nuptk', '$jenis_kelamin', '$tanggal_lahir', '$kota', '$jabatan', '$nama_kantor', '$no_hp', 
-            '$nama_tamu2', '$nik2', '$nuptk2', '$jenis_kelamin2', '$tanggal_lahir2', '$kota2', '$jabatan2', '$nama_kantor2', '$no_hp2', 
             '$wisma', '$nomor_kamar')";
-        $query = mysqli_query($db, $sql);
-        $query1 = mysqli_query($db, $sql1);
-        if( $query && $query1 ){
-            header('Location: pages/list-kamar/list-kamar-anggrek.php');
-        } else {
-            die("Gagal menyimpan perubahan ...");
+
+            $query = mysqli_query($db, $sql);
+            $query1 = mysqli_query($db, $sql1);
+            if( $query && $query1){
+                header('Location: pages/list-kamar/list-kamar-anggrek.php');
+            } else {
+                die("Gagal menyimpan perubahan ...");
+            }
         }
     } else {
         die("Akses dilarang ...");
