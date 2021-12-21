@@ -326,26 +326,6 @@
                                 <?php while($list=mysqli_fetch_array($query1)) : 
                                   //$no++; 
                                 ?> 
-                                <?php if($list['nik'] && $list['nik2']) {?>
-                                  <tr class="alert" role="alert">
-                                    <td><?= $list['timestamp']; ?></td>
-                                    <td><?= $list['nama_kegiatan']; ?></td>
-                                    <td><?= $list['tanggal_awal']; ?></td>
-                                    <td><?= $list['tanggal_akhir']; ?></td>
-                                    <td><?= $list['nama_tamu']; ?> <br> <hr> <?= $list['nama_tamu2']; ?> </td>
-                                    <td><?= $list['nik']; ?> <br> <hr> <?= $list['nik2']; ?> </td>
-                                    <td><?= $list['nuptk']; ?> <br> <hr> <?= $list['nuptk2']; ?> </td>
-                                    <td><?= $list['jenis_kelamin']; ?> <br> <hr> <?= $list['jenis_kelamin2']; ?> </td>
-                                    <td><?= $list['tanggal_lahir']; ?> <br> <hr> <?= $list['tanggal_lahir2']; ?> </td>
-                                    <td><?= $list['kota']; ?> <br> <hr> <?= $list['kota2']; ?> </td>
-                                    <td><?= $list['jabatan']; ?> <br> <hr> <?= $list['jabatan']; ?> </td>
-                                    <td><?= $list['nama_kantor']; ?> <br> <hr> <?= $list['nama_kantor2']; ?> </td>
-                                    <td><?= $list['no_hp']; ?> <br> <hr> <?= $list['no_hp2']; ?> </td>
-                                    <td><?= $list['wisma']; ?></td>
-                                    <td><?= $list['nomor_kamar']; ?></td>
-                                    <td><?= $list['keterangan']; ?></td>
-                                  </tr>
-                                <?php } else {?>
                                 <tr class="alert" role="alert">
                                     <td><?= $list['timestamp']; ?></td>
                                     <td><?= $list['nama_kegiatan']; ?></td>
@@ -364,7 +344,6 @@
                                     <td><?= $list['nomor_kamar']; ?></td>
                                     <td><?= $list['keterangan']; ?></td>
                                 </tr>
-                                <?php } ?>
                                 <?php endwhile; ?>
                             </tbody>
                         </table>
