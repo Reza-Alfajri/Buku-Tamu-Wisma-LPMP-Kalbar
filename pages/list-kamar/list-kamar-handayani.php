@@ -232,12 +232,12 @@
                                         <?php 
                                         if($list['statusco']=="Kosong") 
                                             echo 
-                                            "<a href=../../pages/form-pendaftaran/form-edit-handayani.php?nik=".$list['nik']." class='disable' id='edit'>
+                                            "<a href=../../pages/form-pendaftaran/form-edit-handayani.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit'>
                                             <span aria-hidden='true'><i class='fa fa-edit'></i></span> 
                                             </a>";
                                         else 
                                             echo 
-                                            "<a href=../../pages/form-pendaftaran/form-edit-handayani.php?nik=".$list['nik']." id='edit'>
+                                            "<a href=../../pages/form-pendaftaran/form-edit-handayani.php?nomor_kamar=".$list['nomor_kamar']." id='edit'>
                                             <span aria-hidden='true'><i class='fa fa-edit'></i></span> 
                                             </a>";
                                         ?>
