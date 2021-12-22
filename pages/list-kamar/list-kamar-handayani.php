@@ -245,10 +245,10 @@
                                     <?php if($list['nik'] && $list['nik2']) {?> 
                                         <!-- kalo data ada 2 -->
                                         <td><?= $list['nomor_kamar']; ?></td>
-                                        <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
-                                        <td><?= $list['nama_kegiatan']; ?></td>
-                                        <td><?= $list['tanggal_awal']; ?></td>
-                                        <td><?= $list['tanggal_akhir']; ?></td>
+                                        <td><?= date_format(date_create($list['timestamp']),"H:i"); ?> <br> <hr> <?= date_format(date_create($list['timestamp2']),"H:i"); ?></td>
+                                        <td><?= $list['nama_kegiatan']; ?> <br> <hr> <?= $list['nama_kegiatan2']; ?></td>
+                                        <td><?= $list['tanggal_awal']; ?> <br> <hr> <?= $list['tanggal_awal2']; ?></td>
+                                        <td><?= $list['tanggal_akhir']; ?> <br> <hr> <?= $list['tanggal_akhir2']; ?></td>
                                         <td><?= $list['statusco']; ?></td>
                                         <td><?= $list['nama_tamu']; ?> <br><hr> <?= $list['nama_tamu2']; ?></td>
                                         <td><?= $list['nik']; ?> <br><hr> <?= $list['nik2']; ?></td>
@@ -325,10 +325,10 @@
 					<?php } else if( $list['nik2']) {?> 
                                         <!-- kalau data hanya 1 -->
                                         <td><?= $list['nomor_kamar']; ?></td>
-                                        <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
-                                        <td><?= $list['nama_kegiatan']; ?></td>
-                                        <td><?= $list['tanggal_awal']; ?></td>
-                                        <td><?= $list['tanggal_akhir']; ?></td>
+                                        <td><?= date_format(date_create($list['timestamp2']),"H:i"); ?></td>
+                                        <td><?= $list['nama_kegiatan2']; ?></td>
+                                        <td><?= $list['tanggal_awal2']; ?></td>
+                                        <td><?= $list['tanggal_akhir2']; ?></td>
                                         <td><?= $list['statusco']; ?></td>
                                         <td><?= $list['nama_tamu2']; ?> </td>
                                         <td><?= $list['nik2']; ?> </td>
