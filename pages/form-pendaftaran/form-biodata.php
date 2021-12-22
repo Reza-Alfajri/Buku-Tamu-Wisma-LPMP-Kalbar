@@ -146,7 +146,6 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="font-weight-500">Silahkan isi formnya</4>
                     <form action="../../proses-update-biodata.php" method="POST">
                       <fieldset>
                         <!-- Baris 1 -->
