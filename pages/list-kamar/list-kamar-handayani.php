@@ -264,12 +264,12 @@
                                             <?php 
                                                 if($list['statusco']=="Kosong") 
                                                     echo 
-                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik']." onclick='return hapus(event)' class='disable'>
+                                                    "<a href=../../proses-hapus-handayani.php?nomor_kamar1=".$list['nomor_kamar']." onclick='return hapus(event)' class='disable'>
                                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
                                                     </a>";
                                                 else 
                                                     echo 
-                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik']." onclick='return hapus(event)'>
+                                                    "<a href=../../proses-hapus-handayani.php?nomor_kamar1=".$list['nomor_kamar']." onclick='return hapus(event)'>
                                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
                                                     </a>";
                                             ?>
@@ -295,12 +295,60 @@
                                             <?php 
                                                 if($list['statusco']=="Kosong") 
                                                     echo 
-                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik2']." onclick='return hapus(event)' class='disable'>
+                                                    "<a href=../../proses-hapus-handayani.php?nomor_kamar2=".$list['nomor_kamar']." onclick='return hapus(event)' class='disable'>
                                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
                                                     </a>";
                                                 else 
                                                     echo
-                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik2']." onclick='return hapus(event)'>
+                                                    "<a href=../../proses-hapus-handayani.php?nomor_kamar2=".$list['nomor_kamar']." onclick='return hapus(event)'>
+                                                    <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
+                                                    </a>";
+                                            ?>
+                                            <script type="text/javascript">
+                                                function hapus(ev){
+                                                ev.preventDefault();
+                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                                console.log(urlToRedirect);
+                                                Swal.fire({
+                                                    title: 'Data akan terhapus!',
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Ya',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                    window.location.href = urlToRedirect;
+                                                    }
+                                                })
+                                                }
+                                            </script>
+                                        </td>
+					<?php } else if( $list['nik2']) {?> 
+                                        <!-- kalau data hanya 1 -->
+                                        <td><?= $list['nomor_kamar']; ?></td>
+                                        <td><?= date_format(date_create($list['timestamp']),"H:i"); ?></td>
+                                        <td><?= $list['nama_kegiatan']; ?></td>
+                                        <td><?= $list['tanggal_awal']; ?></td>
+                                        <td><?= $list['tanggal_akhir']; ?></td>
+                                        <td><?= $list['statusco']; ?></td>
+                                        <td><?= $list['nama_tamu2']; ?> </td>
+                                        <td><?= $list['nik2']; ?> </td>
+                                        <td><?= $list['nuptk2']; ?> </td>
+                                        <td><?= $list['jenis_kelamin2']; ?> </td>
+                                        <td><?= $list['tanggal_lahir2']; ?> </td>
+                                        <td><?= $list['kota2']; ?> </td>
+                                        <td><?= $list['jabatan2']; ?> </td>
+                                        <td><?= $list['nama_kantor2']; ?> </td>
+                                        <td><?= $list['no_hp2']; ?> <br><br> </td>
+                                        <td>
+                                            <?php 
+                                                if($list['statusco']=="Kosong") 
+                                                    echo 
+                                                    "<a href=../../proses-hapus-handayani.php?nomor_kamar=".$list['nomor_kamar']." onclick='return hapus(event)' class='disable'>
+                                                    <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
+                                                    </a>";
+                                                else 
+                                                    echo 
+                                                    "<a href=../../proses-hapus-handayani.php?nomor_kamar=".$list['nomor_kamar']." onclick='return hapus(event)'>
                                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
                                                     </a>";
                                             ?>
@@ -343,12 +391,12 @@
                                             <?php 
                                                 if($list['statusco']=="Kosong") 
                                                     echo 
-                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik']." onclick='return hapus(event)' class='disable'>
+                                                    "<a href=../../proses-hapus-handayani.php?nomor_kamar=".$list['nomor_kamar']." onclick='return hapus(event)' class='disable'>
                                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
                                                     </a>";
                                                 else 
                                                     echo 
-                                                    "<a href=../../proses-hapus-coba.php?nik=".$list['nik']." onclick='return hapus(event)'>
+                                                    "<a href=../../proses-hapus-handayani.php?nomor_kamar=".$list['nomor_kamar']." onclick='return hapus(event)'>
                                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Check Out
                                                     </a>";
                                             ?>
