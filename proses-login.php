@@ -27,28 +27,18 @@
         $_SESSION['username'] = $username;
         header("location: index.php");
     }else{
-        echo '<script type="text/javascript">
-              Swal.fire({
-                title: "Username atau Password Salah!",
-                icon: "warning",
-                timer: 1500,
-                showConfirmButton: false,
-                didOpen: () => {
-                const b = Swal.getHtmlContainer().querySelector("b")
-                    timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
-              /* Read more about handling dismissals below */
-              if (result.dismiss === Swal.DismissReason.timer) {
-                window.history.back();
-              }
-            });
-            </script>';
+        echo '
+        <script language="javascript">
+                Swal.fire({
+                    title: "Username atau Password Salah!",
+                    icon: "warning",
+                    confirmButtonText: "Login",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                  }); 
+        </script>';
     }
     ?>
 </body>
