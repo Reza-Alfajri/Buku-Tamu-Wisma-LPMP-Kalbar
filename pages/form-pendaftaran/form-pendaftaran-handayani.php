@@ -161,291 +161,342 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Buku Tamu</h4>
-                  <p class="font-weight-500">Silahkan isi formnya</p>
+                  <div class="row mb-4">
+                    <div class="col-12 col-xl-11 mb-4 mb-xl-0">
+                      <h3 class="font-weight-bold">Form Kamar</h3>                     
+                    </div>
+                    <div class="col-12 col-xl-1">
+                      <h2 class="font-weight-bold"><?php echo $list['nomor_kamar']?></h2>
+                    </div>
+                  </div>
                     <form action="../../proses-kamar-handayani.php" method="POST">
                       <fieldset>
-                        <!-- Baris 1 -->
-                        <div class="row">
-                          <!-- Nama Kegiatan -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Kegiatan</label>
-                              <div class="col-sm-9">
-                                <input type="text" name="nama_kegiatan" class="form-control"></p>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Timestamp -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Timestamp</label>
-                              <div class="col-sm-9">
-                                <input type="datetime" name="timestamp" class="form-control"
-                                value="<?php date_default_timezone_set('Asia/Jakarta'); echo date("Y/m/d H:i:s"); ?>" readonly></p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Baris 2 -->
-                        <div class="row">
-                          <!-- Tanggal Awal -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Tanggal Awal</label>
-                              <div class="col-sm-9">
-                                <input type="date" name="tanggal_awal" class="form-control" required>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Tanggal Akhir -->
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Tanggal Akhir</label>
-                              <div class="col-sm-9">
-                                <input type="date" name="tanggal_akhir" class="form-control" required>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                         <div class="after-add-more">
-                            <!-- Baris 3 -->
-                            <div class="row">
-                                <!-- NIK -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">NIK</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" required>
-                                    </div>
-                                    </div>
+                          <!-- Tamu 1 -->
+                          <!-- Baris 1 -->
+                          <div class="row">
+                            <!-- Nama Kegiatan -->
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Nama Kegiatan</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="nama_kegiatan" class="form-control"></p>
                                 </div>
-                                <!-- NUPTK -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">NUPTK</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="nuptk" name="nuptk" class="form-control" readonly>
-                                    </div>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- Baris 4 -->
-                            <div class="row">
-                                <!-- Nama Tamu -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nama Tamu</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" readonly>
-                                    </div>
-                                    </div>
+                            <!-- Timestamp -->
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Timestamp</label>
+                                <div class="col-sm-9">
+                                  <input type="datetime" name="timestamp" class="form-control"
+                                  value="<?php date_default_timezone_set('Asia/Jakarta'); echo date("Y/m/d H:i:s"); ?>" readonly></p>
                                 </div>
-                                <!-- Jenis Kelamin -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                                    <div class="col-sm-9">
-                                        <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" required>
-                                        <option value="">-- jenis kelamin --</option>
-                                        <option value="pria">Pria</option>
-                                        <option value="wanita">Wanita</option>
-                                        </select>
-                                    </div>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- Baris 5 -->
-                            <div class="row">
-                                <!-- Kota -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Kota</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="kota" id="kota" class="form-control" readonly>
-                                    </div>
-                                    </div>
+                          </div>
+                          <!-- Baris 2 -->
+                          <div class="row">
+                            <!-- Tanggal Awal -->
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Tanggal Awal</label>
+                                <div class="col-sm-9">
+                                  <input type="date" name="tanggal_awal" class="form-control" required>
                                 </div>
-                                <!-- Tanggal Lahir -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-sm-9">
-                                        <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" readonly>
-                                    </div>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- Baris 6 -->
-                            <div class="row">
-                                <!-- Jabatan -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Jabatan</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="jabatan" id="jabatan" class="form-control" readonly>
-                                    </div>
-                                    </div>
+                            <!-- Tanggal Akhir -->
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Tanggal Akhir</label>
+                                <div class="col-sm-9">
+                                  <input type="date" name="tanggal_akhir" class="form-control" required>
                                 </div>
-                                <!-- Nama Kantor -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nama Kantor</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" readonly>
-                                    </div>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- Baris 7 -->
-                            <div class="row">
-                                <!-- No HP -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nomor HP</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="no_hp" id="no_hp" class="form-control" readonly>
-                                    </div>
-                                    </div>
-                                </div>
-                                <!-- No Kamar -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nomor Kamar</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Baris 8 -->
-                            <div class="row">
-                                <!-- btn + -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <div class="col-sm-9">
-                                            <button class="btn btn-success add-more" type="button">
-                                                <i class="glyphicon glyphicon-plus"></i> Add
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                          </div>
+                              <!-- Baris 3 -->
+                              <div class="row">
+                                  <!-- NIK -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">NIK</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" id="nik" name="nik" onkeyup="isi_otomatis()" class="form-control" required>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- NUPTK -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">NUPTK</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" id="nuptk" name="nuptk" class="form-control" readonly>
+                                      </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Baris 4 -->
+                              <div class="row">
+                                  <!-- Nama Tamu -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" readonly>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- Jenis Kelamin -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                      <div class="col-sm-9">
+                                          <select name="jenis_kelamin" id="jenis_kelamin" class="custom-select" required>
+                                          <option value="">-- jenis kelamin --</option>
+                                          <option value="pria">Pria</option>
+                                          <option value="wanita">Wanita</option>
+                                          </select>
+                                      </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Baris 5 -->
+                              <div class="row">
+                                  <!-- Kota -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">Kota</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" name="kota" id="kota" class="form-control" readonly>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- Tanggal Lahir -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                                      <div class="col-sm-9">
+                                          <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" readonly>
+                                      </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Baris 6 -->
+                              <div class="row">
+                                  <!-- Jabatan -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">Jabatan</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" name="jabatan" id="jabatan" class="form-control" readonly>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- Nama Kantor -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" readonly>
+                                      </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Baris 7 -->
+                              <div class="row">
+                                  <!-- No HP -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">Nomor HP</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" name="no_hp" id="no_hp" class="form-control" readonly>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  <!-- No Kamar -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                      <label class="col-sm-3 col-form-label">Nomor Kamar</label>
+                                      <div class="col-sm-9">
+                                          <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
+                                      </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Baris 8 -->
+                              <div class="row">
+                                  <!-- btn + -->
+                                  <div class="col-md-6">
+                                      <div class="form-group row">
+                                          <div class="col-sm-9">
+                                              <button class="btn btn-success add-more" type="button">
+                                                  <i class="glyphicon glyphicon-plus"></i> Add
+                                              </button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
                         </div>
                       </fieldset>
                       <p><input type="submit" value="Simpan" name="simpan" class="btn btn-primary col-md-4 align-self-center"></p>
                       </form>
                       <!-- class hidden -->
+                      <!-- Tamu 2 -->
                         <div class="copy invisible">
                             <div class="control-group">
-                                <!-- Baris 3 -->
-                                <div class="row">
-                                        <!-- NIK -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">NIK</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" id="nik2" name="nik2" onkeyup="isi_otomatis2()" class="form-control" required>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <!-- NUPTK -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">NUPTK</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" id="nuptk2" name="nuptk2" class="form-control" readonly>
-                                            </div>
-                                            </div>
-                                        </div>
+                              <!-- Baris 1 -->
+                              <div class="row">
+                                <!-- Nama Kegiatan -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Kegiatan</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="nama_kegiatan2" class="form-control"></p>
+                                    </div>
+                                  </div>
                                 </div>
-                                <!-- Baris 4 -->
-                                <div class="row">
-                                        <!-- Nama Tamu -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Nama Tamu</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" id="nama_tamu2" name="nama_tamu2" class="form-control" readonly>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <!-- Jenis Kelamin -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                                            <div class="col-sm-9">
-                                                <select name="jenis_kelamin2" id="jenis_kelamin2" class="custom-select" required>
-                                                <option value="">-- jenis kelamin --</option>
-                                                <option value="pria">Pria</option>
-                                                <option value="wanita">Wanita</option>
-                                                </select>
-                                            </div>
-                                            </div>
-                                        </div>
+                                <!-- Timestamp -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Timestamp</label>
+                                    <div class="col-sm-9">
+                                      <input type="datetime" name="timestamp2" class="form-control"
+                                      value="<?php date_default_timezone_set('Asia/Jakarta'); echo date("Y/m/d H:i:s"); ?>" readonly></p>
+                                    </div>
+                                  </div>
                                 </div>
-                                <!-- Baris 5 -->
-                                <div class="row">
-                                        <!-- Kota -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Kota</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="kota2" id="kota2" class="form-control" readonly>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <!-- Tanggal Lahir -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
-                                            <div class="col-sm-9">
-                                                <input type="date" name="tanggal_lahir2" id="tanggal_lahir2" class="form-control" readonly>
-                                            </div>
-                                            </div>
-                                        </div>
+                              </div>
+                              <!-- Baris 2 -->
+                              <div class="row">
+                                <!-- Tanggal Awal -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Tanggal Awal</label>
+                                    <div class="col-sm-9">
+                                      <input type="date" name="tanggal_awal2" class="form-control" required>
+                                    </div>
+                                  </div>
                                 </div>
-                                <!-- Baris 6 -->
-                                <div class="row">
-                                        <!-- Jabatan -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Jabatan</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="jabatan2" id="jabatan2" class="form-control" readonly>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <!-- Nama Kantor -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Nama Kantor</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" readonly>
-                                            </div>
-                                            </div>
-                                        </div>
+                                <!-- Tanggal Akhir -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Tanggal Akhir</label>
+                                    <div class="col-sm-9">
+                                      <input type="date" name="tanggal_akhir2" class="form-control" required>
+                                    </div>
+                                  </div>
                                 </div>
-                                <!-- Baris 7 -->
-                                <div class="row">
-                                        <!-- No HP -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Nomor HP</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="no_hp2" id="no_hp2" class="form-control" readonly>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <!-- btn + -->
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <div class="col-sm-9">
-                                                    <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                              </div>
+                              <!-- Baris 3 -->
+                              <div class="row">
+                                <!-- NIK -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">NIK</label>
+                                      <div class="col-sm-9">
+                                        <input type="text" id="nik2" name="nik2" onkeyup="isi_otomatis2()" class="form-control" required>
+                                      </div>
+                                  </div>
                                 </div>
+                                <!-- NUPTK -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">NUPTK</label>
+                                      <div class="col-sm-9">
+                                        <input type="text" id="nuptk2" name="nuptk2" class="form-control" readonly>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                              <!-- Baris 4 -->
+                              <div class="row">
+                                <!-- Nama Tamu -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                                      <div class="col-sm-9">
+                                        <input type="text" id="nama_tamu2" name="nama_tamu2" class="form-control" readonly>
+                                      </div>
+                                  </div>
+                                </div>
+                                <!-- Jenis Kelamin -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                      <div class="col-sm-9">
+                                        <select name="jenis_kelamin2" id="jenis_kelamin2" class="custom-select" required>
+                                          <option value="">-- jenis kelamin --</option>
+                                          <option value="pria">Pria</option>
+                                          <option value="wanita">Wanita</option>
+                                        </select>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Baris 5 -->
+                              <div class="row">
+                                <!-- Kota -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Kota</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="kota2" id="kota2" class="form-control" readonly>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Tanggal Lahir -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                                    <div class="col-sm-9">
+                                      <input type="date" name="tanggal_lahir2" id="tanggal_lahir2" class="form-control" readonly>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Baris 6 -->
+                              <div class="row">
+                                <!-- Jabatan -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jabatan</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="jabatan2" id="jabatan2" class="form-control" readonly>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Nama Kantor -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                                      <div class="col-sm-9">
+                                        <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" readonly>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Baris 7 -->
+                              <div class="row">
+                                <!-- No HP -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nomor HP</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="no_hp2" id="no_hp2" class="form-control" readonly>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- btn + -->
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <div class="col-sm-9">
+                                      <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                         </div>
                 </div>
