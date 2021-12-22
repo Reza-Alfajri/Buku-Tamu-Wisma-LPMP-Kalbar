@@ -20,28 +20,18 @@
         $repassword = $_POST['re-password'];
         //buat query
         if ($password<>$repassword) {   
-            echo '<script type="text/javascript">
-              Swal.fire({
-                title: "Password dan Konfirmasi Password Tidak Sama!",
-                icon: "warning",
-                timer: 1500,
-                didOpen: () => {
-                Swal.showLoading()
-                const b = Swal.getHtmlContainer().querySelector("b")
-                    timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
-              /* Read more about handling dismissals below */
-              if (result.dismiss === Swal.DismissReason.timer) {
-                window.history.back();
-              }
-            });
-            </script>';
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Password dan Konfirmasi Password Tidak Sama!",
+                    icon: "warning",
+                    confirmButtonText: "OK",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                  }); 
+                </script>';
         } else {
             $sql = "INSERT INTO admin (username, password)
             VALUE ('$username', '$password')";
@@ -60,28 +50,18 @@
                   }); 
                 </script>';
             } else {
-                echo '<script type="text/javascript">
-              Swal.fire({
-                title: "Registrasi Gagal",
-                icon: "warning",
-                timer: 1500,
-                didOpen: () => {
-                Swal.showLoading()
-                const b = Swal.getHtmlContainer().querySelector("b")
-                    timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then((result) => {
-              /* Read more about handling dismissals below */
-              if (result.dismiss === Swal.DismissReason.timer) {
-                window.history.back();
-              }
-            });
-            </script>';
+                echo '
+                <script language="javascript">
+                Swal.fire({
+                    title: "Registrasi Gagal",
+                    icon: "warning",
+                    confirmButtonText: "OK",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                  }); 
+                </script>';
             }
             
         }
