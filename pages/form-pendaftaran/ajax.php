@@ -9,6 +9,7 @@ $sql = "SELECT * FROM biodata WHERE nik=$nik";
 $query = mysqli_query($db, $sql);
 $list = mysqli_fetch_assoc($query);
 $data = array(
+            'nuptk'      =>  @$list['nuptk'],
             'nama_tamu'      =>  @$list['nama_tamu'],
             'jenis_kelamin'      =>  @$list['jenis_kelamin'],
             'tanggal_lahir'   =>  @$list['tanggal_lahir'],
