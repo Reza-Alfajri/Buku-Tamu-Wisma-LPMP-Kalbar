@@ -28,11 +28,11 @@
   </head>
   <body>
     <!-- Start login -->
-    <section class="form-login mt-md-5 mt-4 pt-md-3 pt-5">
+    <section class="form-login mt-md-4 mt-5 pt-md-3 p-3">
       <div class="container-fluid">
         <div class="row">
-          <fieldset class="d-flex justify-content-center p-sm-2">
-            <form class="shadow p-3 mb-5 bg-white p-4 bg-white rounded" style="width: 350px;" action="proses-login.php" id="rounded-form" method="POST">
+          <fieldset class="d-flex justify-content-center p-2 ">
+            <form class="shadow p-3 mb-4 bg-white p-4 bg-white rounded" style="width: 350px;" action="proses-login.php" id="rounded-form" method="POST">
               <div class="d-flex justify-content-center mb-4">
                 <img src="images/logo-lpmp-kecil.png" width="200px" alt="">
               </div>
@@ -40,18 +40,14 @@
                 <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-user"></i></span>
                 <input type="text" class="form-control" style="margin-right: 1.1rem;" name="username" id="username" aria-describedby="" placeholder="username" required>
               </div>
-              <div class="m b-3 d-flex">
+              <div class="mb-5 d-flex">
                 <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-lock"></i></span>
                 <input type="password" class="form-control" name="password" id="password" placeholder="password" required>
                 <span id="mybutton" onclick="change()"><i class="far fa-eye text-secondary"></i></span>
               </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label ml-0" for="exampleCheck1">Remember me</label>
-              </div>
-              <div class="d-flex justify-content-between mt-4">
-                <button class="btn btn-primary pe-3 ps-3" type="submit" name="login">Sign in</button>
-                <input class="btn btn-primary pe-3 ps-3" type="button" onclick="regis()"; value="Sign Up">
+              <div>
+                <button class="btn btn-primary btn-block rounded-pill pe-3 ps-3" type="submit" name="login">Login</button>
+                <p class="text-center mt-3 fs-6">Belum punya akun? <a style="color:blue; cursor:pointer; " onclick="regis()";>Buat</a></p>
               </div>
             </form>
             <script>
@@ -79,12 +75,12 @@
                             <div class="mb-3 d-flex">
                               <p class="ml-4 mb-0">Re-type your password</p>
                             </div>
-                            <div class="mb-3 d-flex">
+                            <div class="mb-5 d-flex">
                               <span class="m-auto mt-0 pt-2 pr-2 pb-2"><i class="fas fa-lock"></i></span>
                               <input type="password" class="form-control" name="re-password" id="re-password" placeholder="confirm password" required>
                               <span id="mybutton2" onclick="repassword()"><i class="far fa-eye text-secondary"></i></span>
                             </div>
-                              <button class="btn btn-register btn-primary pe-3 ps-3" type="submit" name="daftar">Sign up</button>
+                              <button class="btn btn-register btn-block rounded-pill btn-primary pe-3 ps-3" type="submit" name="daftar">Buat</button>
                             </div>
                           </form>
                         </fieldset>
@@ -129,6 +125,11 @@
                 }
             </script>
           </fieldset>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            
+          </div>
         </div>
       </div>
     </section>
