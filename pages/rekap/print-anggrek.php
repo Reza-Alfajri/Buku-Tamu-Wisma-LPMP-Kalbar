@@ -40,72 +40,71 @@
         <th>Wisma</th>
       </tr>
         
-          <?php
-          $hal=1000;
-          $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
-          $start=($page>1)?($page*$hal)-$hal:0;
-          
-        if(isset($_GET['tanggal'])){
+      <?php
+      $hal=1000;
+      $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
+      $start=($page>1)?($page*$hal)-$hal:0;
+          if(isset($_GET['tanggal'])){
             $date = $_GET['tanggal'];
             $tahun = $_GET['tahun'];
             $kegiatan = $_GET['nama_kegiatan'];
             if ($date > 0 && $tahun > 0 && $kegiatan > 0) {
                 $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
                 echo "Rekap Tamu Wisma Untuk Kegiatan ".$kegiatan." Pada Bulan ".$nama_bulan[$date]." Tahun ".$tahun;
-                $sql = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Handayani\'";
-                $sql1 = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Handayani' ORDER BY MONTH(tanggal_awal),YEAR(tanggal_awal) ASC limit $start,$hal";
-                $bulanan = "SELECT nama_kegiatan as kegiatan,CONCAT(DAY(tanggal_awal),'/',MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' and MONTH(tanggal_awal) = '$date' AND wisma='Handayani' and YEAR(tanggal_awal) ='$tahun' GROUP BY YEARWEEK(nama_kegiatan),nama_kegiatan ,wisma";
-                $jumlah = "SELECT nama_kegiatan as kegiatan,CONCAT(DAY(tanggal_awal),'/',MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' and MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' GROUP BY YEARWEEK(tanggal_awal),nama_kegiatan ,wisma";
+                $sql = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Anggrek'";
+                $sql1 = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Anggrek' ORDER BY MONTH(tanggal_awal),YEAR(tanggal_awal) ASC limit $start,$hal";
+                $bulanan = "SELECT nama_kegiatan as kegiatan,CONCAT(DAY(tanggal_awal),'/',MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' and MONTH(tanggal_awal) = '$date' AND wisma='Anggrek' and YEAR(tanggal_awal) ='$tahun' GROUP BY YEARWEEK(nama_kegiatan),nama_kegiatan ,wisma";
+                $jumlah = "SELECT nama_kegiatan as kegiatan,CONCAT(DAY(tanggal_awal),'/',MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' and MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek' GROUP BY YEARWEEK(tanggal_awal),nama_kegiatan ,wisma";
             } elseif ($date > 0 && $tahun > 0) {
                 $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
                 echo "Rekap Tamu Wisma Bulan ".$nama_bulan[$date]." Tahun ".$tahun;
-                $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani'";
-                $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' ORDER BY DAY(tanggal_awal) ASC limit $start,$hal";
-                $bulanan = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' GROUP BY YEARWEEK(tanggal_awal)";
-                $jumlah = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' GROUP BY YEARWEEK(tanggal_awal)";
+                $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek'";
+                $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek' ORDER BY DAY(tanggal_awal) ASC limit $start,$hal";
+                $bulanan = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek' GROUP BY YEARWEEK(tanggal_awal)";
+                $jumlah = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek' GROUP BY YEARWEEK(tanggal_awal)";
             } elseif ($date > 0 && $kegiatan > 0) {
                 $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
                 echo "Rekap Tamu Wisma Untuk Kegiatan ".$kegiatan." Pada Bulan ".$nama_bulan[$date];
-                $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and nama_kegiatan = '$kegiatan' AND wisma='Handayani'";
-                $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and nama_kegiatan = '$kegiatan' AND wisma='Handayani' ORDER BY DAY(tanggal_awal) ASC limit $start,$hal";
-                $bulanan = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Handayani' GROUP BY YEARWEEK(tanggal_awal)";
-                $jumlah = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Handayani' GROUP BY YEARWEEK(tanggal_awal)";
+                $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and nama_kegiatan = '$kegiatan' AND wisma='Anggrek'";
+                $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and nama_kegiatan = '$kegiatan' AND wisma='Anggrek' ORDER BY DAY(tanggal_awal) ASC limit $start,$hal";
+                $bulanan = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Anggrek' GROUP BY YEARWEEK(tanggal_awal)";
+                $jumlah = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Anggrek' GROUP BY YEARWEEK(tanggal_awal)";
             } elseif ($tahun > 0 && $kegiatan > 0) {
                 echo "Rekap Tamu Wisma Untuk Kegiatan ".$kegiatan." Pada Tahun ".$tahun;
-                $sql = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and nama_kegiatan = '$kegiatan' AND wisma='Handayani'";
-                $sql1 = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and nama_kegiatan = '$kegiatan' AND wisma='Handayani' ORDER BY MONTH(tanggal_awal) ASC limit $start,$hal";
-                $bulanan = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and nama_kegiatan='$kegiatan' AND wisma='Handayani' GROUP BY MONTH(tanggal_awal)";
-                $jumlah = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and nama_kegiatan='$kegiatan' AND wisma='Handayani' GROUP BY MONTH(tanggal_awal)";
+                $sql = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and nama_kegiatan = '$kegiatan' AND wisma='Anggrek'";
+                $sql1 = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and nama_kegiatan = '$kegiatan' AND wisma='Anggrek' ORDER BY MONTH(tanggal_awal) ASC limit $start,$hal";
+                $bulanan = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and nama_kegiatan='$kegiatan' AND wisma='Anggrek' GROUP BY MONTH(tanggal_awal)";
+                $jumlah = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and nama_kegiatan='$kegiatan' AND wisma='Anggrek' GROUP BY MONTH(tanggal_awal)";
             } elseif ($tahun > 0 ) {
                 echo "Rekap Tamu Wisma Tahun ".$tahun;
-                $sql = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani'";
-                $sql1 = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' ORDER BY MONTH(tanggal_awal) ASC limit $start,$hal";
-                $bulanan = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' GROUP BY MONTH(tanggal_awal)";
-                $jumlah = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' GROUP BY MONTH(tanggal_awal)";
+                $sql = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek'";
+                $sql1 = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek' ORDER BY MONTH(tanggal_awal) ASC limit $start,$hal";
+                $bulanan = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek' GROUP BY MONTH(tanggal_awal)";
+                $jumlah = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek' GROUP BY MONTH(tanggal_awal)";
             } elseif ($date > 0 ){
                 $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
                 echo "Rekap Tamu Wisma Bulan ".$nama_bulan[$date];
-                $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Handayani'";
-                $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Handayani' ORDER BY YEAR(tanggal_awal) asc limit $start,$hal";
-                $bulanan = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Handayani' GROUP BY YEARWEEK(tanggal_awal)";
-                $jumlah = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Handayani' GROUP BY YEARWEEK(tanggal_awal)";
+                $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Anggrek'";
+                $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Anggrek' ORDER BY YEAR(tanggal_awal) asc limit $start,$hal";
+                $bulanan = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Anggrek' GROUP BY YEARWEEK(tanggal_awal)";
+                $jumlah = "SELECT wisma as wisma,CONCAT(WEEK(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Anggrek' GROUP BY YEARWEEK(tanggal_awal)";
             } elseif ($kegiatan > 0 ){
                 echo "Rekap Tamu Wisma Untuk Kegiatan ".$kegiatan;
-                $sql = "SELECT * FROM rekapan WHERE nama_kegiatan = '$kegiatan' AND wisma='Handayani'";
-                $sql1 = "SELECT * FROM rekapan WHERE nama_kegiatan = '$kegiatan' AND wisma='Handayani' limit $start,$hal";
-                $bulanan = "SELECT nama_kegiatan AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan'AND wisma='Handayani' GROUP BY nama_kegiatan";
-                $jumlah = "SELECT nama_kegiatan AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' AND wisma='Handayani' GROUP BY nama_kegiatan";
+                $sql = "SELECT * FROM rekapan WHERE nama_kegiatan = '$kegiatan' AND wisma='Anggrek'";
+                $sql1 = "SELECT * FROM rekapan WHERE nama_kegiatan = '$kegiatan' AND wisma='Anggrek' limit $start,$hal";
+                $bulanan = "SELECT nama_kegiatan AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan'AND wisma='Anggrek' GROUP BY nama_kegiatan";
+                $jumlah = "SELECT nama_kegiatan AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' AND wisma='Anggrek' GROUP BY nama_kegiatan";
             } else {
-                $sql = "SELECT * FROM rekapan WHERE wisma ='Handayani' ORDER BY YEAR(tanggal_awal) ASC";
-                $sql1 = "SELECT * FROM rekapan WHERE wisma ='Handayani' ORDER BY YEAR(tanggal_awal) ASC limit $start,$hal";
-                $bulanan = "SELECT CONCAT(MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan  WHERE wisma ='Handayani' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
-                $jumlah = "SELECT COUNT(*) AS jumlah_bulanan FROM rekapan WHERE wisma='Handayani' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
+                $sql = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY YEAR(tanggal_awal) ASC";
+                $sql1 = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY YEAR(tanggal_awal) ASC limit $start,$hal";
+                $bulanan = "SELECT CONCAT(MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan  WHERE wisma ='Anggrek' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
+                $jumlah = "SELECT COUNT(*) AS jumlah_bulanan FROM rekapan WHERE wisma='Anggrek' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
             }
         } else {
-                $sql = "SELECT * FROM rekapan WHERE wisma ='Handayani' ORDER BY YEAR(tanggal_awal) ASC";
-                $sql1 = "SELECT * FROM rekapan WHERE wisma ='Handayani' ORDER BY YEAR(tanggal_awal) ASC limit $start,$hal";
-                $bulanan = "SELECT CONCAT(MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan  WHERE wisma ='Handayani' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
-                $jumlah = "SELECT COUNT(*) AS jumlah_bulanan FROM rekapan WHERE wisma='Handayani' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
+                $sql = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY YEAR(tanggal_awal) ASC";
+                $sql1 = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY YEAR(tanggal_awal) ASC limit $start,$hal";
+                $bulanan = "SELECT CONCAT(MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan  WHERE wisma ='Anggrek' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
+                $jumlah = "SELECT COUNT(*) AS jumlah_bulanan FROM rekapan WHERE wisma='Anggrek' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
         }
             $query = mysqli_query($db, $sql);
             $query1 = mysqli_query($db, $sql1);
@@ -114,7 +113,8 @@
             $no = $start + 1;
             $qA = mysqli_query($db, $bulanan);
             $qA1 = mysqli_query($db, $jumlah);
-        ?>
+      ?>
+      
       <?php while($list=mysqli_fetch_array($query)) : 
       //$no++; 
       ?> 
@@ -178,7 +178,7 @@
   </form>
   <form align="center">
   <button onclick=window.print()>Print</button>
-  <input type="button" onclick="window.location.href = 'rekap-handayani.php';" value="Back"/>
+  <input type="button" onclick="window.location.href = 'rekap-anggrek.php';" value="Back"/>
   </form>
   </div>
                   <canvas id="myChart"></canvas>
