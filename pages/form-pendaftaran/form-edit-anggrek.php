@@ -159,6 +159,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Buku Tamu</h4>
                   <p class="font-weight-500">Silahkan isi formnya</p>
+                  <!-- form nik dan nik2 -->
                   <?php if($list['nik'] && $list['nik2']) {?>
                     <form action="../../proses-edit-kamar-anggrek.php" method="POST">
                       <fieldset>
@@ -179,7 +180,7 @@
                               <label class="col-sm-3 col-form-label">Timestamp</label>
                               <div class="col-sm-9">
                                 <input type="datetime" name="timestamp" class="form-control"
-                                value="<?php echo $list['timestamp']?>"></p>
+                                value="<?php echo $list['timestamp']?>" readonly></p>
                               </div>
                             </div>
                           </div>
@@ -315,6 +316,48 @@
                             </div>
                           </div>
                         </div>
+                        <!-- tamu ke 2 -->
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Kegiatan</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nama_kegiatan2" class="form-control" value="<?php echo $list['nama_kegiatan2']?>"></p>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Timestamp -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Timestamp</label>
+                              <div class="col-sm-9">
+                                <input type="datetime" name="timestamp2" class="form-control"
+                                value="<?php echo $list['timestamp2']?>" readonly></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 2 -->
+                        <div class="row">
+                          <!-- Tanggal Awal -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Awal</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_awal2" class="form-control" value="<?php echo $list['tanggal_awal2']?>">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Tanggal Akhir -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Akhir</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_akhir2" class="form-control" value="<?php echo $list['tanggal_akhir2']?>">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <!-- Baris 8 -->
                         <div class="row">                          
                           <!-- NIK -->
@@ -399,7 +442,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nama Kantor</label>
                               <div class="col-sm-9">
-                                <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" value="<?php echo $list['nama_kantor']?>" readonly>
+                                <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" value="<?php echo $list['nama_kantor']?>" readonly>
                               </div>
                             </div>
                           </div>
@@ -428,6 +471,166 @@
                       </fieldset>
                       <p><input type="submit" value="Simpan" name="simpan" class="btn btn-primary col-md-4 align-self-center"></p>
                   </form>
+                <!-- form nik 2 -->
+                <?php } else if($list['nik2']) {?>
+                  <form action="../../proses-edit-kamar-anggrek.php" method="POST">
+                      <fieldset>
+                        <!-- Baris 1 -->
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Kegiatan</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nama_kegiatan2" class="form-control" value="<?php echo $list['nama_kegiatan2']?>"></p>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Timestamp -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Timestamp</label>
+                              <div class="col-sm-9">
+                                <input type="datetime" name="timestamp2" class="form-control"
+                                value="<?php echo $list['timestamp2']?>" readonly></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 2 -->
+                        <div class="row">
+                          <!-- Tanggal Awal -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Awal</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_awal2" class="form-control" value="<?php echo $list['tanggal_awal2']?>">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Tanggal Akhir -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Akhir</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_akhir2" class="form-control" value="<?php echo $list['tanggal_akhir2']?>">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 8 -->
+                        <div class="row">                          
+                          <!-- NIK -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NIK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nik2" name="nik2" onkeyup="isi_otomatis()" class="form-control" value="<?php echo $list['nik2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- nuptk -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">NUPTK</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nuptk" name="nuptk2" class="form-control" value="<?php echo $list['nuptk2']?>" readonly>
+                                <p> <i> -- isi jika ada -- </i> </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 9 -->
+                        <div class="row">
+                          <!-- Nama Tamu -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Tamu</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="nama_tamu2" name="nama_tamu2" class="form-control" value="<?php echo $list['nama_tamu2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Jenis Kelamin -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                              <div class="col-sm-9">
+                                <select name="jenis_kelamin2" id="jenis_kelamin2" class="custom-select" disabled>
+                                  <option><?php echo $list['jenis_kelamin2']?></option>
+                                  <option value="pria">Pria</option>
+                                  <option value="wanita">Wanita</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 10 -->
+                        <div class="row">
+                          <!-- Kota -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Kota</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="kota2" id="kota2" class="form-control" value="<?php echo $list['kota2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Tanggal Lahir -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                              <div class="col-sm-9">
+                                <input type="date" name="tanggal_lahir2" id="tanggal_lahir2" class="form-control" value="<?php echo $list['tanggal_lahir2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 11 -->
+                        <div class="row">
+                          <!-- Jabatan -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Jabatan</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="jabatan2" id="jabatan2" class="form-control" value="<?php echo $list['jabatan2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Nama Kantor -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" value="<?php echo $list['nama_kantor2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Baris 7 -->
+                        <div class="row">
+                          <!-- No HP -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nomor HP</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="no_hp2" id="no_hp2" class="form-control" value="<?php echo $list['no_hp2']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- No Kamar -->
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Nomor Kamar</label>
+                              <div class="col-sm-9">
+                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                      <p><input type="submit" value="Simpan" name="simpan" class="btn btn-primary col-md-4 align-self-center"></p>
+                  </form>
+                <!-- form nik doang -->
                 <?php } else {?>
                   <form action="../../proses-edit-kamar-anggrek.php" method="POST">
                       <fieldset>
@@ -448,7 +651,7 @@
                               <label class="col-sm-3 col-form-label">Timestamp</label>
                               <div class="col-sm-9">
                                 <input type="datetime" name="timestamp" class="form-control"
-                                value="<?php echo $list['timestamp']?>"></p>
+                                value="<?php echo $list['timestamp']?>" readonly></p>
                               </div>
                             </div>
                           </div>
