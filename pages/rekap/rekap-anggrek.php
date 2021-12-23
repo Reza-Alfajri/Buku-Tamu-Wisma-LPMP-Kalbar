@@ -303,14 +303,14 @@
                                         $bulanan = "SELECT nama_kegiatan AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan'AND wisma='Anggrek' GROUP BY nama_kegiatan";
                                         $jumlah = "SELECT nama_kegiatan AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' AND wisma='Anggrek' GROUP BY nama_kegiatan";
                                     } else {
-                                        $sql = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY YEAR(tanggal_awal) ASC";
-                                        $sql1 = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY YEAR(tanggal_awal) ASC limit $start,$hal";
+                                        $sql = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY timestamp ASC";
+                                        $sql1 = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY timestamp ASC limit $start,$hal";
                                         $bulanan = "SELECT CONCAT(MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan  WHERE wisma ='Anggrek' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
                                         $jumlah = "SELECT COUNT(*) AS jumlah_bulanan FROM rekapan WHERE wisma='Anggrek' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
                                     }
                                 } else {
-                                        $sql = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY YEAR(tanggal_awal) ASC";
-                                        $sql1 = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY YEAR(tanggal_awal) ASC limit $start,$hal";
+                                        $sql = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY timestamp ASC";
+                                        $sql1 = "SELECT * FROM rekapan WHERE wisma ='Anggrek' ORDER BY timestamp ASC limit $start,$hal";
                                         $bulanan = "SELECT CONCAT(MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan  WHERE wisma ='Anggrek' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
                                         $jumlah = "SELECT COUNT(*) AS jumlah_bulanan FROM rekapan WHERE wisma='Anggrek' GROUP BY YEAR(tanggal_awal),MONTH(tanggal_awal)";
                                 }
