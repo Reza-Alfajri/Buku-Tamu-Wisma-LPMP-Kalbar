@@ -331,7 +331,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nama Kegiatan</label>
                               <div class="col-sm-9">
-                                <input type="text" name="nama_kegiatan" class="form-control" value="<?php echo $list['nama_kegiatan']?>"></p>
+                                <input type="text" name="nama_kegiatan2" class="form-control" value="<?php echo $list['nama_kegiatan']?>"></p>
                               </div>
                             </div>
                           </div>
@@ -340,7 +340,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Timestamp</label>
                               <div class="col-sm-9">
-                                <input type="datetime" name="timestamp" class="form-control"
+                                <input type="datetime" name="timestamp2" class="form-control"
                                 value="<?php echo $list['timestamp']?>" readonly></p>
                               </div>
                             </div>
@@ -353,7 +353,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Tanggal Awal</label>
                               <div class="col-sm-9">
-                                <input type="date" name="tanggal_awal" class="form-control" value="<?php echo $list['tanggal_awal']?>">
+                                <input type="date" name="tanggal_awal2" class="form-control" value="<?php echo $list['tanggal_awal']?>">
                               </div>
                             </div>
                           </div>
@@ -362,7 +362,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Tanggal Akhir</label>
                               <div class="col-sm-9">
-                                <input type="date" name="tanggal_akhir" class="form-control" value="<?php echo $list['tanggal_akhir']?>">
+                                <input type="date" name="tanggal_akhir2" class="form-control" value="<?php echo $list['tanggal_akhir']?>">
                               </div>
                             </div>
                           </div>
