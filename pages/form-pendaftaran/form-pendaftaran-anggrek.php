@@ -293,7 +293,7 @@
                                 <!-- Nama Kantor -->
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                                    <label class="col-sm-3 col-form-label">Nama Instansi</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" readonly>
                                     </div>
@@ -304,21 +304,21 @@
                             <div class="row">
                                 <!-- No HP -->
                                 <div class="col-md-6">
-                                    <div class="form-group row">
+                                  <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nomor HP</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="no_hp" id="no_hp" class="form-control" readonly>
                                     </div>
-                                    </div>
+                                  </div>
                                 </div>
                                 <!-- No Kamar -->
-                                <div class="col-md-6">
-                                    <div class="form-group row">
+                                <div class="col-md-6 invisible">
+                                  <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Nomor Kamar</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
+                                      <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
                                     </div>
-                                    </div>
+                                  </div>
                                 </div>
                             </div>
                             <!-- Baris 8 -->
@@ -466,7 +466,7 @@
                                 <!-- Nama Kantor -->
                                 <div class="col-md-6">
                                   <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                                    <label class="col-sm-3 col-form-label">Nama Instansi</label>
                                       <div class="col-sm-9">
                                         <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" readonly>
                                       </div>
