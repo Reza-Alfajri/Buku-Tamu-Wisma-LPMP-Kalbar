@@ -157,12 +157,19 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Buku Tamu</h4>
-                  <p class="font-weight-500">Silahkan isi formnya</p>
+                  <div class="row mb-4">
+                    <div class="col-12 col-xl-11 mb-4 mb-xl-0">
+                      <h3 class="font-weight-bold">Form Kamar</h3>                     
+                    </div>
+                    <div class="col-12 col-xl-1">
+                      <h2 class="font-weight-bold"><?php echo $list['nomor_kamar']?></h2>
+                    </div>
+                  </div>
                   <!-- form nik dan nik2 -->
                   <?php if($list['nik'] && $list['nik2']) {?>
                     <form action="../../proses-edit-kamar-anggrek.php" method="POST">
                       <fieldset>
+                        <!-- Tamu 1 -->
                         <!-- Baris 1 -->
                         <div class="row">
                           <!-- Nama Kegiatan -->
@@ -288,7 +295,7 @@
                           <!-- Nama Kantor -->
                           <div class="col-md-6">
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                              <label class="col-sm-3 col-form-label">Nama Instansi</label>
                               <div class="col-sm-9">
                                 <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" value="<?php echo $list['nama_kantor']?>" readonly>
                               </div>
@@ -307,7 +314,7 @@
                             </div>
                           </div>
                           <!-- No Kamar -->
-                          <div class="col-md-6">
+                          <div class="col-md-6 invisible">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nomor Kamar</label>
                               <div class="col-sm-9">
@@ -317,7 +324,9 @@
                           </div>
                         </div>
                         <!-- tamu ke 2 -->
-                        <div class="row">
+                        <hr>
+                        <!-- Baris 1 -->
+                        <div class="row mt-5">
                           <div class="col-md-6">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nama Kegiatan</label>
@@ -358,7 +367,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 8 -->
+                        <!-- Baris 3 -->
                         <div class="row">                          
                           <!-- NIK -->
                           <div class="col-md-6">
@@ -380,7 +389,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 9 -->
+                        <!-- Baris 4 -->
                         <div class="row">
                           <!-- Nama Tamu -->
                           <div class="col-md-6">
@@ -405,7 +414,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 10 -->
+                        <!-- Baris 5 -->
                         <div class="row">
                           <!-- Kota -->
                           <div class="col-md-6">
@@ -426,7 +435,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 11 -->
+                        <!-- Baris 6 -->
                         <div class="row">
                           <!-- Jabatan -->
                           <div class="col-md-6">
@@ -440,7 +449,7 @@
                           <!-- Nama Kantor -->
                           <div class="col-md-6">
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                              <label class="col-sm-3 col-form-label">Nama Instansi</label>
                               <div class="col-sm-9">
                                 <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" value="<?php echo $list['nama_kantor']?>" readonly>
                               </div>
@@ -459,7 +468,7 @@
                             </div>
                           </div>
                           <!-- No Kamar -->
-                          <div class="col-md-6">
+                          <div class="col-md-6 invisible">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nomor Kamar</label>
                               <div class="col-sm-9">
@@ -517,7 +526,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 8 -->
+                        <!-- Baris 3 -->
                         <div class="row">                          
                           <!-- NIK -->
                           <div class="col-md-6">
@@ -539,7 +548,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 9 -->
+                        <!-- Baris 4 -->
                         <div class="row">
                           <!-- Nama Tamu -->
                           <div class="col-md-6">
@@ -564,7 +573,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 10 -->
+                        <!-- Baris 5 -->
                         <div class="row">
                           <!-- Kota -->
                           <div class="col-md-6">
@@ -585,7 +594,7 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Baris 11 -->
+                        <!-- Baris 6 -->
                         <div class="row">
                           <!-- Jabatan -->
                           <div class="col-md-6">
@@ -599,7 +608,7 @@
                           <!-- Nama Kantor -->
                           <div class="col-md-6">
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                              <label class="col-sm-3 col-form-label">Nama Instansi</label>
                               <div class="col-sm-9">
                                 <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" value="<?php echo $list['nama_kantor2']?>" readonly>
                               </div>
@@ -618,11 +627,11 @@
                             </div>
                           </div>
                           <!-- No Kamar -->
-                          <div class="col-md-6">
+                          <div class="col-md-6 invisible">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nomor Kamar</label>
                               <div class="col-sm-9">
-                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
+                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar2']?>" readonly>
                               </div>
                             </div>
                           </div>
@@ -759,7 +768,7 @@
                           <!-- Nama Kantor -->
                           <div class="col-md-6">
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                              <label class="col-sm-3 col-form-label">Nama Instansi</label>
                               <div class="col-sm-9">
                                 <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" value="<?php echo $list['nama_kantor']?>" readonly>
                               </div>
@@ -778,7 +787,7 @@
                             </div>
                           </div>
                           <!-- No Kamar -->
-                          <div class="col-md-6">
+                          <div class="col-md-6 invisible">
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nomor Kamar</label>
                               <div class="col-sm-9">
