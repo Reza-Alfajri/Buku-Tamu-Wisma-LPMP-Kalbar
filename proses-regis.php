@@ -18,6 +18,7 @@
         $username = $_POST['username'];
         $password = $_POST['passwordr'];
         $repassword = $_POST['re-password'];
+        $level = "admin";
         //buat query
         if ($password<>$repassword) {   
             echo '
@@ -33,8 +34,8 @@
                   }); 
                 </script>';
         } else {
-            $sql = "INSERT INTO admin (username, password)
-            VALUE ('$username', '$password')";
+            $sql = "INSERT INTO admin (username, password, level)
+            VALUE ('$username', '$password', '$level')";
             $query = mysqli_query($db, $sql);
             if ($query) {
                 echo '
