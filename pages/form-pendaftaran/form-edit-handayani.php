@@ -114,6 +114,28 @@
               </ul>
             </div>
           </li>
+          <!-- LIST ADMIN -->
+          <?php
+             $a= "SELECT * FROM admin WHERE username='$_SESSION[username]'";
+             $admin= mysqli_query($db, $a);
+             $adm=mysqli_fetch_array($admin);
+             if ($adm['level'] == 'admin') {
+                $konten = '<li class="nav-item">
+                <a class="nav-link" href="../../pages/list-admin/list-admin.php" hidden="hidden">
+                  <i class="icon-paper menu-icon"></i>
+                  <span class="menu-title">List Admin</span>
+                </a>
+              </li>';
+             } else {
+              $konten = '<li class="nav-item">
+              <a class="nav-link" href="../../pages/list-admin/list-admin.php">
+                <i class="icon-paper menu-icon"></i>
+                <span class="menu-title">List Admin</span>
+              </a>
+            </li>';
+             }
+             echo $konten;
+          ?>
           <!-- Logout -->
           <li class="nav-item">
             <a class="nav-link" href="../../logout.php" onclick="return logout(event)">
