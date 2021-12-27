@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header("Location: ../../login.php");
+    }    
     //koneksi ke database
     include("../../koneksi.php");
     if (!isset($_GET['nomor_kamar'])) {
