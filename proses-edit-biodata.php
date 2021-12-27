@@ -15,27 +15,27 @@
         
         //buat query update
         $sql1 = "UPDATE biodata SET nik='$nik', nuptk='$nuptk', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', nama_tamu='$nama_tamu',
-        kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik'";
+        kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
 
         $sql2 = "UPDATE rekapan SET nik='$nik', nuptk='$nuptk', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', nama_tamu='$nama_tamu',
-        kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik'";
+        kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
 
-        if(['nik2=$nik from anggrek']) {
-            $sql3 = "UPDATE anggrek 
-            SET nik2='$nik', nuptk2='$nuptk', jenis_kelamin2='$jenis_kelamin', tanggal_lahir2='$tanggal_lahir', nama_tamu2='$nama_tamu',
-            kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik'";
-        } else if(['nik=$nik from anggrek']){
+        $sq15 = "SELECT * FROM anggrek WHERE nik2=$nik or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
+        if($sql5) {
+            $sql3 = "UPDATE anggrek SET nik2='$nik', nuptk2='$nuptk', jenis_kelamin2='$jenis_kelamin', tanggal_lahir2='$tanggal_lahir', nama_tamu2='$nama_tamu',
+            kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik' or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
+        } else {
             $sql3 = "UPDATE anggrek SET nik='$nik', nuptk='$nuptk', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', nama_tamu='$nama_tamu',
-            kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik'";
+            kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
         }
 
-        if(['nik2=$nik from handayani']) {
-            $sql4 = "UPDATE handayani 
-            SET nik2='$nik', nuptk2='$nuptk', jenis_kelamin2='$jenis_kelamin', tanggal_lahir2='$tanggal_lahir', nama_tamu2='$nama_tamu',
-            kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik'";
-        } else if(['nik=$nik from handayani']){
+        $sq16 = "SELECT * FROM handayani WHERE nik2=$nik or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
+        if($sq16) {
+            $sql4 = "UPDATE handayani SET nik2='$nik', nuptk2='$nuptk', jenis_kelamin2='$jenis_kelamin', tanggal_lahir2='$tanggal_lahir', nama_tamu2='$nama_tamu',
+            kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik' or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
+        } else {
             $sql4 = "UPDATE handayani SET nik='$nik', nuptk='$nuptk', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', nama_tamu='$nama_tamu',
-            kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik'";
+            kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
         }
 
         $query1 = mysqli_query($db, $sql1);
