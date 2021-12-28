@@ -45,12 +45,13 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo ms-10" href="../../index.php"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
+        <a class="navbar-brand d-lg-none" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" width="36px" height="40px" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
+        
         <!-- Start Notif -->
         <ul class="navbar-nav navbar-nav-right">
           
@@ -160,11 +161,11 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
+          <div class="row mb-0">
+            <div class="col-md-12 mb-0 mb-md-2 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">List Admin Wisma</h3>
+                  <h3 class="font-weight-bold text-md-left text-center">List Akun Admin</h3>
                 </div>
               </div> 
             </div>
@@ -183,7 +184,7 @@
                                 <tr>
                                     <th>Username</th>
                                     <th>Password</th>
-                                    <th>&nbsp;</th>
+                                    <th style="width: 150px;">Aksi</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -199,9 +200,9 @@
                                   //$no++; 
                                 ?> 
                                   <tr class="alert" role="alert">
-                                    <td><?= $list['username']; ?></td>
-                                    <td><?= $list['password']; ?></td>
-                                    <td>                               
+                                    <td><?=$list['username']; ?></td>
+                                    <td><?=$list['password']; ?></td>
+                                    <td class="text-center">                               
                                     <a href=../../proses-hapus-admin.php?username=".$list['username']." onclick='return hapus(event)'>
                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Delete
                                     </a>
