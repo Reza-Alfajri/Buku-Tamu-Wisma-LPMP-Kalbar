@@ -162,11 +162,11 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
+          <div class="row mb-0">
+            <div class="col-md-12 mb-0 mb-md-2 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold fs-30">Tabel Rekap Tamu Wisma Anggrek</h3>
+                  <h3 class="font-weight-bold text-md-left text-center">Rekap Tamu Wisma Anggrek</h3>
                 </div>
               </div> 
             </div>
@@ -194,7 +194,7 @@
                                 <th>Tanggal Lahir</th>
                                 <th>Kabupaten / Kota</th>
                                 <th>Jabatan</th>
-                                <th>Nama Kantor</th>
+                                <th>Nama Instansi</th>
                                 <th>No. HP</th>
                                 <th>Wisma</th>
                                 <th>No. Kamar</th>
