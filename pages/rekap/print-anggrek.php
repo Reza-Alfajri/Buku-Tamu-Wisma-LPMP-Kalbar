@@ -1,8 +1,13 @@
 <html>
 <head>
   <title>Rekap Tamu Wisma</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Poppins&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
   <style>
+    body {
+      font-family: 'PT Serif', serif;
+      text-align: center;
+    }
     table {
       border-collapse:collapse;
     }
@@ -16,9 +21,46 @@
                   visibility: hidden;
                }
             }
+    .kop {
+      display: flex;
+      justify-content: center;
+      line-height: 10px;
+      padding-top: 1rem;
+    }
+    .gambar {
+      margin: 1rem;
+      margin-top: 25px;
+    }
+    .diksi {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .diksi h3 {
+      font-weight: bold;
+    }
+    h2 {
+      font-weight: bold;
+      margin: 3rem auto 2rem auto;
+    }
   </style>
 </head>
 <body>
+  <div class="kop">
+    <div class="gambar">
+      <img src="../../images/logo-kop.jpg" width="142px" alt="">
+    </div>
+    <div class="diksi">
+      <h3>KEMENTERIAN PENDIDIKAN, KEBUDAYAAN, RISET, DAN TEKNOLOGI</h3>
+      <h4>LEMBAGA PENJAMINAN MUTU PENDIDIKAN PROVINSI KALIMANTAN BARAT</h4>
+      <p>Jalan Abdul Muis, Tanjung Hulu Pontianak Timur 78237</p>
+      <p>Telepon (0561) 742110, Faksimile (0561) 746618</p>
+      <p>Laman www.lpmp-kalbar.net, Posel mailbox@lpmp-kalbar.net</p>
+    </div>
+  </div>
+  <hr style="height:4px; border:none; color:#333; background-color:#333; margin-bottom: 1.5rem;">
+  <h2>Report Tamu Wisma Anggrek</h2>
+  
+  
   <?php
   // Load file koneksi.php
   include "../../koneksi.php";
@@ -35,7 +77,7 @@
         <th>Tanggal Lahir</th>
         <th>Kabupaten / Kota</th>
         <th>Jabatan</th>
-        <th>Nama Kantor</th>
+        <th>Nama Intansi</th>
         <th>No. HP</th>
         <th>Wisma</th>
       </tr>
