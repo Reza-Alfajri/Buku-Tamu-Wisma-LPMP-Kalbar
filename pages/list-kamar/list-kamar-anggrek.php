@@ -35,7 +35,6 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
-  <link rel="stylesheet" href="../../css/vertical-layout-light/style2.css">
   <!-- endinject -->
   <!-- datatables -->
   <link rel="stylesheet" href="../../dataTables/datatables.min.css">
