@@ -167,11 +167,11 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
+          <div class="row mb-0">
+            <div class="col-md-12 mb-0 mb-md-2 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h2 class="font-weight-bold">Wisma Anggrek</h2>
+                  <h3 class="font-weight-bold text-md-left text-center">List Kamar Wisma Anggrek</h3>
                 </div>
               </div> 
             </div>
@@ -180,7 +180,6 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">List Kamar</h4>
                   <p class="font-weight-500">Berikut list kamar yang ada </p>
                     <!-- Kodingan Isi Halaman Page Di Bawah Ini -->
                     <!-- Tabel -->
@@ -222,41 +221,19 @@
                                 <?php while($list=mysqli_fetch_array($query1)) : ?> 
                                 <tr class="alert" role="alert">
                                     <!-- check in -->
-				                            <td>
+				                    <td>
                                         <?php 
                                         if($list['statusco']=="Terisi") 
                                             echo 
                                             "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit' onclick='return edit(event)' >
                                             <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
                                             </a>";
-                                        else if ($list['statusco']=="Kosong")
-                                            echo 
-                                            "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
-                                            <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
-                                            </a>";
-                                        else if ($list['nik1']=="Kosong")
+                                        else 
                                             echo 
                                             "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
                                             <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
                                             </a>";
                                         ?>
-                                        <script type="text/javascript">
-                                            function edit(ev){
-                                                ev.preventDefault();
-                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
-                                                console.log(urlToRedirect);
-                                                Swal.fire({
-                                                    title: 'Yakin akan memilih kamar ini?',
-                                                    icon: "question",
-                                                    showCancelButton: true,
-                                                    confirmButtonText: 'Ya',
-                                                }).then((result) => {
-                                                    if (result.isConfirmed) {
-                                                    window.location.href = urlToRedirect;
-                                                    }
-                                                })
-                                            }
-                                        </script>
                                     </td>
                                     <!-- edit -->
                                     <td>
@@ -453,8 +430,8 @@
                                         <?php endwhile; ?>
 				                    </tr>
                               </tbody>
-			                  <p class="card-text font-weight-bold text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
-                              <p class="card-text font-weight-bold text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query2); ?></p>
+			                        <p class="card-text text-info mb-md-0">Total kamar : <?= mysqli_num_rows($query); ?></p>
+                              <p class="card-text text-info mb-md-3">Kamar kosong : <?= mysqli_num_rows($query2); ?></p>
                             </table>
                             </div>
                           </div>
