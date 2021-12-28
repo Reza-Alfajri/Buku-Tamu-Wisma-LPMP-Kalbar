@@ -166,11 +166,11 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
+          <div class="row mb-0">
+            <div class="col-md-12 mb-0 mb-md-2 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h2 class="font-weight-bold">Wisma Handayani</h2>
+                  <h3 class="font-weight-bold text-md-left text-center">List Kamar Wisma Handayani</h3>
                 </div>
               </div> 
             </div>
@@ -179,7 +179,6 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">List Kamar</h4>
                   <p class="font-weight-500">Berikut list kamar yang ada </p>
                     <!-- Kodingan Isi Halaman Page Di Bawah Ini -->
                     <!-- Tabel -->
@@ -234,23 +233,6 @@
                                             <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
                                             </a>";
                                         ?>
-                                        <script type="text/javascript">
-                                            function edit(ev){
-                                                ev.preventDefault();
-                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
-                                                console.log(urlToRedirect);
-                                                Swal.fire({
-                                                    title: 'Yakin akan memilih kamar ini?',
-                                                    icon: "question",
-                                                    showCancelButton: true,
-                                                    confirmButtonText: 'Ya',
-                                                }).then((result) => {
-                                                    if (result.isConfirmed) {
-                                                    window.location.href = urlToRedirect;
-                                                    }
-                                                })
-                                            }
-                                        </script>
                                     </td>
                                     <!-- edit -->
                                     <td>
