@@ -15,15 +15,15 @@
   background-color: rgb(85, 18, 209);
 }
 .svg {
-  z-index: 0;
+  z-index: -9;
 }
-.card-body {
-  z-index: 99;
-}
-#mybutton{
+#mybutton {
   position: relative;
   z-index: 1;
   left: 3%;
   top: 13.2px;
   cursor: pointer;
+}
+.text-dark-blue {
+  color: #4747a1 !important;
 }
