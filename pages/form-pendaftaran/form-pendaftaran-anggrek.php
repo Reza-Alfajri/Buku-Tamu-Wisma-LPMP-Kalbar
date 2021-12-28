@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if(!isset($_SESSION["username"])){
-        header("Location: ../../login.php");
-    }
+session_start();
+if(!isset($_SESSION["username"])){
+    header("Location: ../../login.php");
+}
     //koneksi ke database
     include("../../koneksi.php");
     if (!isset($_GET['nomor_kamar'])) {
@@ -29,7 +29,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Buku Tamu Anggrek</title>
+  <title>Form Pendaftaran Wisma Anggrek | LPMP Kalbar</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -53,14 +53,13 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo ms-10" href="../../index.php"><img src="../../images/logo-lpmp.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" alt="logo"/></a>
+        <a class="navbar-brand d-lg-none" href="../../index.php"><img src="../../images/logo-lpmp-kecil.png" width="36px" height="40px" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
-        <!-- Kalau mau tambah Search di bawah ini-->
-         
+        
         <!-- Start Notif -->
         <ul class="navbar-nav navbar-nav-right">
           
@@ -170,27 +169,26 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
+          <div class="row mb-0">
+            <div class="col-md-12 mb-0 mb-md-2 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h2 class="font-weight-bold">Form pendaftaran Wisma Anggrek</h2>
+                  <h3 class="font-weight-bold text-md-left text-center">Form Pendaftaran Wisma Anggrek</h3>
                 </div>
-              </div> 
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <div class="row mb-4">
-                    <div class="col-12 col-xl-11 mb-4 mb-xl-0">
-                      <h3 class="font-weight-bold">Form Kamar</h3>                     
-                    </div>
-                    <div class="col-12 col-xl-1">
-                      <h2 class="font-weight-bold"><?php echo $list['nomor_kamar']?></h2>
+                  <div class="row mb-4 d-flex justify-content-center">
+                    <div class="col-0 col-lg-9"></div>
+                    <div class="col-8 col-lg-2 ml-md-4">
+                      <h4 class="font-weight-bold shadow-md-none rounded shadow-sm card card-dark-blue p-md-2 p-3 text-center text-white">Kamar No. <?php echo $list['nomor_kamar']?></h4>
                     </div>
                   </div>
+                  <h6 class="font-weight-normal mb-md-4 mb-2 font-italic"><span class="text-info">Inputkan data yang sebenarnya!!</span></h6>
                     <form action="../../proses-kamar-anggrek.php" method="POST">
                       <fieldset>
                         <!-- Tamu 1 -->
