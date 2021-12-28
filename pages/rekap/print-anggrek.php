@@ -71,6 +71,7 @@
         <th>Tanggal Akhir</th>
         <th>Nama Tamu</th>
         <th>NIK</th>
+        <th>NUPTK</th>
         <th>Jenis Kelamin</th>
         <th>Tanggal Lahir</th>
         <th>Kabupaten / Kota</th>
