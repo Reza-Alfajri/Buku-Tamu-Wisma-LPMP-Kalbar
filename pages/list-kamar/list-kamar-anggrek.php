@@ -223,14 +223,19 @@
                                 <?php while($list=mysqli_fetch_array($query1)) : ?> 
                                 <tr class="alert" role="alert">
                                     <!-- check in -->
-				                    <td>
+				                            <td>
                                         <?php 
                                         if($list['statusco']=="Terisi") 
                                             echo 
                                             "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit' onclick='return edit(event)' >
                                             <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
                                             </a>";
-                                        else 
+                                        else if ($list['statusco']=="Kosong")
+                                            echo 
+                                            "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
+                                            <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
+                                            </a>";
+                                        else if ($list['nik1']=="Kosong")
                                             echo 
                                             "<a href=../../pages/form-pendaftaran/form-pendaftaran-anggrek.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
                                             <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
