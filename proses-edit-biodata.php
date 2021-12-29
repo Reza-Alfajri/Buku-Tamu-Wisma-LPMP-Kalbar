@@ -1,3 +1,9 @@
+<html>
+<head>
+<!-- sweet alert --> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
 <?php
     include("koneksi.php");
     //pengecekan
