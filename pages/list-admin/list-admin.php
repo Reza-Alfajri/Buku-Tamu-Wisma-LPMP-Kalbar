@@ -206,6 +206,23 @@
                                     <a href=../../proses-hapus-admin.php?username=".$list['username']." onclick='return hapus(event)'>
                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Delete
                                     </a>
+                                    <script type="text/javascript">
+                                                function hapus(ev){
+                                                ev.preventDefault();
+                                                var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                                console.log(urlToRedirect);
+                                                Swal.fire({
+                                                    title: 'Data akan terhapus!',
+                                                    icon: "warning",
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Ya',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                    window.location.href = urlToRedirect;
+                                                    }
+                                                })
+                                                }
+                                            </script>
                                   </tr>
                                 <?php endwhile; ?>
                             </tbody>
