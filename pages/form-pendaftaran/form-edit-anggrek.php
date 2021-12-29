@@ -1,8 +1,9 @@
 <?php
-    	session_start();
-      if(!isset($_SESSION["username"])){
-      header("Location: ../../login.php");
-      }
+    //Login
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header("Location: ../../login.php");
+    }
     //koneksi ke database
     include("../../koneksi.php");
     if (!isset($_GET['nomor_kamar'])) {
@@ -59,6 +60,7 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
+        <!-- Kalau mau tambah Search di bawah ini-->
         
         <!-- Start Notif -->
         <ul class="navbar-nav navbar-nav-right">
