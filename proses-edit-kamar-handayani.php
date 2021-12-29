@@ -72,7 +72,7 @@
             echo '
             <script language="javascript">
                 Swal.fire({
-                    title: "Berhasil Check Out!",
+                    title: "Data Berhasil Disimpan!",
                     icon: "success",
                     confirmButtonText: "OK",
                 }).then((result) => {
