@@ -1,3 +1,9 @@
+<html>
+<head>
+<!-- sweet alert --> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
 <?php
     include("koneksi.php");
     //pengecekan
@@ -61,9 +67,31 @@
             $query1 = mysqli_query($db, $sql1);
             $query2 = mysqli_query($db, $sql2);
             if( $query && $query1 && $query2){
-                header('Location: pages/list-kamar/list-kamar-anggrek.php');
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Berhasil Disimpan!",
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href="pages/list-kamar/list-kamar-anggrek.php"
+                        }
+                    }); 
+                </script>';
             } else {
-                die("Gagal menyimpan perubahan ...");
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Gagal Menyimpan!",
+                        icon: "warning",
+                        confirmButtonText: "Back",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.history.back();
+                        }
+                    }); 
+                </script>';
             }
         } else {
             $sql1 = "INSERT INTO rekapan (timestamp, nama_kegiatan, tanggal_awal, tanggal_akhir, 
@@ -76,12 +104,36 @@
             $query = mysqli_query($db, $sql);
             $query1 = mysqli_query($db, $sql1);
             if( $query && $query1){
-                header('Location: pages/list-kamar/list-kamar-anggrek.php');
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Berhasil Disimpan!",
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href="pages/list-kamar/list-kamar-anggrek.php"
+                        }
+                    }); 
+                </script>';
             } else {
-                die("Gagal menyimpan perubahan ...");
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Gagal Menyimpan!",
+                        icon: "warning",
+                        confirmButtonText: "Back",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.history.back();
+                        }
+                    }); 
+                </script>';
             }
         }
     } else {
         die("Akses dilarang ...");
     }
 ?>
+</body>
+</html>
