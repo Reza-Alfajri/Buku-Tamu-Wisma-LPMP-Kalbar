@@ -1,3 +1,9 @@
+<html>
+<head>
+<!-- sweet alert --> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
 <?php
     include("koneksi.php");
     //pengecekan
@@ -9,10 +15,6 @@
         $tanggal_awal = $_POST['tanggal_awal'];
         $tanggal_akhir = $_POST['tanggal_akhir'];
         $statusco = "Terisi";
-        $timestamp2 = $_POST['timestamp2'];
-        $nama_kegiatan2 = $_POST['nama_kegiatan2'];
-        $tanggal_awal2 = $_POST['tanggal_awal2'];
-        $tanggal_akhir2 = $_POST['tanggal_akhir2'];
 
         $nama_tamu = $_POST['nama_tamu'];
         $nik = $_POST['nik'];
@@ -24,26 +26,29 @@
         $nama_kantor = $_POST['nama_kantor'];
         $no_hp = $_POST['no_hp'];
 
-        $nama_tamu2 = $_POST['nama_tamu2'];
-        $nik2 = $_POST['nik2'];
-        $nuptk2 = $_POST['nuptk2'];
-        $jenis_kelamin2 = $_POST['jenis_kelamin2'];
-        $tanggal_lahir2 = $_POST['tanggal_lahir2'];
-        $kota2 = $_POST['kota2'];
-        $jabatan2 = $_POST['jabatan2'];
-        $nama_kantor2 = $_POST['nama_kantor2'];
-        $no_hp2 = $_POST['no_hp2'];
-
         $wisma = "Handayani";
         
         //buat query update
-        $sql = "UPDATE handayani SET timestamp='$timestamp', nama_kegiatan='$nama_kegiatan', tanggal_awal='$tanggal_awal', tanggal_akhir='$tanggal_akhir',
+        if(isset($_POST['nik2'])){
+            $nama_tamu2 = $_POST['nama_tamu2'];
+            $nik2 = $_POST['nik2'];
+            $nuptk2 = $_POST['nuptk2'];
+            $jenis_kelamin2 = $_POST['jenis_kelamin2'];
+            $tanggal_lahir2 = $_POST['tanggal_lahir2'];
+            $kota2 = $_POST['kota2'];
+            $jabatan2 = $_POST['jabatan2'];
+            $nama_kantor2 = $_POST['nama_kantor2'];
+            $no_hp2 = $_POST['no_hp2'];
+            $timestamp2 = $_POST['timestamp2'];
+            $nama_kegiatan2 = $_POST['nama_kegiatan2'];
+            $tanggal_awal2 = $_POST['tanggal_awal2'];
+            $tanggal_akhir2 = $_POST['tanggal_akhir2'];
+
+            $sql = "UPDATE handayani SET timestamp='$timestamp', nama_kegiatan='$nama_kegiatan', tanggal_awal='$tanggal_awal', tanggal_akhir='$tanggal_akhir',
             nik='$nik', nuptk='$nuptk', nama_tamu='$nama_tamu', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', statusco='$statusco', kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp', 
             timestamp2='$timestamp2', nama_kegiatan2='$nama_kegiatan2', tanggal_awal2='$tanggal_awal2', tanggal_akhir2='$tanggal_akhir2',
             nik2='$nik2', nuptk2='$nuptk2', nama_tamu2='$nama_tamu2', jenis_kelamin2='$jenis_kelamin2', tanggal_lahir2='$tanggal_lahir2', kota2='$kota2', jabatan2='$jabatan2', nama_kantor2='$nama_kantor2', no_hp2='$no_hp2' 
             WHERE nomor_kamar='$nomor_kamar'";
-
-        if(isset($_POST['nik2'])){
             $sql1 = "INSERT INTO rekapan (timestamp, nama_kegiatan, tanggal_awal, tanggal_akhir, 
             nama_tamu, nik, nuptk, jenis_kelamin, tanggal_lahir, kota, jabatan, nama_kantor, no_hp, 
             wisma, nomor_kamar)
@@ -61,11 +66,36 @@
             $query1 = mysqli_query($db, $sql1);
             $query2 = mysqli_query($db, $sql2);
             if( $query && $query1 && $query2){
-                header('Location: pages/list-kamar/list-kamar-handayani.php');
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Berhasil Disimpan!",
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href="pages/list-kamar/list-kamar-handayani.php"
+                        }
+                    }); 
+                </script>';
             } else {
-                die("Gagal menyimpan perubahan ...");
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Gagal Menyimpan!",
+                        icon: "warning",
+                        confirmButtonText: "Back",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.history.back();
+                        }
+                    }); 
+                </script>';
             }
         } else {
+            $sql = "UPDATE handayani SET timestamp='$timestamp', nama_kegiatan='$nama_kegiatan', tanggal_awal='$tanggal_awal', tanggal_akhir='$tanggal_akhir',
+            nik='$nik', nuptk='$nuptk', nama_tamu='$nama_tamu', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', statusco='$statusco', kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' 
+            WHERE nomor_kamar='$nomor_kamar'";
             $sql1 = "INSERT INTO rekapan (timestamp, nama_kegiatan, tanggal_awal, tanggal_akhir, 
             nama_tamu, nik, nuptk, jenis_kelamin, tanggal_lahir, kota, jabatan, nama_kantor, no_hp,  
             wisma, nomor_kamar)
@@ -76,12 +106,36 @@
             $query = mysqli_query($db, $sql);
             $query1 = mysqli_query($db, $sql1);
             if( $query && $query1){
-                header('Location: pages/list-kamar/list-kamar-handayani.php');
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Berhasil Disimpan!",
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href="pages/list-kamar/list-kamar-handayani.php"
+                        }
+                    }); 
+                </script>';
             } else {
-                die("Gagal menyimpan perubahan ...");
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Gagal Menyimpan!",
+                        icon: "warning",
+                        confirmButtonText: "Back",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.history.back();
+                        }
+                    }); 
+                </script>';
             }
         }
     } else {
         die("Akses dilarang ...");
     }
 ?>
+</body>
+</html>
