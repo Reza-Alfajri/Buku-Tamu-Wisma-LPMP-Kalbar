@@ -1,3 +1,9 @@
+<html>
+<head>
+<!-- sweet alert --> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+</head>
+<body>
 <?php
     include("koneksi.php");
     //pengecekan
@@ -34,9 +40,31 @@
         
         //apakah query berhasil tersimpan
         if( $query && $query1 ){
-            header('Location: pages/list-kamar/list-kamar-anggrek.php');
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Berhasil Check Out!",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href="pages/list-kamar/list-kamar-anggrek.php"
+                    }
+                }); 
+            </script>';
         } else {
-            die("Gagal menyimpan perubahan...");
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                }); 
+            </script>';
         }
     } else if(isset($_GET['nomor_kamar2'])) {
         //ambil data dari formulir
@@ -72,9 +100,31 @@
         
         //apakah query berhasil tersimpan
         if( $query && $query1 ){
-            header('Location: pages/list-kamar/list-kamar-anggrek.php');
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Berhasil Check Out!",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href="pages/list-kamar/list-kamar-anggrek.php"
+                    }
+                }); 
+            </script>';
         } else {
-            die("Gagal menyimpan perubahan...");
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                }); 
+            </script>';
         }
     } else if(isset($_GET['nomor_kamar'])) {
         //ambil data dari formulir
@@ -116,11 +166,35 @@
         $query3 = mysqli_query($db, $sql3);
         //apakah query berhasil tersimpan
         if( $query && $query1 || $query3 ){
-            header('Location: pages/list-kamar/list-kamar-anggrek.php');
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Berhasil Check Out!",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href="pages/list-kamar/list-kamar-anggrek.php"
+                    }
+                }); 
+            </script>';
         } else {
-            die("Gagal menyimpan perubahan...");
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                }); 
+            </script>';
         }
     } else {
         die("Akses dilarang ...");
     }
 ?>
+</body>
+</html>
