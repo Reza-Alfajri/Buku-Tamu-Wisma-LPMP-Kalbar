@@ -27,7 +27,18 @@
             kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik' or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
             $query3 = mysqli_query($db, $sql3);
         } else {
-            die("Gagal menyimpan perubahan a...");
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                }); 
+            </script>';
         }  
         
         $sql6 = "SELECT * FROM anggrek WHERE nik=$nik or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
@@ -37,7 +48,18 @@
             kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
             $query3 = mysqli_query($db, $sql3);
         } else {
-            die("Gagal menyimpan perubahan b...");
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                }); 
+            </script>';
         }  
 
         $sql7 = "SELECT * FROM handayani WHERE nik2=$nik or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
@@ -47,7 +69,18 @@
             kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik' or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
             $query4 = mysqli_query($db, $sql4);
         } else {
-            die("Gagal menyimpan perubahan c...");
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                }); 
+            </script>';
         }  
         
         $sql8 = "SELECT * FROM handayani WHERE nik=$nik or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
@@ -57,18 +90,53 @@
             kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
             $query4 = mysqli_query($db, $sql4);
         } else {
-            die("Gagal menyimpan perubahan d...");
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                }); 
+            </script>';
         }  
 
         $query1 = mysqli_query($db, $sql1);
         $query2 = mysqli_query($db, $sql2);
         //apakah query berhasil tersimpan
         if( $query1 && $query2 && $query3 || $query4 ){
-            header('Location: pages/biodata/biodata-pengunjung.php');
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Data Berhasil Disimpan!",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href="pages/biodata/biodata-pengunjung.php"
+                    }
+                }); 
+            </script>';
         } else {
-            die("Gagal menyimpan perubahan ...");
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.history.back();
+                    }
+                }); 
+            </script>';
         }
     } else {
         die("Akses dilarang ...");
     }
 ?>
+</body>
+</html>
