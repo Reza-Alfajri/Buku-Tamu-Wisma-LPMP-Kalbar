@@ -222,14 +222,24 @@
                                     <!-- check in -->
 				                    <td>
                                         <?php 
-                                        if($list['statusco']=="Terisi") 
+                                        if ($list['statusco']=="Kosong")
                                             echo 
-                                            "<a href=../../pages/form-pendaftaran/form-pendaftaran-handayani.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit' onclick='return edit(event)' >
+                                            "<a href=../../pages/form-pendaftaran/form-pendaftaran-handayani.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
+                                            <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
+                                            </a>";
+                                        else if ($list['nik']=="")
+                                            echo 
+                                            "<a href=../../pages/form-pendaftaran/form-tambahan-handayani.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
+                                            <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
+                                            </a>";
+                                        else if ($list['nik2']=="")
+                                            echo 
+                                            "<a href=../../pages/form-pendaftaran/form-tambahan-handayani.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
                                             <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
                                             </a>";
                                         else 
                                             echo 
-                                            "<a href=../../pages/form-pendaftaran/form-pendaftaran-handayani.php?nomor_kamar=".$list['nomor_kamar']." id='edit' onclick='return edit(event)'>
+                                            "<a href=../../pages/form-pendaftaran/form-pendaftaran-handayani.php?nomor_kamar=".$list['nomor_kamar']." class='disable' id='edit' onclick='return edit(event)' >
                                             <span aria-hidden='true'><i class='fa fa-sign-in'></i></span>
                                             </a>";
                                         ?>
