@@ -1,7 +1,8 @@
 <?php
-	session_start();
+    //Login
+    session_start();
     if(!isset($_SESSION["username"])){
-    header("Location: ../../login.php");
+        header("Location: ../../login.php");
     }
     //koneksi ke database
     include("../../koneksi.php");
@@ -59,7 +60,6 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
-        
         <!-- Start Notif -->
         <ul class="navbar-nav navbar-nav-right">
           
@@ -186,7 +186,7 @@
                     <div class="col-0 col-lg-9"></div>
                     <div class="col-8 col-lg-2 ml-md-4">
                       <h4 class="font-weight-bold shadow-md-none rounded shadow-sm card card-dark-blue p-md-2 p-3 text-center text-white">Kamar No. <?php echo $list['nomor_kamar']?></h4>
-                  </div>
+                    </div>
                   </div>
                   <?php if($list['nik'] && $list['nik2']) {?>
                     <form action="../../proses-edit-kamar-handayani.php" method="POST">
