@@ -365,7 +365,7 @@
                       </form>
                       <!-- class hidden -->
                       <!-- Tamu 2 -->
-                        <div class="copy invisible">
+                        <div class="copy d-none">
                             <div class="control-group">
                               <!-- Baris 1 -->
                               <div class="row">
