@@ -203,7 +203,7 @@
                                     <td><?=$list['username']; ?></td>
                                     <td><?=$list['password']; ?></td>
                                     <td class="text-center">                               
-                                    <a href=../../proses-hapus-admin.php?username=".$list['username']." onclick='return hapus(event)'>
+                                    <a href=../../proses-hapus-admin.php?username="<?=$list['username']?>" onclick='return hapus(event)'>
                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Delete
                                     </a>
                                     <script type="text/javascript">
