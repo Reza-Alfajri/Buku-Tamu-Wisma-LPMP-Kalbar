@@ -9,6 +9,7 @@
 }
 </style>
 </head>
+<body>
 <?php
     include("koneksi.php");
     //pengecekan
