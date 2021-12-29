@@ -1,3 +1,14 @@
+<html>
+<head>
+<!-- sweet alert --> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+<!-- end sweet alert -->
+<style>
+    .swal2-popup {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+</style>
+</head>
 <?php
     include("koneksi.php");
     //pengecekan
@@ -35,7 +46,18 @@
             nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$kosong' AND nomor_kamar='$nomor_kamar'";
             $query1 = mysqli_query($db, $sql1);
         } else {
-            die("Gagal menyimpan perubahan a...");
+            echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Gagal Menyimpan!",
+                        icon: "warning",
+                        confirmButtonText: "Back",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.history.back();
+                        }
+                    }); 
+                </script>';
         }
         
         $tamu2 = "SELECT * FROM handayani WHERE nama_tamu2='$kosong' and nik2='$kosong' and nomor_kamar='$nomor_kamar'";
@@ -45,17 +67,52 @@
             nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$kosong' AND nomor_kamar='$nomor_kamar'";
             $query2 = mysqli_query($db, $sql2);
         } else {
-            die("Gagal menyimpan perubahan b...");
+            echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Gagal Menyimpan!",
+                        icon: "warning",
+                        confirmButtonText: "Back",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.history.back();
+                        }
+                    }); 
+                </script>';
         }
 
         $query0 = mysqli_query($db, $sql0);
         
         if( $query0 && $query1 || $query2){
-            header('Location: pages/list-kamar/list-kamar-handayani.php');
-        } else {
-            die("Gagal menyimpan perubahan ...");
-        }
+            echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Berhasil Disimpan!",
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href="pages/list-kamar/list-kamar-handayani.php"
+                        }
+                    }); 
+                </script>';
+            } else {
+                echo '
+                <script language="javascript">
+                    Swal.fire({
+                        title: "Gagal Menyimpan!",
+                        icon: "warning",
+                        confirmButtonText: "Back",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.history.back();
+                        }
+                    }); 
+                </script>';
+            }
     } else {
         die("Akses dilarang ...");
     }
 ?>
+</body>
+</html>
