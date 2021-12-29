@@ -54,7 +54,7 @@
       <h4>LEMBAGA PENJAMINAN MUTU PENDIDIKAN PROVINSI KALIMANTAN BARAT</h4>
       <p>Jalan Abdul Muis, Tanjung Hulu Pontianak Timur 78237</p>
       <p>Telepon (0561) 742110, Faksimile (0561) 746618</p>
-      <p>Laman www.lpmp-kalbar.net, Posel mailbox@lpmp-kalbar.net</p>
+      <p>Laman www.lpmp-kalbar.id, Posel mailbox@lpmp-kalbar.id</p>
     </div>
   </div>
   <hr style="height:4px; border:none; color:#333; background-color:#333; margin-bottom: 1.5rem;">
