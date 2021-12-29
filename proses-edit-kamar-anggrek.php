@@ -44,6 +44,7 @@
         } else {
             $sql1 = "UPDATE anggrek SET nama_kegiatan='$nama_kegiatan', tanggal_awal='$tanggal_awal', tanggal_akhir='$tanggal_akhir' WHERE nomor_kamar='$nomor_kamar'";
         }
+        
         if(isset($_POST['nik']) && isset($_POST['nik2'])){
             $sql2 = "UPDATE rekapan SET nama_kegiatan='$nama_kegiatan', tanggal_awal='$tanggal_awal', tanggal_akhir='$tanggal_akhir', nomor_kamar='$nomor_kamar'
                     WHERE timestamp='$timestamp' AND nik='$nik' AND nomor_kamar='$nomor_kamar'";
@@ -57,6 +58,7 @@
             $sql2 = "UPDATE rekapan SET nama_kegiatan='$nama_kegiatan', tanggal_awal='$tanggal_awal', tanggal_akhir='$tanggal_akhir', nomor_kamar='$nomor_kamar' 
             WHERE timestamp='$timestamp' AND nik='$nik2' AND nomor_kamar='$nomor_kamar'";
         }
+        
         $query1 = mysqli_query($db, $sql1);
         $query2 = mysqli_query($db, $sql2);
         //apakah query berhasil tersimpan
