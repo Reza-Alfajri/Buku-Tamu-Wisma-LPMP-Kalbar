@@ -60,7 +60,7 @@
         $query1 = mysqli_query($db, $sql1);
         $query2 = mysqli_query($db, $sql2);
         //apakah query berhasil tersimpan
-        if( $query1 && $query2 && $query3 ){
+        if( $query1 && $query2 || $query3 ){
             header('Location: pages/list-kamar/list-kamar-handayani.php');
         } else {
             die("Gagal menyimpan perubahan ...");
