@@ -169,11 +169,11 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
+          <div class="row mb-0">
+            <div class="col-md-12 mb-0 mb-md-2 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h2 class="font-weight-bold">Form pendaftaran Wisma Handayani</h2>
+                  <h3 class="font-weight-bold text-md-left text-center">Form Pendaftaran Wisma Handayani</h3>
                 </div>
               </div> 
             </div>
@@ -182,14 +182,13 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <div class="row mb-4">
-                    <div class="col-12 col-xl-11 mb-4 mb-xl-0">
-                      <h3 class="font-weight-bold">Form Kamar</h3>                     
-                    </div>
-                    <div class="col-12 col-xl-1">
-                      <h2 class="font-weight-bold"><?php echo $list['nomor_kamar']?></h2>
+                  <div class="row mb-4 d-flex justify-content-center">
+                    <div class="col-0 col-lg-9"></div>
+                    <div class="col-8 col-lg-2 ml-md-4">
+                      <h4 class="font-weight-bold shadow-md-none rounded shadow-sm card card-dark-blue p-md-2 p-3 text-center text-white">Kamar No. <?php echo $list['nomor_kamar']?></h4>
                     </div>
                   </div>
+                  <h6 class="font-weight-normal mb-md-4 mb-2 font-italic"><span class="text-info">Inputkan data yang sebenarnya!!</span></h6>
                     <form action="../../proses-tambahan-handayani.php" method="POST">
                       <fieldset>
                         <!-- Tamu 1 -->
