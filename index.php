@@ -11,7 +11,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Absensi LPMP</title>
+    <title>Home | LPMP Kalbar</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/feather/feather.css" />
     <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css" />
@@ -40,7 +40,7 @@
         </a>
         <div class="mr-lg-5 mr-3">
           <a class="btn btn-primary p-2 font-weight-bold" href="logout.php" onclick="return logout(event)">
-          <i class="fa fa-sign-out"></i>
+          <i class="fas fa-sign-out-alt"></i>
               <span class="">Logout</span>
           </a>
           <script type="text/javascript">
@@ -201,7 +201,7 @@
                               </div>
                               <div class="card-body">
                                 <h5 class="card-title">Biodata</h5>
-                                <p class="card-text mb-2">Pengisian identitas pengunjung wisma</p>
+                                <p class="card-text mb-2">Pengisian identitas tamu wisma</p>
                                 <hr>
                                 <a href="pages/biodata/biodata-pengunjung.php" class="btn btn-primary">Masuk</a>
                               </div>
@@ -220,8 +220,8 @@
                                 </div>
                               </div>
                               <div class="card-body">
-                                <h5 class="card-title">Rekap Pengunjung</h5>
-                                <p class="card-text mb-2">Rekapan pengunjung wisma</p>
+                                <h5 class="card-title">Rekap Tamu</h5>
+                                <p class="card-text mb-2">Rekapan tamu wisma Anggrek dan Handayani</p>
                                 <hr>
                                 <a href="pages/rekap/rekap-anggrek.php" class="btn btn-primary mb-0">Masuk</a>
                               </div>
