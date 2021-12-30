@@ -351,7 +351,7 @@ if(!isset($_SESSION["username"])){
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <div class="col-sm-9">
-                                            <button class="btn btn-success add-more" type="button">
+                                            <button class="btn btn-success add-more" type="button" onclick="style='display:none;'">
                                                 <i class="glyphicon glyphicon-plus"></i> Add
                                             </button>
                                         </div>
