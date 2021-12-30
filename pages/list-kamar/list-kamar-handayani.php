@@ -203,7 +203,7 @@
                                     <th>Tanggal Lahir</th>
                                     <th>Kabupaten / Kota</th>
                                     <th>Jabatan</th>
-                                    <th>Nama Kantor</th>
+                                    <th>Nama Instansi</th>
                                     <th>No. HP</th>
                                     <th>&nbsp;</th>
                                 </tr>
