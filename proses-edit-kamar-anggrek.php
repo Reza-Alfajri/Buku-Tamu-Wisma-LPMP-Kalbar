@@ -9,7 +9,7 @@
     //pengecekan
     if(isset($_POST['simpan'])){
         //ambil data dari formulir
-        if(isset($_POST['nik2']) && isset($_POST['nik2'])){
+        if(isset($_POST['nik']) && isset($_POST['nik2'])){
             $nomor_kamar = $_POST['nomor_kamar'];     
             $nik = $_POST['nik'];
             $timestamp = $_POST['timestamp'];
