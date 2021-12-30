@@ -656,7 +656,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nomor Kamar</label>
                               <div class="col-sm-9">
-                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar2']?>" readonly>
+                                <input type="text" name="nomor_kamar" class="form-control" value="<?php echo $list['nomor_kamar']?>" readonly>
                               </div>
                             </div>
                           </div>
