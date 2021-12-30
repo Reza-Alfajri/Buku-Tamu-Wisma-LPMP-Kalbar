@@ -70,7 +70,7 @@
           <div class="content-wrapper">
             <div class="row">
               <div class="col-md-12 grid-margin">
-                <div class="row">
+                <div class="row mb-2">
                   <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                     <h3 class="font-weight-bold">Hai <?php echo $_SESSION['username'];?>!</h3>
                     <h4 class="font-weight-normal mb-0">Selamat Datang di <a href="http://www.lpmpkalbar.id/index.php/id/" target="blank" class=" text-decoration-none "><span class="text-primary">LPMP Kalbar</span></a> </h4>
@@ -78,9 +78,8 @@
                   <div class="col-12 col-xl-4">
                    <div class="justify-content-sm-end d-flex">
                     <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                      <button class="btn shadow-sm mb-3 bg-white" type="button" aria-haspopup="true" aria-expanded="true">
-                       
-                       <div class="text-info">
+                      <div class="card card-dark-blue shadow-sm mb-3 rounded pr-3 pl-3 p-2">
+                        <div class="text-white">
                       <?php 
                     
                         $hari = date('l');
@@ -133,7 +132,7 @@
 
                         ?>
                     </div>
-                      </button>
+                      </div>
                     </div>
                    </div>
                   </div>
@@ -179,7 +178,7 @@
                                     <p class="card-text font-weight-bold text-white">Kamar kosong :  <?= mysqli_num_rows($query3); ?></p>
                                   </div>
                                   <div class="col-5">
-                                    <a href="pages/list-kamar/list-kamar-handayani.php" class="btn btn-primary">Masuk</a>
+                                    <a href="pages/list-kamar/list-kamar-anggrek.php" class="btn btn-primary">Masuk</a>
                                   </div>
                                 </div>
                               </div>
@@ -201,7 +200,7 @@
                               </div>
                               <div class="card-body">
                                 <h5 class="card-title">Biodata</h5>
-                                <p class="card-text mb-2">Pengisian identitas tamu wisma</p>
+                                <p class="card-text mb-2">Pengisian identitas pengunjung wisma</p>
                                 <hr>
                                 <a href="pages/biodata/biodata-pengunjung.php" class="btn btn-primary">Masuk</a>
                               </div>
@@ -220,8 +219,8 @@
                                 </div>
                               </div>
                               <div class="card-body">
-                                <h5 class="card-title">Rekap Tamu</h5>
-                                <p class="card-text mb-2">Rekapan tamu wisma Anggrek dan Handayani</p>
+                                <h5 class="card-title">Rekap Pengunjung</h5>
+                                <p class="card-text mb-2">Rekapan pengunjung wisma</p>
                                 <hr>
                                 <a href="pages/rekap/rekap-anggrek.php" class="btn btn-primary mb-0">Masuk</a>
                               </div>
