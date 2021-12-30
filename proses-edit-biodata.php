@@ -21,16 +21,16 @@
         
         //buat query update
         $sql1 = "UPDATE biodata SET nik='$nik', nuptk='$nuptk', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', nama_tamu='$nama_tamu',
-        kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
+        kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu'";
 
         $sql2 = "UPDATE rekapan SET nik='$nik', nuptk='$nuptk', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', nama_tamu='$nama_tamu',
-        kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
+        kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu'";
 
-        $sql5 = "SELECT * FROM anggrek WHERE nik2=$nik or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
+        $sql5 = "SELECT * FROM anggrek WHERE nik2=$nik or nama_tamu2='$nama_tamu'";
         $query5 = mysqli_query($db, $sql5);
         if($query5 ) {
             $sql3 = "UPDATE anggrek SET nik2='$nik', nuptk2='$nuptk', jenis_kelamin2='$jenis_kelamin', tanggal_lahir2='$tanggal_lahir', nama_tamu2='$nama_tamu',
-            kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik' or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
+            kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik' or nama_tamu2='$nama_tamu'";
             $query3 = mysqli_query($db, $sql3);
         } else {
             echo '
@@ -47,11 +47,11 @@
             </script>';
         }  
         
-        $sql6 = "SELECT * FROM anggrek WHERE nik=$nik or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
+        $sql6 = "SELECT * FROM anggrek WHERE nik=$nik or nama_tamu='$nama_tamu'";
         $query6 = mysqli_query($db, $sql6);
         if($query6) {
             $sql3 = "UPDATE anggrek SET nik='$nik', nuptk='$nuptk', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', nama_tamu='$nama_tamu',
-            kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
+            kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu'";
             $query3 = mysqli_query($db, $sql3);
         } else {
             echo '
@@ -68,11 +68,11 @@
             </script>';
         }  
 
-        $sql7 = "SELECT * FROM handayani WHERE nik2=$nik or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
+        $sql7 = "SELECT * FROM handayani WHERE nik2=$nik or nama_tamu2='$nama_tamu'";
         $query7 = mysqli_query($db, $sql7);
         if($query7 ) {
             $sql4 = "UPDATE handayani SET nik2='$nik', nuptk2='$nuptk', jenis_kelamin2='$jenis_kelamin', tanggal_lahir2='$tanggal_lahir', nama_tamu2='$nama_tamu',
-            kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik' or nama_tamu2='$nama_tamu' or nuptk2='$nuptk'";
+            kota2='$kota', jabatan2='$jabatan', nama_kantor2='$nama_kantor', no_hp2='$no_hp' WHERE nik2='$nik' or nama_tamu2='$nama_tamu'";
             $query4 = mysqli_query($db, $sql4);
         } else {
             echo '
@@ -89,11 +89,11 @@
             </script>';
         }  
         
-        $sql8 = "SELECT * FROM handayani WHERE nik=$nik or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
+        $sql8 = "SELECT * FROM handayani WHERE nik=$nik or nama_tamu='$nama_tamu'";
         $query8 = mysqli_query($db, $sql8);
         if($query8) {
             $sql4 = "UPDATE handayani SET nik='$nik', nuptk='$nuptk', jenis_kelamin='$jenis_kelamin', tanggal_lahir='$tanggal_lahir', nama_tamu='$nama_tamu',
-            kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu' or nuptk='$nuptk'";
+            kota='$kota', jabatan='$jabatan', nama_kantor='$nama_kantor', no_hp='$no_hp' WHERE nik='$nik' or nama_tamu='$nama_tamu'";
             $query4 = mysqli_query($db, $sql4);
         } else {
             echo '
