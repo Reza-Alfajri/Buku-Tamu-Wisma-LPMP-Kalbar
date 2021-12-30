@@ -476,7 +476,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Nama Instansi</label>
                               <div class="col-sm-9">
-                                <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" value="<?php echo $list['nama_kantor']?>" readonly>
+                                <input type="text" name="nama_kantor2" id="nama_kantor2" class="form-control" value="<?php echo $list['nama_kantor2']?>" readonly>
                               </div>
                             </div>
                           </div>
