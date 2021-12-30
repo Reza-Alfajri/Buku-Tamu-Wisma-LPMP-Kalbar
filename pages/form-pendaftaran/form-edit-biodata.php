@@ -210,7 +210,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">NUPTK</label>
                               <div class="col-sm-9">
-                                <input type="text" id="nuptk" name="nuptk" class="form-control" value="<?php echo $list['nuptk']?>" required>
+                                <input type="text" id="nuptk" name="nuptk" class="form-control" value="<?php echo $list['nuptk']?>">
                                 <p> <i> -- isi jika ada -- </i> </p>
                               </div>
                             </div>
