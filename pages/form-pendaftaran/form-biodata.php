@@ -252,7 +252,7 @@
                           <!-- Nama Kantor -->
                           <div class="col-md-6">
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Nama Kantor</label>
+                              <label class="col-sm-3 col-form-label">Nama Instansi</label>
                               <div class="col-sm-9">
                                 <input type="text" name="nama_kantor" id="nama_kantor" class="form-control" required>
                               </div>
