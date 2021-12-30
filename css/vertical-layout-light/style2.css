@@ -15,7 +15,7 @@
   background-color: rgb(85, 18, 209);
 }
 .svg {
-  z-index: -9;
+  z-index: 9;
 }
 .card-body {
   z-index: 99;
