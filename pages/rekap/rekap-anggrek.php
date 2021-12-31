@@ -346,10 +346,12 @@
                                     $qA1 = mysqli_query($db, $jumlah);
                                 ?>
                                 <!-- End Search -->
-                                <?php while($list=mysqli_fetch_array($query1)) : 
+                                <?php 
+                                  if ($total > 0) {
+                                  while($list=mysqli_fetch_array($query)) : 
                                   //$no++; 
-                                ?> 
-                                <tr class="alert" role="alert">
+                                  ?> 
+                                  <tr class="alert" role="alert">
                                     <td><?= $list['timestamp']; ?></td>
                                     <td><?= $list['nama_kegiatan']; ?></td>
                                     <td><?= $list['tanggal_awal']; ?></td>
@@ -363,11 +365,14 @@
                                     <td><?= $list['jabatan']; ?></td>
                                     <td><?= $list['nama_kantor']; ?></td>
                                     <td><?= $list['no_hp']; ?></td>
-                                    <td><?= $list['wisma']; ?></td>
-                                    <td><?= $list['nomor_kamar']; ?></td>
-                                    <td><?= $list['keterangan']; ?></td>
-                                </tr>
-                                <?php endwhile; ?>
+                                  </tr>
+                                  <?php endwhile; ?> 
+                                <?php } else {
+                                    echo "<tr>
+                                    <td>Data Belum Ada</td>
+                                    </tr>";
+                                  }
+                                  ?>
                             </tbody>
                         </table>
                         <!-- Pagination -->
