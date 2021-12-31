@@ -128,7 +128,7 @@
             $jumlah = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Anggrek' GROUP BY MONTH(tanggal_awal)";
         } elseif ($date > 0 ){
             $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-            ?><h2>Rekap Tamu Wisma Anggrek Untuk Kegiatan <?= $nama_bulan[$date] ?></h2>
+            ?><h2>Rekap Tamu Wisma Anggrek Bulan <?= $nama_bulan[$date] ?></h2>
             <?php
             $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Anggrek'";
             $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Anggrek' ORDER BY YEAR(tanggal_awal) asc limit $start,$hal";
@@ -164,7 +164,9 @@
             $qA1 = mysqli_query($db, $jumlah);
       ?>
       
-      <?php while($list=mysqli_fetch_array($query)) : 
+      <?php 
+      if ($total > 0) {
+      while($list=mysqli_fetch_array($query)) : 
       //$no++; 
       ?> 
       <tr class="alert" role="alert">
@@ -183,6 +185,12 @@
         <td><?= $list['no_hp']; ?></td>
       </tr>
       <?php endwhile; ?> 
+    <?php } else {
+        echo "<tr>
+        <td>Data Belum Ada</td>
+        </tr>";
+      }
+      ?>
   </table>
   <br>
   <div class = "noprint">
