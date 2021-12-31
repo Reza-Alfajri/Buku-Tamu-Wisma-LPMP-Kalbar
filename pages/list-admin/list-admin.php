@@ -196,8 +196,10 @@
                                     $query1 = mysqli_query($db, $sql1);
                                 ?>
                                 <!-- End Search -->
-                                <?php while($list=mysqli_fetch_array($query1)) : 
-                                  //$no++; 
+                                <?php 
+                                if ($total > 0) {
+                                while($list=mysqli_fetch_array($query)) : 
+                                //$no++; 
                                 ?> 
                                   <tr class="alert" role="alert">
                                     <td><?=$list['username']; ?></td>
@@ -224,7 +226,13 @@
                                                 }
                                             </script>
                                   </tr>
-                                <?php endwhile; ?>
+                                  <?php endwhile; ?> 
+                                  <?php } else {
+                                      echo "<tr>
+                                      <td>Data Belum Ada</td>
+                                      </tr>";
+                                    }
+                                    ?> 
                             </tbody>
                         </table>
                         </div>
