@@ -208,13 +208,15 @@
                                     $query1 = mysqli_query($db, $sql1);
                                 ?>
                                 <!-- End Search -->
-                                <?php while($list=mysqli_fetch_array($query1)) : 
+                                <?php
+                                if ($total > 0) {
+                                while($list=mysqli_fetch_array($query1)) : 
                                   //$no++; 
                                 ?> 
                                   <tr class="alert" role="alert">
                                     <td><?= $list['nama_tamu']; ?></td>
                                     <td><?= $list['nik']; ?></td>
-				    <td><?= $list['nuptk']; ?></td>
+				                            <td><?= $list['nuptk']; ?></td>
                                     <td><?= $list['jenis_kelamin']; ?></td>
                                     <td><?= $list['tanggal_lahir']; ?></td>
                                     <td><?= $list['kota']; ?></td>
@@ -244,7 +246,13 @@
                                       </script>
                                     </td>
                                   </tr>
-                                <?php endwhile; ?>
+                                  <?php endwhile; ?> 
+                                  <?php } else {
+                                      echo "<tr>
+                                      <td>Data Belum Ada</td>
+                                      </tr>";
+                                    }
+                                    ?> 
                             </tbody>
                         </table>
                         </div>
