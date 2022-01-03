@@ -70,15 +70,20 @@
           <div class="content-wrapper">
             <div class="row">
               <div class="col-md-12 grid-margin">
-                <div class="row mb-2">
-                  <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <div class="row p-2">
+                  <div class="col-12 col-xl-8 mb-4 mt-0 mb-lg-1">
                     <h3 class="font-weight-bold">Hai <?php echo $_SESSION['username'];?>!</h3>
-                    <h4 class="font-weight-normal mb-0">Selamat Datang di <a href="http://www.lpmpkalbar.id/index.php/id/" target="blank" class=" text-decoration-none "><span class="text-primary">LPMP Kalbar</span></a> </h4>
+                    <h4 class="font-weight-normal mb-2">Selamat Datang di <a href="http://www.lpmpkalbar.id/index.php/id/" target="blank" class=" text-decoration-none "><span class="text-primary">LPMP Kalbar</span></a> </h4>
                   </div>
                   <div class="col-12 col-xl-4">
                    <div class="justify-content-sm-end d-flex">
                     <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                       <div class="card card-dark-blue shadow-sm mb-3 rounded pr-3 pl-3 p-2">
+                        <div class="text-white" style="display: none;">
+                          <a href="" class="text-white">
+                            <p class="mb-0">List Admin</p>
+                          </a>
+                        </div>
                         <div class="text-white">
                       <?php 
                     
@@ -139,7 +144,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-12 grid-margin">
-                    <div class="row d-flex justify-content-center mt-2">
+                    <div class="row d-flex justify-content-center mt-0">
                       <div class="col-md-7 card p-md-4 p-3 mr-md-4">
                         <div class="row">
                           <div class="col-md-6 mb-md-0 mb-4">
@@ -188,7 +193,7 @@
                       </div>
                       <div class="col-md-4 card p-md-4">
                         <div class="row">
-                          <div class="col-md-12 mb-4 stretch-card transparent" href="../../pages/list-kamar/list-kamar-handayani.php">
+                          <div class="col-md-12 mb-md-4 mb-4 stretch-card transparent" href="../../pages/list-kamar/list-kamar-handayani.php">
                             <div class="card shadow" style="width: 18rem; background-color: #d3d2ff;">
                               <div class="svg d-flex justify-content-end">
                                 <div class="position-absolute ">
@@ -208,7 +213,7 @@
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-12 mb-4 stretch-card transparent" href="../../pages/list-kamar/list-kamar-handayani.php">
+                          <div class="col-md-12 mb-md-0 mb-4 stretch-card transparent" href="../../pages/list-kamar/list-kamar-handayani.php">
                             <div class="card shadow" style="width: 18rem; background-color: #c0e2f5; ">
                               <div class="svg d-flex justify-content-end">
                                 <div class="position-absolute ">
@@ -234,25 +239,24 @@
               </div>
             </div>
             <!-- content-wrapper ends -->
-            <!-- partial:partials/_footer.html -->
-
-            <footer class="footer">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"
-                  >Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-              </div>
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Edited by interns from Polnep | 2021</span>
-              </div>
-            </footer>
             <!-- partial -->
           </div>
           <!-- main-panel ends -->
         </div>
+        
         <!-- page-body-wrapper ends -->
       </div>
+      <footer class="footer mt-0" style="background-color: #09547d;">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          <span class="text-white text-center text-sm-left d-block d-sm-inline-block"
+          >Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+        </div>
+        <div class="d-sm-flex justify-content-center justify-content-sm-between text-white">
+          <span class="text-white text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Edited by interns from Polnep | 2021</span>
+        </div>
+      </footer>
     </div>
     <script type="text/javascript">        
         function tampilkanwaktu(){         //fungsi ini akan dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik    
