@@ -85,8 +85,12 @@
                           </a>
                         </div>
                         <div class="text-white">
+                      
                       <?php 
-                    
+                      $a= "SELECT * FROM admin WHERE username='$_SESSION[username]'";
+                      $admin= mysqli_query($db, $a);
+                      $adm=mysqli_fetch_array($admin);
+                      if ($adm['level'] == 'admin') {
                         $hari = date('l');
                         /*$new = date('l, F d, Y', strtotime($Today));*/
                         if ($hari=="Sunday") {
@@ -134,8 +138,10 @@
                           }
                           $tahun=date('Y');
                           echo $tahun;
-
-                        ?>
+                        } else {
+                          echo '<a class="text-white" href="pages/list-admin/list-admin.php">List Admin</a>';
+                        }
+                        ?> 
                     </div>
                       </div>
                     </div>
