@@ -365,6 +365,9 @@
                                     <td><?= $list['jabatan']; ?></td>
                                     <td><?= $list['nama_kantor']; ?></td>
                                     <td><?= $list['no_hp']; ?></td>
+				    <td><?= $list['wisma']; ?></td>
+                                    <td><?= $list['nomor_kamar']; ?></td>
+                                    <td><?= $list['keterangan']; ?></td>
                                   </tr>
                                   <?php endwhile; ?> 
                                 <?php } else {
