@@ -206,6 +206,7 @@
                                     $sql1 = "SELECT * FROM biodata";
                                     $query = mysqli_query($db, $sql);
                                     $query1 = mysqli_query($db, $sql1);
+				    $total = mysqli_num_rows($query);
                                 ?>
                                 <!-- End Search -->
                                 <?php
