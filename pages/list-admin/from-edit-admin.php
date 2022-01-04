@@ -4,6 +4,21 @@
         header("Location: ../../login.php");
         }
 	require '../../koneksi.php';
+	if (!isset($_GET['nik'])) {
+        //kalau tidak ada id di query string
+        header('Location: ../../pages/list-admin/list-admin.php');
+        }
+        //ambil id dari query string
+        $username = $_GET['username'];
+        //buat query untuk ambil data dari database
+        $sql = "SELECT * FROM admin WHERE username=$username";
+        $query = mysqli_query($db, $sql);
+        $list = mysqli_fetch_assoc($query);
+    
+        //jika data yang di-edit tidak ditemukan
+        if(mysqli_num_rows($query) < 1) {
+        die("Data tidak ditemukan...");
+        }
 ?>
 
 <!DOCTYPE html>
@@ -174,7 +189,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Username</label>
                               <div class="col-sm-9">
-                                <input type="text" id="nama_tamu" name="nama_tamu" class="form-control" value="<?php echo $list['nama_tamu']?>" require>
+                                <input type="text" id="username" name="username" class="form-control" value="<?php echo $list['username']?>" require>
                               </div>
                             </div>
                           </div>
@@ -183,7 +198,7 @@
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Password Baru</label>
                               <div class="col-sm-9">
-                                <input type="text" id="nik" name="nik" class="form-control" value="<?php echo $list['nik']?>" require>
+                                <input type="text" id="password" name="password" class="form-control" value="<?php echo $list['password']?>" require>
                               </div>
                             </div>
                         </div>
