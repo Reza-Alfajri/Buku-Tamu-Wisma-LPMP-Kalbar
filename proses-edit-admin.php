@@ -2,51 +2,50 @@
 <head>
 <!-- sweet alert --> 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
-<!-- end sweet alert -->
-<style>
-    .swal2-popup {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-</style>
 </head>
 <body>
 <?php
-    //Nama File : proses_registrasi.php
-    //menkoneksikan ke database
     include("koneksi.php");
-    //cek apakah tombol daftar sudah diklik atau belum
+    //pengecekan
+    if(isset($_POST['simpan'])){
+        //ambil data dari formulir
         $username = $_POST['username'];
         $password = $_POST['password'];
-        //buat query
-            $sql1 = "UPDATE admin SET password='$password' WHERE username='$username'";
-            $query1 = mysqli_query($db, $sql1);
-            if ($query) {
-                echo '
-                <script language="javascript">
+
+        //buat query update
+        $sql1 = "UPDATE admin SET password='$password' WHERE username='$username'";
+        $query1 = mysqli_query($db, $sql1);
+        //apakah query berhasil tersimpan
+        if( $query1 ){
+            echo '
+            <script language="javascript">
                 Swal.fire({
-                    title: "Registrasi Sukses",
+                    title: "Data Berhasil Disimpan!",
                     icon: "success",
-                    confirmButtonText: "Login",
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href="../../pages/list-admin/list-admin.php?status=berhasil";
-                    }
-                  }); 
-                </script>';
-            } else {
-                echo '
-                <script language="javascript">
-                Swal.fire({
-                    title: "Registrasi Gagal",
-                    icon: "warning",
                     confirmButtonText: "OK",
-                  }).then((result) => {
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href="pages/list-admin/list-admin.php"
+                    }
+                }); 
+            </script>';
+        } else {
+            echo '
+            <script language="javascript">
+                Swal.fire({
+                    title: "Gagal Menyimpan!",
+                    icon: "warning",
+                    confirmButtonText: "Back",
+                }).then((result) => {
                     if (result.isConfirmed) {
                         window.history.back();
                     }
-                  }); 
-                </script>';
-            }
+                }); 
+            </script>';
+        }
+    } else {
+        die("Akses dilarang ...");
+    }
 ?>
 </body>
 </html>
