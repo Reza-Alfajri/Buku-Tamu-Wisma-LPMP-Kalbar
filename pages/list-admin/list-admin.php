@@ -205,7 +205,10 @@
                                   <tr class="alert" role="alert">
                                     <td><?=$list['username']; ?></td>
                                     <td><?=$list['password']; ?></td>
-                                    <td class="text-center">                               
+                                    <td class="text-center"> 
+				    <a href=form-edit-admin.php?username="<?=$list['username']?>" onclick='return'>
+                                    <span aria-hidden='true'><i class='fa fa-edit'></i></span>edit 
+                                    </a>
                                     <a href=../../proses-hapus-admin.php?username="<?=$list['username']?>" onclick='return hapus(event)'>
                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Delete
                                     </a>
