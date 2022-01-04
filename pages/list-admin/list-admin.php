@@ -239,7 +239,7 @@
                                                         <input type="password" class="form-control" name="password" id="password" placeholder="password" required>
                                                         <span id="mybutton1" onclick="password()"><i class="far fa-eye text-secondary"></i></span>
                                                       </div>
-                                                      <button class="btn btn-register btn-block rounded-pill btn-primary pe-3 ps-3" type="submit" name="daftar">Buat</button>
+                                                      <button class="btn btn-register btn-block rounded-pill btn-primary pe-3 ps-3" type="submit" name="daftar">OK</button>
                                                       </div>
                                                     </form>
                                                   </fieldset>
