@@ -4,7 +4,7 @@
         header("Location: ../../login.php");
         }
 	require '../../koneksi.php';
-	if (!isset($_GET['nik'])) {
+	if (!isset($_GET['username'])) {
         //kalau tidak ada id di query string
         header('Location: ../../pages/list-admin/list-admin.php');
         }
@@ -181,7 +181,7 @@
             <div class="col-md-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                    <form action="../../proses-edit-biodata.php" method="POST">
+                    <form action="../../proses-edit-admin.php" method="POST">
                       <fieldset>
                         <!-- Baris 1 -->
                         <!-- Username -->
