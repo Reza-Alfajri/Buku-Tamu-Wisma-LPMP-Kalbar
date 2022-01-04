@@ -13,7 +13,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Rekap Tamu Handayani | LPMP Kalbar</title>
+  <title>Rekap Tamu Wisma</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -131,6 +131,7 @@
              }
              echo $konten;
           ?>
+          
           <!-- Logout -->
           <li class="nav-item">
             <a class="nav-link" href="../../logout.php" onclick="return logout(event)">
@@ -165,7 +166,7 @@
             <div class="col-md-12 mb-0 mb-md-2 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold text-md-left text-center">Rekap Tamu Wisma Anggrek</h3>
+                  <h3 class="font-weight-bold text-md-left text-center">Rekap Tamu Wisma Handayani</h3>
                 </div>
               </div> 
             </div>
@@ -281,7 +282,7 @@
                                     if ($date > 0 && $tahun > 0 && $kegiatan > 0) {
                                         $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
                                         echo "Rekap Tamu Wisma Untuk Kegiatan ".$kegiatan." Pada Bulan ".$nama_bulan[$date]." Tahun ".$tahun;
-                                        $sql = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Handayani\'";
+                                        $sql = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Handayani'";
                                         $sql1 = "SELECT * FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' and MONTH(tanggal_awal) = '$date' and nama_kegiatan='$kegiatan' AND wisma='Handayani' ORDER BY MONTH(tanggal_awal),YEAR(tanggal_awal) ASC limit $start,$hal";
                                         $bulanan = "SELECT nama_kegiatan as kegiatan,CONCAT(DAY(tanggal_awal),'/',MONTH(tanggal_awal),'/',YEAR(tanggal_awal)) AS tahun_bulan, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' and MONTH(tanggal_awal) = '$date' AND wisma='Handayani' and YEAR(tanggal_awal) ='$tahun' GROUP BY YEARWEEK(nama_kegiatan),nama_kegiatan ,wisma";
                                         $jumlah = "SELECT nama_kegiatan as kegiatan,CONCAT(DAY(tanggal_awal),'/',MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE nama_kegiatan = '$kegiatan' and MONTH(tanggal_awal) = '$date' and YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' GROUP BY YEARWEEK(tanggal_awal),nama_kegiatan ,wisma";
@@ -345,8 +346,8 @@
                                     $qA1 = mysqli_query($db, $jumlah);
                                 ?>
                                 <!-- End Search -->
-                                <?php
-                                if ($total > 0) {
+                                <?php 
+                                  if ($total > 0) {
                                   while($list=mysqli_fetch_array($query)) : 
                                   //$no++; 
                                   ?> 
@@ -435,7 +436,7 @@
           <div class="d-sm-flex justify-content-center justify-content-sm-between text-white">
             <span class=" text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span> 
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Edited by interns from Polnep | 2021</span>
-	   </div>
+	  </div>
         </footer> 
         <!-- partial -->
       </div>
