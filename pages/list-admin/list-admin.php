@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- inject -->
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css" />
+  <link rel="stylesheet" href="css/vertical-layout-light/style2.css" />
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
@@ -32,6 +35,8 @@
   <!-- datatables -->
   <link rel="stylesheet" href="../../dataTables/datatables.min.css">
   <!-- end datatables -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="shortcut icon" href="../../images/logo-lpmp-kecil.png" />
   <style>
     .swal2-popup {
@@ -206,9 +211,67 @@
                                     <td><?=$list['username']; ?></td>
                                     <td><?=$list['password']; ?></td>
                                     <td class="text-center"> 
-				    <a href=form-edit-admin.php?username="<?=$list['username']?>" onclick='return'>
+				                            <a href=../../proses-edit-admin.php?username="<?=$list['username']?>" id="edit" onclick='return edit(event)'>
                                     <span aria-hidden='true'><i class='fa fa-edit'></i></span>edit 
                                     </a>
+                                    <script>
+                                      function edit(ev) {
+                                        ev.preventDefault();
+                                          var urlToRedirect = ev.currentTarget.getAttribute('href'); 
+                                          console.log(urlToRedirect);
+                                          Swal.fire({
+                                            title: 'Edit Akun',
+                                            html: `
+                                            <section class="form-login mt-md-3 mt-4 pt-md-3 pt-5">
+                                              <div class="container-fluid">
+                                                <div class="row">
+                                                  <fieldset class="d-flex justify-content-center p-sm-2">
+                                                    <form class="shadow p-3 mb-3 bg-white p-4 bg-white rounded" style="width: 350px;" action="../../proses-edit-admin.php" id="rounded-form" method="POST">
+                                                      <div class="d-flex justify-content-center mb-4">
+                                                        <img src="images/logo-lpmp-kecil.png" width="200px" alt="">
+                                                      </div>
+                                                      <div class="mb-3 d-flex">
+                                                        <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-user"></i></span>
+                                                        <input type="text" class="form-control" style="margin-right: 1.1rem;" name="username" id="usrnm" aria-describedby="" placeholder="username" readonly>
+                                                      </div>
+                                                      <div class="mb-3 d-flex">
+                                                        <span class="m-auto pt-2 pr-2 pb-2"><i class="fas fa-lock"></i></span>
+                                                        <input type="password" class="form-control" name="password" id="password" placeholder="password" required>
+                                                        <span id="mybutton1" onclick="password()"><i class="far fa-eye text-secondary"></i></span>
+                                                      </div>
+                                                      <button class="btn btn-register btn-block rounded-pill btn-primary pe-3 ps-3" type="submit" name="daftar">Buat</button>
+                                                      </div>
+                                                    </form>
+                                                  </fieldset>
+                                                  <p>Klik diluar form untuk keluar atau tekan [esc]</p>
+                                                </div>
+                                              </div>
+                                              <a >
+                                              </a>
+                                            </section>
+                                            `,
+                                            showConfirmButton: false,
+                                          })
+                                          var username =urlToRedirect.substring(38, urlToRedirect.length-1);
+                                          document.getElementById("usrnm").value = username;
+                                        }
+                                        
+                                      function password()
+                                      {
+                                        var x = document.getElementById('password').type;
+                                        if (x == 'password')
+                                        {
+                                          document.getElementById('password').type = 'text';
+                                          document.getElementById('mybutton1').innerHTML = '<i class="far fa-eye-slash"></i>';
+                                        }
+                                        else
+                                        {
+                                          document.getElementById('password').type = 'password';
+                                          document.getElementById('mybutton1').innerHTML = '<i class="far fa-eye"></i>';
+                                        }
+                                      }
+                                      
+                                    </script>
                                     <a href=../../proses-hapus-admin.php?username="<?=$list['username']?>" onclick='return hapus(event)'>
                                     <span aria-hidden='true'><i class='fa fa-times-circle'></i></span>Delete
                                     </a>
