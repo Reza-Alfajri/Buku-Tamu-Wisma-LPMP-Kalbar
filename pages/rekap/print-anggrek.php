@@ -238,33 +238,5 @@
   <input type="button" onclick="window.location.href = 'rekap-anggrek.php';" value="Back"/>
   </form>
   </div>
-                  <canvas id="myChart"></canvas>
-                  <script>
-                      var ctx = document.getElementById("myChart");
-                      var myChart = new Chart(ctx, {
-                          type: 'bar',
-                          data: {
-                              labels: [<?php while ($b = mysqli_fetch_array($qA)) { echo '"' . $b['tahun_bulan'] . '",';}?>],
-                              datasets: [{
-                                      label: "Grafik",
-                                      data: [<?php while ($b = mysqli_fetch_array($qA1)) { echo '"' . $b['jumlah_bulanan'] . '",';}?>],
-                                      backgroundColor:
-                                          'rgba(0,0,255,0.5)',
-                                      borderColor: 
-                                          'rgba(0,0,255,1)',
-                                      borderWidth: 1
-                                  }]
-                          },
-                          options: {
-                              scales: {
-                                  yAxes: [{
-                                          ticks: {
-                                              beginAtZero: true
-                                          }
-                                      }]
-                              }
-                          }
-                      });
-                  </script>
 </body>
 </html>
