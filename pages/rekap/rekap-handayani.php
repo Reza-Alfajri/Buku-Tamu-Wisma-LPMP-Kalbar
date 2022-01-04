@@ -270,7 +270,9 @@
                                   <br>
                                   <br>
                                 </form>
-                                <?php
+				<hr>
+				<h4 class="text-center mb-4 mt-4">
+				  <?php
                                   $hal=1000;
                                   $page=isset($_GET['hal'])?(int)$_GET['hal']:1;
                                   $start=($page>1)?($page*$hal)-$hal:0;
@@ -345,6 +347,8 @@
                                     $qA = mysqli_query($db, $bulanan);
                                     $qA1 = mysqli_query($db, $jumlah);
                                 ?>
+				</h4>
+                                
                                 <!-- End Search -->
                                 <?php 
                                   if ($total > 0) {
