@@ -47,12 +47,12 @@
     .sign {
       display: flex;
       justify-content: end;
-      margin-right: 4.2rem;
+      margin-right: 15rem;
       margin-top: 6rem;
     }
     .foot {
       margin-top: 8rem;
-      margin-right: 9.4rem;
+      margin-right: 2.4rem;
     }
   </style>
 </head>
@@ -200,7 +200,7 @@
     <div class="content">
     <div class="head">
       <p>Pontianak, 
-        <?php
+        <!-- <?php
               $tgl =date('d');
               echo $tgl;
               $bulan =date('F');
@@ -232,7 +232,7 @@
               $tahun=date('Y');
               echo $tahun;
           
-          ?>
+        ?> -->
         </p>
       </div>
       <div class="foot">
