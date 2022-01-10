@@ -1,7 +1,8 @@
 <html>
 <head>
-  <title>Rekap Tamu Wisma</title>
+  <title>Print Rekap Tamu Handayani | LPMP Kalbar</title>
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../../images/logo-lpmp-kecil.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
 
   <style>
@@ -42,6 +43,16 @@
     h2 {
       font-weight: bold;
       margin: 3rem auto 2rem auto;
+    }
+    .sign {
+      display: flex;
+      justify-content: end;
+      margin-right: 4.2rem;
+      margin-top: 6rem;
+    }
+    .foot {
+      margin-top: 8rem;
+      margin-right: 9.4rem;
     }
   </style>
 </head>
@@ -129,7 +140,7 @@
                 $jumlah = "SELECT wisma as wisma,CONCAT(MONTH(tanggal_awal)) AS tahun, COUNT(*) AS jumlah_bulanan FROM rekapan WHERE YEAR(tanggal_awal) = '$tahun' AND wisma='Handayani' GROUP BY MONTH(tanggal_awal)";
             } elseif ($date > 0 ){
                 $nama_bulan = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-                ?><h2>Rekap Tamu Wisma Handayani Bulan <?= $nama_bulan[$date] ?></h2>
+                ?><h2>Rekap Tamu Wisma Handayani Untuk Kegiatan <?= $nama_bulan[$date] ?></h2>
                 <?php
                 $sql = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Handayani'";
                 $sql1 = "SELECT * FROM rekapan WHERE MONTH(tanggal_awal) = '$date' AND wisma='Handayani' ORDER BY YEAR(tanggal_awal) asc limit $start,$hal";
@@ -164,9 +175,7 @@
             $qA = mysqli_query($db, $bulanan);
             $qA1 = mysqli_query($db, $jumlah);
         ?>
-      <?php 
-      if ($total > 0) {
-      while($list=mysqli_fetch_array($query)) : 
+      <?php while($list=mysqli_fetch_array($query)) : 
       //$no++; 
       ?> 
       <tr class="alert" role="alert">
@@ -185,14 +194,53 @@
         <td><?= $list['no_hp']; ?></td>
       </tr>
       <?php endwhile; ?> 
-    <?php } else {
-        echo "<tr>
-        <td>Data Belum Ada</td>
-        </tr>";
-      }
-      ?> 
   </table>
   <br>
+  <div class="sign">
+    <div class="content">
+    <div class="head">
+      <p>Pontianak, 
+        <?php
+              $tgl =date('d');
+              echo $tgl;
+              $bulan =date('F');
+              if ($bulan=="January") {
+                  echo " Januari ";
+              }elseif ($bulan=="February") {
+                  echo " Februari ";
+              }elseif ($bulan=="March") {
+                  echo " Maret ";
+              }elseif ($bulan=="April") {
+                  echo " April ";
+              }elseif ($bulan=="May") {
+                  echo " Mei ";
+              }elseif ($bulan=="June") {
+                  echo " Juni ";
+              }elseif ($bulan=="July") {
+                  echo " Juli ";
+              }elseif ($bulan=="August") {
+                  echo " Agustus ";
+              }elseif ($bulan=="September") {
+                  echo " September ";
+              }elseif ($bulan=="October") {
+                  echo " Oktober ";
+              }elseif ($bulan=="November") {
+                  echo " November ";
+              }elseif ($bulan=="December") {
+                  echo " Desember ";
+              }
+              $tahun=date('Y');
+              echo $tahun;
+          
+          ?>
+        </p>
+      </div>
+      <div class="foot">
+        <p>NIP : </p>
+      </div>
+    </div>
+    
+  </div>
   <div class = "noprint">
   <form align="center" method="GET" class="form-inline" action="">
   <select name="tanggal" class="form-control">                                    
@@ -238,5 +286,42 @@
   <input type="button" onclick="window.location.href = 'rekap-handayani.php';" value="Back"/>
   </form>
   </div>
+                  <canvas id="myChart"></canvas>
+                  <script>
+                      var ctx = document.getElementById("myChart");
+                      var myChart = new Chart(ctx, {
+                          type: 'bar',
+                          data: {
+                              labels: [<?php while ($b = mysqli_fetch_array($qA)) { echo '"' . $b['tahun_bulan'] . '",';}?>],
+                              datasets: [{
+                                      label: "Grafik",
+                                      data: [<?php while ($b = mysqli_fetch_array($qA1)) { echo '"' . $b['jumlah_bulanan'] . '",';}?>],
+                                      backgroundColor:
+                                          'rgba(0,0,255,0.5)',
+                                      borderColor: 
+                                          'rgba(0,0,255,1)',
+                                      borderWidth: 1
+                                  }]
+                          },
+                          options: {
+                              scales: {
+                                  yAxes: [{
+                                          ticks: {
+                                              beginAtZero: true
+                                          }
+                                      }]
+                              }
+                          }
+                      });
+                  </script>
+                  <script type="text/javascript">        
+        function tampilkanwaktu(){         //fungsi ini akan dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik    
+            var waktu = new Date();            //membuat object date berdasarkan waktu saat 
+            var sh = waktu.getHours() + "";    //memunculkan nilai jam, //tambahan script + "" supaya variable sh bertipe string sehingga bisa dihitung panjangnya : sh.length    //ambil nilai menit
+            var sm = waktu.getMinutes() + "";  //memunculkan nilai detik    
+            var ss = waktu.getSeconds() + "";  //memunculkan jam:menit:detik dengan menambahkan angka 0 jika angkanya cuma satu digit (0-9)
+            document.getElementById("clock").innerHTML = (sh.length==1?"0"+sh:sh) + ":" + (sm.length==1?"0"+sm:sm) + ":" + (ss.length==1?"0"+ss:ss);
+        }
+    </script>
 </body>
 </html>
