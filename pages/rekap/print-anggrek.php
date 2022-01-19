@@ -46,12 +46,12 @@
     .sign {
       display: flex;
       justify-content: end;
-      margin-right: 15rem;
+      margin-right: 8rem;
       margin-top: 6rem;
     }
     .foot {
       margin-top: 8rem;
-      margin-right: 2.4rem;
+      margin-right: 9.6rem;
     }
   </style>
 </head>
