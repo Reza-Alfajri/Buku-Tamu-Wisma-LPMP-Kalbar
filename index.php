@@ -90,54 +90,58 @@
                       $a= "SELECT * FROM admin WHERE username='$_SESSION[username]'";
                       $admin= mysqli_query($db, $a);
                       $adm=mysqli_fetch_array($admin);
+                      setlocale(LC_ALL, 'id_ID');
+                      $hariIni = new DateTime();
                       if ($adm['level'] == 'admin') {
-                        $hari = date('l');
-                        /*$new = date('l, F d, Y', strtotime($Today));*/
-                        if ($hari=="Sunday") {
-                              echo "Minggu, ";
-                          }elseif ($hari=="Monday") {
-                              echo "Senin, ";
-                          }elseif ($hari=="Tuesday") {
-                              echo "Selasa, ";
-                          }elseif ($hari=="Wednesday") {
-                              echo "Rabu, ";
-                          }elseif ($hari=="Thursday") {
-                              echo("Kamis, ");
-                          }elseif ($hari=="Friday") {
-                              echo "Jum'at, ";
-                          }elseif ($hari=="Saturday") {
-                              echo "Sabtu, ";
-                          }
-                          $tgl =date('d');
-                          echo $tgl;
-                          $bulan =date('F');
-                          if ($bulan=="January") {
-                              echo " Januari ";
-                          }elseif ($bulan=="February") {
-                              echo " Februari ";
-                          }elseif ($bulan=="March") {
-                              echo " Maret ";
-                          }elseif ($bulan=="April") {
-                              echo " April ";
-                          }elseif ($bulan=="May") {
-                              echo " Mei ";
-                          }elseif ($bulan=="June") {
-                              echo " Juni ";
-                          }elseif ($bulan=="July") {
-                              echo " Juli ";
-                          }elseif ($bulan=="August") {
-                              echo " Agustus ";
-                          }elseif ($bulan=="September") {
-                              echo " September ";
-                          }elseif ($bulan=="October") {
-                              echo " Oktober ";
-                          }elseif ($bulan=="November") {
-                              echo " November ";
-                          }elseif ($bulan=="December") {
-                              echo " Desember ";
-                          }
-                          $tahun=date('Y');
-                          echo $tahun;
+                        // $hari = date('l');
+                        // /*$new = date('l, F d, Y', strtotime($Today));*/
+                        // if ($hari=="Sunday") {
+                        //       echo "Minggu, ";
+                        //   }elseif ($hari=="Monday") {
+                        //       echo "Senin, ";
+                        //   }elseif ($hari=="Tuesday") {
+                        //       echo "Selasa, ";
+                        //   }elseif ($hari=="Wednesday") {
+                        //       echo "Rabu, ";
+                        //   }elseif ($hari=="Thursday") {
+                        //       echo("Kamis, ");
+                        //   }elseif ($hari=="Friday") {
+                        //       echo "Jum'at, ";
+                        //   }elseif ($hari=="Saturday") {
+                        //       echo "Sabtu, ";
+                        //   }
+                        //   $tgl =date('d');
+                        //   echo $tgl;
+                        //   $bulan =date('F');
+                        //   if ($bulan=="January") {
+                        //       echo " Januari ";
+                        //   }elseif ($bulan=="February") {
+                        //       echo " Februari ";
+                        //   }elseif ($bulan=="March") {
+                        //       echo " Maret ";
+                        //   }elseif ($bulan=="April") {
+                        //       echo " April ";
+                        //   }elseif ($bulan=="May") {
+                        //       echo " Mei ";
+                        //   }elseif ($bulan=="June") {
+                        //       echo " Juni ";
+                        //   }elseif ($bulan=="July") {
+                        //       echo " Juli ";
+                        //   }elseif ($bulan=="August") {
+                        //       echo " Agustus ";
+                        //   }elseif ($bulan=="September") {
+                        //       echo " September ";
+                        //   }elseif ($bulan=="October") {
+                        //       echo " Oktober ";
+                        //   }elseif ($bulan=="November") {
+                        //       echo " November ";
+                        //   }elseif ($bulan=="December") {
+                        //       echo " Desember ";
+                        //   }
+                        //   $tahun=date('Y');
+                        //   echo $tahun;
+                        
+                        echo strftime('%A %d %B %Y, %H:%M', $hariIni->getTimestamp()) . '<br>';
                         } else {
                           echo '<a class="text-white" href="pages/list-admin/list-admin.php">List Admin</a>';
                         }
